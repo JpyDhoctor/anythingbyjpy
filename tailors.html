@@ -2,105 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tailor Options - AnythingbyJpy</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome Icons -->
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    rel="stylesheet"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tailor</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Font Awesome for Home Icon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
       background-color: #000;
       color: #FFD700;
-      text-align: center;
-      padding: 50px 20px;
-      animation: fadeIn 1s ease-in;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    p {
-      font-size: 1.2em;
-      margin-bottom: 40px;
-    }
-
-    .button-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    .button-link {
-      background-color: #FFD700;
-      color: #000;
-      padding: 15px 30px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .button-link:hover {
-      background-color: #fff200;
-      transform: scale(1.05);
+    .nav-bar {
+      padding: 1em;
     }
 
     .home-icon {
-      display: inline-block;
-      margin-top: 50px;
       color: #FFD700;
-      font-size: 24px;
       text-decoration: none;
-      transition: transform 0.2s;
+      font-size: 1.8em;
     }
 
-    .home-icon:hover {
-      transform: scale(1.2);
-      color: #fff200;
+    .section-content {
+      text-align: center;
+      padding: 2em 1em;
+    }
+
+    .animated-title {
+      font-size: 2.5em;
+      margin-bottom: 2em;
+      animation: fadeIn 1.5s ease-in-out;
+      font-weight: 700;
+    }
+
+    .choice-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .choice-box {
+      background-color: #111;
+      padding: 1.5em;
+      border: 2px solid #FFD700;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #FFD700;
+      font-size: 1.2em;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+
+    .choice-box:hover {
+      transform: scale(1.05);
+      background-color: #222;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>Choose Your Tailor Category</h1>
-  <p>Select the type of tailor you're looking for:</p>
-
-  <div class="button-container">
-    <a href="male-tailors.html" class="button-link">Male Tailors</a>
-    <a href="female-tailors.html" class="button-link">Female Tailors</a>
+  <div class="nav-bar">
+    <a href="index.html" class="home-icon" title="Back to Home">
+      <i class="fas fa-home"></i>
+    </a>
   </div>
 
-  <a href="index.html" class="home-icon" title="Back to Homepage">
-    <i class="fas fa-home"></i> Home
-  </a>
+  <section class="section-content">
+    <h1 class="animated-title">Choose Tailor Type</h1>
+    <div class="choice-column">
+      <a href="male-tailor.html" class="choice-box">Male Tailor</a>
+      <a href="female-tailor.html" class="choice-box">Female Tailor</a>
+    </div>
+  </section>
 </body>
 </html>
