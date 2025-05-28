@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tailors - AnythingbyJpy</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    header {
+      margin-bottom: 50px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+      color: #0077cc;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-top: 0;
+    }
+    .section-links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .link-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+      padding: 30px 40px;
+      flex: 1 1 250px;
+      max-width: 300px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .link-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgb(0 0 0 / 0.15);
+      color: #004a8f;
+    }
+    .link-card i {
+      font-size: 3rem;
+      color: #0077cc;
+      transition: color 0.3s;
+    }
+    .link-card:hover i {
+      color: #004a8f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tailors</h1>
+    <p>Please select your category</p>
+  </header>
+
+  <section class="section-links">
+    <a href="male-tailors.html" class="link-card" aria-label="Go to Male Tailors section">
+      <i class="fas fa-male"></i>
+      Male Tailors
+    </a>
+
+    <a href="female-tailors.html" class="link-card" aria-label="Go to Female Tailors section">
+      <i class="fas fa-female"></i>
+      Female Tailors
+    </a>
+  </section>
+</body>
+</html>
