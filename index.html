@@ -979,14 +979,6 @@
         <h3>Tailors</h3>
         <p>Master tailors creating custom garments with precision and care.</p>
       </a>
-      <div id="tailors-subsection" style="display: none; padding: 20px; background-color: #f0f0f0;">
-  <h4>Tailoring Services</h4>
-  <ul>
-    <li>Men’s Suits</li>
-    <li>Women’s Dresses</li>
-    <li>Alterations & Repairs</li>
-  </ul>
-</div>
       <a href="hairdressers.html" class="partner-box animate delay-2">
         <div class="partner-icon">
           <i class="fas fa-cut"></i>
@@ -1187,21 +1179,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Scroll animation trigger
-    document.addEventListener("DOMContentLoaded"
-const tailorsBox = document.getElementById('tailors-box');
-const tailorDetails = document.getElementById('tailors-subsection');
-
-if (tailorsBox && tailorDetails) {
-  tailorsBox.addEventListener('click', function (event) {
-    event.preventDefault(); // Stop link from going to another page
-
-    if (tailorDetails.style.display === 'none') {
-      tailorDetails.style.display = 'block';
-    } else {
-      tailorDetails.style.display = 'none';
-    }
-  });
-}, () => {
+    document.addEventListener("DOMContentLoaded", () => {
       const animateElements = document.querySelectorAll(".animate");
 
       const observer = new IntersectionObserver(
