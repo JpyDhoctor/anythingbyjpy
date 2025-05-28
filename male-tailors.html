@@ -1,71 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Male Tailors</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Male Tailoring | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #FFD700;
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+    }
+    * {
       margin: 0;
-      padding: 50px 20px;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
+    }
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      color: var(--accent);
+      font-size: 1.8rem;
+      transition: transform 0.3s ease;
+    }
+    .home-btn:hover {
+      transform: scale(1.1);
+    }
+    .styles-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 20px;
+    }
+    .page-header {
       text-align: center;
-      animation: fadeIn 1s ease-in;
+      margin-bottom: 50px;
     }
-
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 15px;
     }
-
-    p {
-      font-size: 1.1em;
-      margin-bottom: 40px;
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
-
-    a {
-      color: #FFD700;        /* Yellow text for all links */
-      text-decoration: none; /* Remove underline */
+    .style-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
-
-    a:hover {
-      color: #fff200;        /* Slightly brighter yellow on hover */
+    .style-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(255, 221, 87, 0.2);
     }
-
-    .home-icon {
-      font-size: 24px;
+    .style-image {
+      height: 250px;
+      overflow: hidden;
+    }
+    .style-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .style-card:hover .style-image img {
+      transform: scale(1.05);
+    }
+    .style-info {
+      padding: 20px;
+    }
+    .style-info h2 {
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    .price {
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    .back-btn {
       display: inline-block;
-      margin-top: 50px;
-      transition: transform 0.2s;
+      margin-top: 40px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
     }
-
-    .home-icon:hover {
-      transform: scale(1.2);
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .back-btn i {
+      margin-right: 8px;
     }
   </style>
 </head>
 <body>
-  <h1>Male Tailors</h1>
-  <p>Explore our exclusive collection tailored for men.</p>
-  <a href="index.html" class="home-icon" title="Go back to Home">
-    <!-- Home icon as SVG -->
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#FFD700" viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
-      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-    </svg>
+  <a href="../index.html" class="home-btn" aria-label="Return to homepage">
+    <i class="fas fa-home"></i>
   </a>
+
+  <div class="styles-container">
+    <div class="page-header">
+      <h1>Male Tailoring Styles</h1>
+      <p>Premium custom tailoring for every occasion</p>
+    </div>
+    
+    <div class="style-grid">
+      <div class="style-card">
+        <div class="style-image">
+          <img src="images/male-suit.jpg" alt="Business Suit">
+        </div>
+        <div class="style-info">
+          <h2>Business Formal</h2>
+          <p>Custom suits and dress shirts for professional settings</p>
+          <div class="price">Starting at $199</div>
+        </div>
+      </div>
+      
+      <!-- Add more male style cards here -->
+    </div>
+    
+    <a href="index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Tailoring
+    </a>
+  </div>
 </body>
 </html>
