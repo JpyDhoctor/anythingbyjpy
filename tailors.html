@@ -2,30 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tailors - AnythingbyJpy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tailor Options - AnythingbyJpy</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
   <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     rel="stylesheet"
   />
+
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0c1a2b; /* match homepage background */
-      color: white;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #FFD700;
       text-align: center;
       padding: 50px 20px;
+      animation: fadeIn 1s ease-in;
     }
 
     h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
+      font-weight: 600;
     }
 
     p {
       font-size: 1.2em;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .button-container {
@@ -33,55 +46,60 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 30px;
-      margin-bottom: 40px;
     }
 
     .button-link {
-      background-color: #1e90ff;
-      color: white;
+      background-color: #FFD700;
+      color: #000;
       padding: 15px 30px;
       border-radius: 10px;
       text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     .button-link:hover {
-      background-color: #005bb5;
+      background-color: #fff200;
+      transform: scale(1.05);
     }
 
-    a.home-button {
-      display: inline-flex;
-      align-items: center;
-      background-color: #1e90ff;
-      color: white;
-      padding: 12px 22px;
-      font-size: 1rem;
-      border-radius: 10px;
+    .home-icon {
+      display: inline-block;
+      margin-top: 50px;
+      color: #FFD700;
+      font-size: 24px;
       text-decoration: none;
-      font-weight: 600;
+      transition: transform 0.2s;
     }
 
-    a.home-button i {
-      margin-right: 10px;
+    .home-icon:hover {
+      transform: scale(1.2);
+      color: #fff200;
     }
 
-    a.home-button:hover {
-      background-color: #005bb5;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Select Tailor Category</h1>
-  <p>Choose the tailoring category you’re interested in.</p>
+  <h1>Choose Your Tailor Category</h1>
+  <p>Select the type of tailor you're looking for:</p>
 
   <div class="button-container">
     <a href="male-tailors.html" class="button-link">Male Tailors</a>
     <a href="female-tailors.html" class="button-link">Female Tailors</a>
   </div>
 
-  <a href="index.html" class="home-button">
+  <a href="index.html" class="home-icon" title="Back to Homepage">
     <i class="fas fa-home"></i> Home
   </a>
 </body>
