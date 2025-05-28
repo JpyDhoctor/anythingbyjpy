@@ -3,142 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AnythingbyJPY</title>
+  <title>AnythingbyJPY – Skill Empowerment & Branding</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #fff;
-      color: #222;
-      scroll-behavior: smooth;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      margin: 0;
     }
-    .navbar {
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .hero {
-      background: linear-gradient(135deg, #000000, #434343);
+
+    header {
+      background-color: #000;
       color: white;
-      padding: 120px 0;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    header img {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header p {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
       text-align: center;
     }
-    .section {
-      padding: 80px 0;
+
+    .btn-dark {
+      margin-top: 20px;
     }
-    .section.bg-light {
-      background-color: #f9f9f9;
-    }
-    .footer {
-      background: #212529;
-      color: white;
+
+    footer {
+      background-color: #f4f4f4;
+      text-align: center;
       padding: 20px;
-      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
     }
-    .footer a {
-      color: #ffc107;
-      margin: 0 8px;
-      text-decoration: none;
+
+    ul {
+      list-style: none;
+      padding: 0;
     }
-    .footer a:hover {
-      text-decoration: underline;
+
+    ul li {
+      padding: 5px 0;
     }
-    .portfolio img {
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-    .portfolio img:hover {
-      transform: scale(1.05);
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">AnythingbyJPY</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header>
+  <img src="logo.jpg" alt="JPY Logo">
+  <h1>AnythingbyJPY</h1>
+  <p>Empowering Skills • Promoting Creators</p>
+</header>
 
-<!-- Hero -->
-<section class="hero">
+<section id="about">
   <div class="container">
-    <h1 class="display-3 fw-bold">AnythingbyJPY</h1>
-    <p class="lead">Branding that speaks. Design that moves.</p>
+    <h2 class="section-title">Who We Are</h2>
+    <p>AnythingbyJPY is a creative brand with a mission: to promote and empower talented individuals working in traditional skill trades — from tailors and cobblers to hairdressers, makeup artists, and more. We connect these professionals to the digital world through strong visual branding and online promotion.</p>
   </div>
 </section>
 
-<!-- About -->
-<section class="section bg-light" id="about">
+<section id="services" class="bg-light">
   <div class="container">
-    <h2 class="text-center mb-4">About Me</h2>
-    <p class="text-center">Hi, I'm JPY. I create bold, beautiful branding for businesses that want to stand out. From concept to identity, I make it happen with style and substance.</p>
+    <h2 class="section-title">What We Do</h2>
+    <ul>
+      <li>✔️ Skill Branding for Local Artisans</li>
+      <li>✔️ Digital Promotion & Social Media Marketing</li>
+      <li>✔️ Logo & Identity Design</li>
+      <li>✔️ Personal Brand Building for Creators</li>
+    </ul>
   </div>
 </section>
 
-<!-- Services -->
-<section class="section" id="services">
+<section id="contact">
   <div class="container text-center">
-    <h2 class="mb-4">Services</h2>
-    <div class="row">
-      <div class="col-md-3"><p>🎨 Brand Identity Design</p></div>
-      <div class="col-md-3"><p>✏️ Logo Creation</p></div>
-      <div class="col-md-3"><p>📱 Social Media Branding</p></div>
-      <div class="col-md-3"><p>🎯 Creative Direction</p></div>
-    </div>
+    <h2 class="section-title">Partner With Us</h2>
+    <p>We love working with skilled individuals who want to grow their audience and build a brand. Contact us today to begin your journey.</p>
+    <a href="mailto:your@email.com" class="btn btn-dark">Get in Touch</a>
   </div>
 </section>
 
-<!-- Portfolio -->
-<section class="section bg-light" id="portfolio">
-  <div class="container text-center portfolio">
-    <h2 class="mb-5">My Work</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <img src="https://via.placeholder.com/300" class="img-fluid mb-3" alt="Portfolio 1" />
-        <p>Branding Project 1</p>
-      </div>
-      <div class="col-md-4">
-        <img src="https://via.placeholder.com/300" class="img-fluid mb-3" alt="Portfolio 2" />
-        <p>Logo Design 2</p>
-      </div>
-      <div class="col-md-4">
-        <img src="https://via.placeholder.com/300" class="img-fluid mb-3" alt="Portfolio 3" />
-        <p>Creative Campaign 3</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section class="section" id="contact">
-  <div class="container text-center">
-    <h2>Contact</h2>
-    <p>Let’s work together! Reach out via email or social media.</p>
-    <a href="mailto:ambroseadams358@gmail.com" class="btn btn-dark">Email Me</a>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <p>&copy; 2025 AnythingbyJPY</p>
-  <p>
-    <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a> |
-    <a href="mailto:ambroseadams358@gmail.com">Email</a>
-  </p>
+<footer>
+  <p>&copy; 2025 AnythingbyJPY — Supporting Skills. Building Brands.</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
