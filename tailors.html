@@ -1,89 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tailor</title>
-  <link rel="stylesheet" href="style.css"/>
-  <!-- Font Awesome for Home Icon -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailoring Services | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      background-color: #000;
-      color: #FFD700;
-      font-family: 'Inter', sans-serif;
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+    }
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
-
-    .nav-bar {
-      padding: 1em;
+    body {
+      background-color: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
     }
-
-    .home-icon {
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.8em;
-    }
-
-    .section-content {
-      text-align: center;
-      padding: 2em 1em;
-    }
-
-    .animated-title {
-      font-size: 2.5em;
-      margin-bottom: 2em;
-      animation: fadeIn 1.5s ease-in-out;
-      font-weight: 700;
-    }
-
-    .choice-column {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5em;
-      max-width: 400px;
-      margin: auto;
-    }
-
-    .choice-box {
-      background-color: #111;
-      padding: 1.5em;
-      border: 2px solid #FFD700;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #FFD700;
-      font-size: 1.2em;
-      font-weight: 600;
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      color: var(--accent);
+      font-size: 1.8rem;
       transition: transform 0.3s ease;
     }
-
-    .choice-box:hover {
-      transform: scale(1.05);
-      background-color: #222;
+    .home-btn:hover {
+      transform: scale(1.1);
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .tailor-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+    .gender-options {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 50px 0;
+    }
+    .gender-card {
+      width: 300px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--light);
+    }
+    .gender-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(255, 221, 87, 0.2);
+      border: 1px solid var(--accent);
+    }
+    .gender-image {
+      height: 250px;
+      overflow: hidden;
+    }
+    .gender-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gender-card:hover .gender-image img {
+      transform: scale(1.05);
+    }
+    .gender-info {
+      padding: 25px;
+    }
+    .gender-info h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .gender-options {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="nav-bar">
-    <a href="index.html" class="home-icon" title="Back to Home">
-      <i class="fas fa-home"></i>
-    </a>
-  </div>
+  <a href="../index.html" class="home-btn" aria-label="Return to homepage">
+    <i class="fas fa-home"></i>
+  </a>
 
-  <section class="section-content">
-    <h1 class="animated-title">Choose Tailor Type</h1>
-    <div class="choice-column">
-      <a href="male-tailor.html" class="choice-box">Male Tailor</a>
-      <a href="female-tailor.html" class="choice-box">Female Tailor</a>
+  <div class="tailor-container">
+    <h1>Tailoring Services</h1>
+    <p>Select your preferred category to explore our custom tailoring options</p>
+    
+    <div class="gender-options">
+      <a href="male.html" class="gender-card">
+        <div class="gender-image">
+          <img src="images/male-tailor.jpg" alt="Male Tailoring">
+        </div>
+        <div class="gender-info">
+          <h2>Male Styles</h2>
+          <p>Premium custom suits, traditional wear, and smart casual</p>
+        </div>
+      </a>
+      
+      <a href="female.html" class="gender-card">
+        <div class="gender-image">
+          <img src="images/female-tailor.jpg" alt="Female Tailoring">
+        </div>
+        <div class="gender-info">
+          <h2>Female Styles</h2>
+          <p>Elegant dresses, professional wear, and African prints</p>
+        </div>
+      </a>
     </div>
-  </section>
+  </div>
 </body>
 </html>
