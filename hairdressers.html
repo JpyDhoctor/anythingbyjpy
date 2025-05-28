@@ -5,16 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hairdressers</title>
   <link rel="stylesheet" href="style.css"/>
+  <!-- Font Awesome for Home Icon -->
   <script src="https://kit.fontawesome.com/your-awesome-kit.js" crossorigin="anonymous"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #FFD700;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-bar {
+      padding: 1em;
+    }
+
+    .home-icon {
+      color: #FFD700;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .section-content {
+      text-align: center;
+      padding: 2em 1em;
+    }
+
+    .animated-title {
+      font-size: 2.5em;
+      margin-bottom: 2em;
+      animation: fadeIn 1.5s ease-in-out;
+      font-weight: 700;
+    }
+
+    .choice-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .choice-box {
+      background-color: #111;
+      padding: 1.5em;
+      border: 2px solid #FFD700;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #FFD700;
+      font-size: 1.2em;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+
+    .choice-box:hover {
+      transform: scale(1.05);
+      background-color: #222;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="dark-background yellow-text">
+<body>
   <div class="nav-bar">
     <a href="index.html" class="home-icon"><i class="fas fa-home"></i> Home</a>
   </div>
 
   <section class="section-content">
     <h1 class="animated-title">Choose Hairdresser Type</h1>
-    <div class="choice-grid">
+    <div class="choice-column">
       <a href="male-hairdressers.html" class="choice-box">Male Hairdressers</a>
       <a href="female-hairdressers.html" class="choice-box">Female Hairdressers</a>
     </div>
