@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anything by JPY</title>
-  
+
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
     :root {
       --bg: #0b0b0b;
-      --accent: #ffdd57;
+      --accent: #fff; /* Changed from yellow to white */
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
     }
@@ -32,7 +32,6 @@
       line-height: 1.6;
     }
 
-    /* ===== ANIMATION UTILITIES ===== */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -43,7 +42,6 @@
       animation: fadeIn 0.8s forwards;
     }
 
-    /* ===== HEADER ===== */
     header {
       text-align: center;
       padding: 60px 20px 40px;
@@ -59,7 +57,7 @@
 
     .logo:hover {
       transform: rotate(5deg) scale(1.05);
-      box-shadow: 0 10px 20px rgba(255, 221, 87, 0.3);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3); /* adjusted shadow color */
     }
 
     h1 {
@@ -70,7 +68,7 @@
     h2 {
       font-size: 2em;
       margin-bottom: 10px;
-      color: var(--accent);
+      color: #fff; /* Changed from var(--accent) */
     }
 
     p {
@@ -80,7 +78,6 @@
       color: #ddd;
     }
 
-    /* ===== SERVICES ===== */
     section {
       padding: 50px 20px;
       max-width: 1000px;
@@ -106,18 +103,23 @@
 
     .service-box:hover {
       transform: translateY(-10px);
-      border-color: var(--accent);
-      box-shadow: 0 10px 20px rgba(255, 221, 87, 0.2);
+      border-color: #fff; /* was var(--accent) */
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2); /* adjusted */
     }
 
-    /* ===== CTA ===== */
+    .service-box i {
+      color: #fff; /* Changed from var(--accent) */
+      margin-bottom: 15px;
+    }
+
     .cta {
-      background-color: var(--accent);
-      color: #000;
+      background-color: var(--bg); /* was var(--accent) */
+      color: #fff; /* was #000 */
       padding: 40px 25px;
       border-radius: 10px;
       margin: 40px 20px;
       transition: transform 0.4s ease;
+      border: 1px solid var(--light);
     }
 
     .cta:hover {
@@ -128,8 +130,8 @@
       display: inline-block;
       margin-top: 20px;
       padding: 12px 24px;
-      background: #000;
-      color: #fff;
+      background: #fff; /* was #000 */
+      color: #000;
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
@@ -137,13 +139,12 @@
     }
 
     .cta a:hover {
-      background: #333;
+      background: #ccc;
       letter-spacing: 1px;
     }
 
-    /* ===== CONTACT ===== */
     .contact a {
-      color: var(--accent);
+      color: #fff; /* was var(--accent) */
       text-decoration: none;
       transition: all 0.3s ease;
     }
@@ -153,12 +154,17 @@
       text-underline-offset: 3px;
     }
 
-    /* ===== ANIMATION DELAYS ===== */
+    a[aria-label="Instagram"],
+    a[aria-label="Twitter"] {
+      color: #fff !important; /* Changed from var(--accent) */
+      margin: 0 10px;
+      font-size: 1.5em;
+    }
+
     .delay-1 { animation-delay: 0.2s; }
     .delay-2 { animation-delay: 0.4s; }
     .delay-3 { animation-delay: 0.6s; }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       h1 { font-size: 2em; }
       .services { grid-template-columns: 1fr; }
@@ -167,7 +173,7 @@
 </head>
 <body>
   <header>
-    <img src="jpy-logo.jpg" alt="JPY Logo" class="logo animate">
+    <img src="jpy-logo.jpg" alt="JPY Logo" class="logo animate" />
     <h1 class="animate delay-1">Anything by JPY</h1>
     <p class="animate delay-2">Creative solutions tailored to your vision. Design, development, and beyond.</p>
   </header>
@@ -177,17 +183,17 @@
     <p class="animate delay-1">From concept to execution, here’s how I can help:</p>
     <div class="services">
       <div class="service-box animate delay-1">
-        <i class="fas fa-paint-brush fa-2x" style="color: var(--accent); margin-bottom: 15px;"></i>
+        <i class="fas fa-paint-brush fa-2x"></i>
         <h3>Design</h3>
         <p>Visual storytelling that captures attention.</p>
       </div>
       <div class="service-box animate delay-2">
-        <i class="fas fa-code fa-2x" style="color: var(--accent); margin-bottom: 15px;"></i>
+        <i class="fas fa-code fa-2x"></i>
         <h3>Development</h3>
         <p>Clean, functional code for the web.</p>
       </div>
       <div class="service-box animate delay-3">
-        <i class="fas fa-lightbulb fa-2x" style="color: var(--accent); margin-bottom: 15px;"></i>
+        <i class="fas fa-lightbulb fa-2x"></i>
         <h3>Consulting</h3>
         <p>Strategic advice to grow your brand.</p>
       </div>
@@ -202,18 +208,18 @@
 
   <section id="contact" class="animate delay-1">
     <h2>Get In Touch</h2>
-    <p class="contact">Email me at <a href="mailto:hello@jpy.com">hello@jpy.com</a> or connect on social media:</p>
+    <p class="contact">
+      Email me at <a href="mailto:hello@jpy.com">hello@jpy.com</a> or connect on social media:
+    </p>
     <div style="margin-top: 20px;">
-      <a href="#" aria-label="Instagram" style="color: var(--accent); margin: 0 10px; font-size: 1.5em;"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="Twitter" style="color: var(--accent); margin: 0 10px; font-size: 1.5em;"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
   </section>
 
   <script>
-    // Simple scroll animation trigger
     document.addEventListener('DOMContentLoaded', () => {
       const animateElements = document.querySelectorAll('.animate');
-      
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
