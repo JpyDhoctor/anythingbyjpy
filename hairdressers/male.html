@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Tailoring - Prime Fashions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffc107;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #343a40;
+            font-size: 2.5rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+        
+        .service-info {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #343a40;
+        }
+        
+        .service-description {
+            color: #6c757d;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #343a40;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #23272b;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Prime Fashions</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../tailoring.html">Tailoring</a></li>
+                <li><a href="../rentals.html">Rentals</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1 class="page-title">Men's Tailoring Services</h1>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/men-suit.jpg" alt="Custom Suits">
+                </div>
+                <div class="service-info">
+                    <h3 class="service-title">Custom Suits</h3>
+                    <p class="service-description">Premium quality suits tailored to your exact measurements for business or formal occasions.</p>
+                    <a href="../contact.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/men-shirt.jpg" alt="Dress Shirts">
+                </div>
+                <div class="service-info">
+                    <h3 class="service-title">Dress Shirts</h3>
+                    <p class="service-description">Perfectly fitted dress shirts made with high-quality fabrics for comfort and style.</p>
+                    <a href="../contact.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/men-pants.jpg" alt="Dress Pants">
+                </div>
+                <div class="service-info">
+                    <h3 class="service-title">Dress Pants</h3>
+                    <p class="service-description">Tailored trousers that provide the perfect fit and comfort for all-day wear.</p>
+                    <a href="../contact.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/men-blazer.jpg" alt="Blazers">
+                </div>
+                <div class="service-info">
+                    <h3 class="service-title">Blazers</h3>
+                    <p class="service-description">Stylish blazers crafted to enhance your professional or casual look.</p>
+                    <a href="../contact.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/men-sherwani.jpg" alt="Sherwanis">
+                </div>
+                <div class="service-info">
+                    <h3 class="service-title">Sherwanis</h3>
+                    <p class="service-description">Traditional Indian sherwanis with exquisite embroidery for weddings and special occasions.</p>
+                    <a href="../contact.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="../images/men-jacket.jpg" alt="Jackets">
+                </div>
+                <div class="service-info">
+                    <h3 class="service-title">Jackets</h3>
+                    <p class="service-description">Custom jackets designed for both style and functionality in various fabrics.</p>
+                    <a href="../contact.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Prime Fashions. All rights reserved.</p>
+    </footer>
+</body>
+</html>
