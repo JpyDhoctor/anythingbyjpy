@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viceno Pairs | Handcrafted Luxury Footwear</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+      --text-secondary: #b0b0b0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    .brand-header {
+      background: linear-gradient(rgba(11, 11, 11, 0.9), rgba(11, 11, 11, 0.9));
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 221, 87, 0.1);
+    }
+
+    .home-icon {
+      color: var(--accent);
+      font-size: 1.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .home-icon:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .brand-hero {
+      text-align: center;
+      padding: 180px 20px 100px;
+      background: linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7));
+    }
+
+    .brand-logo {
+      width: 200px;
+      margin-bottom: 30px;
+      transition: transform 0.4s ease;
+    }
+
+    .brand-logo:hover {
+      transform: rotate(5deg);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .brand-tagline {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: var(--text-secondary);
+    }
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio-section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--accent);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 3px;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      transform: translateY(0);
+    }
+
+    .portfolio-title {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* ===== FOOTER ===== */
+    .brand-footer {
+      background: #111;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .copyright {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Home Icon -->
+  <header class="brand-header">
+    <a href="../index.html" class="home-icon" aria-label="Return to homepage">
+      <i class="fas fa-home"></i>
+    </a>
+    <h2>Viceno Pairs</h2>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="brand-hero">
+    <img src="viceno-logo.png" alt="Viceno Pairs Logo" class="brand-logo">
+    <h1>Viceno Pairs</h1>
+    <p class="brand-tagline">Handcrafted luxury footwear blending traditional techniques with contemporary design</p>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section">
+    <h2 class="section-title">Our Craftsmanship</h2>
+    <div class="portfolio-grid">
+      <!-- Portfolio Item 1 -->
+      <div class="portfolio-item">
+        <img src="shoe1.jpg" alt="Viceno Oxford Brogues" class="portfolio-img" loading="lazy">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Oxford Brogues</h3>
+          <p>Full-grain leather with hand-punched detailing</p>
+        </div>
+      </div>
+      
+      <!-- Portfolio Item 2 -->
+      <div class="portfolio-item">
+        <img src="shoe2.jpg" alt="Viceno Chelsea Boots" class="portfolio-img" loading="lazy">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Chelsea Boots</h3>
+          <p>Premium suede with elastic gussets</p>
+        </div>
+      </div>
+      
+      <!-- Portfolio Item 3 -->
+      <div class="portfolio-item">
+        <img src="shoe3.jpg" alt="Viceno Loafers" class="portfolio-img" loading="lazy">
+        <div class="portfolio-overlay">
+          <h3 class="portfolio-title">Tassel Loafers</h3>
+          <p>Italian calfskin with hand-stitched tassels</p>
+        </div>
+      </div>
+      
+      <!-- Add more portfolio items as needed -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="brand-footer">
+    <img src="viceno-logo.png" alt="Viceno Pairs Logo" class="footer-logo">
+    <p class="copyright">&copy; <span id="year"></span> Viceno Pairs. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
