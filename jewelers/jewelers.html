@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jewelry Artisans | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --accent-dark: #e6c74d;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+      --text-secondary: #b0b0b0;
+    }
+    
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
+      padding-top: 20px;
+    }
+    
+    /* Home Icon */
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: var(--accent);
+      color: #000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255, 221, 87, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .home-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
+    }
+    
+    /* Main Container */
+    .jewelry-container {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    /* Gender Categories */
+    .gender-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .gender-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 50px 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .gender-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .gender-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
+    }
+    
+    .gender-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .gender-icon {
+      font-size: 4rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    
+    .gender-card:hover .gender-icon {
+      transform: rotate(10deg) scale(1.1);
+    }
+    
+    .gender-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 221, 87, 0.3);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .gender-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gender-card {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Home Navigation Icon -->
+  <a href="../index.html" class="home-icon" aria-label="Return to home">
+    <i class="fas fa-home"></i>
+  </a>
+
+  <!-- Main Content -->
+  <main class="jewelry-container">
+    <h2>Jewelry Collections</h2>
+    <p>Handcrafted pieces by our master jewelers</p>
+    
+    <div class="gender-grid">
+      <!-- Female Jewelry -->
+      <a href="female-jewelry.html" class="gender-card">
+        <div class="gender-icon">
+          <i class="fas fa-venus"></i>
+        </div>
+        <h3>Female Collections</h3>
+        <p>Elegant necklaces, bracelets, and rings designed for women</p>
+        <span class="btn">Explore</span>
+      </a>
+      
+      <!-- Male Jewelry -->
+      <a href="male-jewelry.html" class="gender-card">
+        <div class="gender-icon">
+          <i class="fas fa-mars"></i>
+        </div>
+        <h3>Male Collections</h3>
+        <p>Bold rings, chains, and cufflinks crafted for men</p>
+        <span class="btn">Explore</span>
+      </a>
+    </div>
+  </main>
+</body>
+</html>
