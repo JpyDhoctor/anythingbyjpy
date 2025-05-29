@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hairdressers | AnythingbyJpy</title>
-  <!-- Use your existing styles -->
   <style>
     :root {
       --bg: #0b0b0b;
       --accent: #ffdd57;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
+      --text-secondary: #b0b0b0;
     }
     
     * {
@@ -23,9 +23,10 @@
     body {
       background: var(--bg);
       color: var(--light);
+      line-height: 1.6;
     }
     
-    /* Navbar (with Home Icon) */
+    /* Navbar */
     nav {
       background: rgba(11, 11, 11, 0.9);
       padding: 20px 40px;
@@ -42,6 +43,7 @@
       text-decoration: none;
       color: var(--light);
       font-weight: 500;
+      transition: color 0.3s ease;
     }
     
     .nav-home:hover {
@@ -67,22 +69,56 @@
       color: var(--accent);
     }
     
-    /* Categories */
-    .categories {
-      max-width: 1200px;
-      margin: 60px auto;
-      padding: 0 20px;
-      text-align: center;
+    .hairdresser-hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--text-secondary);
     }
     
-    .category-grid {
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px auto;
+      max-width: 1200px;
+    }
+    
+    .tab-btn {
+      padding: 12px 30px;
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active {
+      background: var(--accent);
+      color: #000;
+    }
+    
+    .tab-btn:hover {
+      transform: translateY(-3px);
+    }
+    
+    /* Stylists Grid */
+    .stylists-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    
+    .stylists-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      margin-top: 40px;
+      margin-top: 30px;
     }
     
-    .category-card {
+    .stylist-card {
       background: var(--card-bg);
       border-radius: 15px;
       overflow: hidden;
@@ -90,25 +126,37 @@
       border: 1px solid transparent;
     }
     
-    .category-card:hover {
+    .stylist-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(255, 221, 87, 0.1);
       border-color: var(--accent);
     }
     
-    .category-img {
+    .stylist-img {
       width: 100%;
       height: 250px;
       object-fit: cover;
     }
     
-    .category-info {
+    .stylist-info {
       padding: 25px;
     }
     
-    .category-info h2 {
-      margin-bottom: 15px;
+    .stylist-info h2 {
       color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .stylist-specialty {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .stylist-bio {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
     }
     
     .btn {
@@ -119,19 +167,24 @@
       border-radius: 30px;
       text-decoration: none;
       font-weight: 600;
-      margin-top: 15px;
       transition: all 0.3s ease;
     }
     
     .btn:hover {
       background: #e6c74d;
       transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 221, 87, 0.3);
     }
     
     /* Responsive */
     @media (max-width: 768px) {
       .hairdresser-hero h1 {
         font-size: 2.2rem;
+      }
+      
+      .category-tabs {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -153,29 +206,85 @@
     <p>Discover top-rated stylists specializing in male and female haircuts, coloring, and treatments.</p>
   </section>
 
-  <!-- Categories -->
-  <section class="categories">
-    <div class="category-grid">
-      <!-- Male Hairdressers -->
-      <div class="category-card">
-        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Male Hairdressing" class="category-img">
-        <div class="category-info">
-          <h2>Male Stylists</h2>
-          <p>Specialists in modern and classic cuts, beard grooming, and styling.</p>
-          <a href="#" class="btn">View Stylists</a>
-        </div>
-      </div>
+  <!-- Category Tabs -->
+  <div class="category-tabs">
+    <button class="tab-btn active" onclick="filterStylists('male')">Male Stylists</button>
+    <button class="tab-btn" onclick="filterStylists('female')">Female Stylists</button>
+  </div>
 
-      <!-- Female Hairdressers -->
-      <div class="category-card">
-        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Female Hairdressing" class="category-img">
-        <div class="category-info">
-          <h2>Female Stylists</h2>
-          <p>Experts in coloring, extensions, bridal styling, and precision cuts.</p>
-          <a href="#" class="btn">View Stylists</a>
+  <!-- Stylists Grid -->
+  <div class="stylists-container">
+    <!-- Male Stylists -->
+    <div id="male-stylists" class="stylist-category">
+      <div class="stylists-grid">
+        <!-- Stylist 1 -->
+        <div class="stylist-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="James Wilson" class="stylist-img">
+          <div class="stylist-info">
+            <h2>James Wilson</h2>
+            <span class="stylist-specialty">Specialty: Classic & Modern Cuts</span>
+            <p class="stylist-bio">With 10+ years of experience, James specializes in precision scissor cuts and beard grooming. His attention to detail ensures every client leaves looking sharp.</p>
+            <a href="#" class="btn">View Portfolio</a>
+          </div>
+        </div>
+
+        <!-- Stylist 2 -->
+        <div class="stylist-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marcus Lee" class="stylist-img">
+          <div class="stylist-info">
+            <h2>Marcus Lee</h2>
+            <span class="stylist-specialty">Specialty: Fades & Texture</span>
+            <p class="stylist-bio">Marcus is a master of clipper work, creating seamless fades and textured styles. His expertise includes Afro hair care and scalp treatments.</p>
+            <a href="#" class="btn">View Portfolio</a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- Female Stylists -->
+    <div id="female-stylists" class="stylist-category" style="display: none;">
+      <div class="stylists-grid">
+        <!-- Stylist 1 -->
+        <div class="stylist-card">
+          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sophia Chen" class="stylist-img">
+          <div class="stylist-info">
+            <h2>Sophia Chen</h2>
+            <span class="stylist-specialty">Specialty: Balayage & Extensions</span>
+            <p class="stylist-bio">Sophia is a color specialist with a passion for creating natural-looking balayage and seamless hair extensions. Certified in Olaplex treatments.</p>
+            <a href="#" class="btn">View Portfolio</a>
+          </div>
+        </div>
+
+        <!-- Stylist 2 -->
+        <div class="stylist-card">
+          <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elena Rodriguez" class="stylist-img">
+          <div class="stylist-info">
+            <h2>Elena Rodriguez</h2>
+            <span class="stylist-specialty">Specialty: Bridal & Curly Hair</span>
+            <p class="stylist-bio">Elena excels in bridal styling and curly hair care. Her DevaCurl certification ensures your curls get the expert attention they deserve.</p>
+            <a href="#" class="btn">View Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Tab Switching -->
+  <script>
+    function filterStylists(category) {
+      // Update active tab
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(category)) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Show selected category
+      document.getElementById('male-stylists').style.display = 'none';
+      document.getElementById('female-stylists').style.display = 'none';
+      document.getElementById(`${category}-stylists`).style.display = 'block';
+    }
+  </script>
 </body>
 </html>
