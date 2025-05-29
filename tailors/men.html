@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Men's Tailoring | AnythingbyJpy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --text: #f1f1f1;
+      --card-bg: #1a1a1a;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+    }
+    .nav-btn {
+      position: fixed;
+      top: 20px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 26, 26, 0.8);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 18px;
+      text-decoration: none;
+      z-index: 100;
+      border: 1px solid rgba(255, 221, 87, 0.2);
+    }
+    .home-btn { left: 20px; }
+    .back-btn { right: 20px; }
+    .page-header {
+      text-align: center;
+      margin-top: 80px;
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .services {
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      gap: 25px;
+      padding: 20px;
+    }
+    .service-card {
+      background: var(--card-bg);
+      padding: 20px 25px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      transition: 0.3s ease;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .service-card h2 {
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+  <a href="../../index.html" class="nav-btn home-btn" title="Home"><i class="fas fa-home"></i></a>
+  <a href="../tailors.html" class="nav-btn back-btn" title="Back"><i class="fas fa-arrow-left"></i></a>
+
+  <div class="page-header">
+    <h1>Men's Tailoring</h1>
+    <p>Explore our bespoke services for modern gentlemen</p>
+  </div>
+
+  <div class="services">
+    <div class="service-card">
+      <h2>Custom Suits</h2>
+      <p>Tailored suits crafted with premium fabrics to fit your silhouette and style perfectly.</p>
+    </div>
+    <div class="service-card">
+      <h2>Dress Shirts</h2>
+      <p>Made-to-measure shirts with personalized collar, cuff, and fabric options.</p>
+    </div>
+    <div class="service-card">
+      <h2>Trousers</h2>
+      <p>Elegant or casual custom trousers with comfortable, precise cuts.</p>
+    </div>
+    <div class="service-card">
+      <h2>Formalwear</h2>
+      <p>Tuxedos, blazers, and more for weddings, galas, and special occasions.</p>
+    </div>
+  </div>
+</body>
+</html>
