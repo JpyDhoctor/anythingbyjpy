@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailoring Services | AnythingbyJpy</title>
     <style>
+        /* Modern CSS Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Color Variables */
         :root {
             --bg: #0b0b0b;
             --accent: #ffdd57;
             --text: #f1f1f1;
             --card-bg: #1a1a1a;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        
+        /* Base Styles */
         body {
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg);
             color: var(--text);
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.5;
+            min-height: 100vh;
         }
+        
+        /* Navigation Buttons */
         .nav-btn {
             position: fixed;
             top: 15px;
@@ -30,18 +34,29 @@
             font-size: 24px;
             z-index: 100;
             text-decoration: none;
+            background: rgba(0,0,0,0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .home-btn { left: 15px; }
         .back-btn { right: 15px; }
+        
+        /* Page Header */
         .page-header {
             text-align: center;
-            margin: 60px 0 30px;
+            margin: 70px 0 30px;
         }
         h1 {
             color: var(--accent);
             margin-bottom: 10px;
             font-size: 1.8rem;
         }
+        
+        /* Service Cards */
         .gender-options {
             display: grid;
             grid-template-columns: 1fr;
@@ -59,15 +74,18 @@
             border: 1px solid #333;
             transition: all 0.2s ease;
         }
-        .gender-card:active {
-            transform: scale(0.98);
+        .gender-card:hover {
+            transform: translateY(-3px);
             border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(255, 221, 87, 0.1);
         }
         .gender-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--accent);
         }
+        
+        /* Responsive Layout */
         @media (min-width: 768px) {
             .gender-options {
                 grid-template-columns: repeat(2, 1fr);
@@ -76,26 +94,33 @@
     </style>
 </head>
 <body>
-    <a href="../index.html" class="nav-btn home-btn">⌂</a>
-    <a href="../services.html" class="nav-btn back-btn">←</a>
+    <!-- Navigation -->
+    <a href="../index.html" class="nav-btn home-btn" aria-label="Home">⌂</a>
+    <a href="../services.html" class="nav-btn back-btn" aria-label="Back">←</a>
 
+    <!-- Main Content -->
     <div class="page-header">
         <h1>Tailoring Services</h1>
-        <p>Custom clothing tailored to perfection</p>
+        <p>Premium custom clothing for all occasions</p>
     </div>
     
     <div class="gender-options">
-        <a href="tailors/women/women.html" class="gender-card">
+        <a href="women.html" class="gender-card">
             <div class="gender-icon">♀</div>
             <h2>Women's Tailoring</h2>
-            <p>Dresses, skirts, blouses & more</p>
+            <p>Custom dresses, skirts, and blouses</p>
         </a>
         
-        <a href="tailors/men/men.html" class="gender-card">
+        <a href="men.html" class="gender-card">
             <div class="gender-icon">♂</div>
             <h2>Men's Tailoring</h2>
-            <p>Suits, shirts, trousers & more</p>
+            <p>Custom suits, shirts, and trousers</p>
         </a>
     </div>
+
+    <!-- Simple Footer -->
+    <footer style="text-align: center; margin-top: 40px; color: #666;">
+        <p>© 2023 AnythingbyJpy. All rights reserved.</p>
+    </footer>
 </body>
 </html>
