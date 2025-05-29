@@ -1,125 +1,84 @@
+<!-- hairdresser.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hairdressing Services | AnythingbyJpy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Hairdressing | AnythingbyJpy</title>
     <style>
         :root {
             --bg: #0b0b0b;
             --accent: #ffdd57;
-            --light: #f1f1f1;
-            --card-bg: #1a1a1a;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+            --text: #f1f1f1;
         }
         body {
-            background-color: var(--bg);
-            color: var(--light);
-            line-height: 1.6;
+            font-family: sans-serif;
+            background: var(--bg);
+            color: var(--text);
             padding: 20px;
+            line-height: 1.6;
         }
         .home-btn {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 100;
+            top: 15px;
+            left: 15px;
             color: var(--accent);
-            font-size: 1.8rem;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-        }
-        .home-btn:hover {
-            transform: scale(1.1);
-        }
-        .styles-container {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            padding: 20px;
+            font-size: 24px;
+            z-index: 100;
         }
         .page-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin: 50px 0 30px;
         }
         h1 {
-            font-size: 2rem;
             color: var(--accent);
-            margin-bottom: 15px;
-        }
-        .gender-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .gender-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--light);
-            text-align: center;
-            border: 1px solid transparent;
-        }
-        .gender-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 20px rgba(255, 221, 87, 0.1);
-        }
-        .gender-icon {
-            font-size: 3.5rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-        .gender-info h2 {
             margin-bottom: 10px;
         }
-        @media (max-width: 768px) {
-            .gender-options {
-                grid-template-columns: 1fr;
-            }
+        .gender-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .gender-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            color: var(--text);
+            text-decoration: none;
+            border: 1px solid #333;
+        }
+        .gender-card:active {
+            transform: scale(0.98);
+            border-color: var(--accent);
+        }
+        .gender-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <a href="../index.html" class="home-btn" aria-label="Return to homepage">
-        <i class="fas fa-home"></i>
-    </a>
+    <a href="../index.html" class="home-btn">⌂</a>
 
-    <div class="styles-container">
-        <div class="page-header">
-            <h1>Hairdressing Services</h1>
-            <p>Select your preferred styling category</p>
-        </div>
+    <div class="page-header">
+        <h1>Hairdressing Services</h1>
+        <p>Select your category</p>
+    </div>
+    
+    <div class="gender-options">
+        <a href="female.html" class="gender-card">
+            <div class="gender-icon">♀</div>
+            <h2>Women's Styling</h2>
+            <p>Creative cuts & coloring</p>
+        </a>
         
-        <div class="gender-options">
-            <a href="hairdressers/women.html" class="gender-card">
-                <div class="gender-icon">
-                    <i class="fas fa-female"></i>
-                </div>
-                <div class="gender-info">
-                    <h2>Women's Styling</h2>
-                    <p>Creative cuts, coloring, and treatments</p>
-                </div>
-            </a>
-            
-            <a href="hairdressers/men.html" class="gender-card">
-                <div class="gender-icon">
-                    <i class="fas fa-male"></i>
-                </div>
-                <div class="gender-info">
-                    <h2>Men's Grooming</h2>
-                    <p>Precision cuts and beard styling</p>
-                </div>
-            </a>
-        </div>
+        <a href="male.html" class="gender-card">
+            <div class="gender-icon">♂</div>
+            <h2>Men's Grooming</h2>
+            <p>Precision cuts & shaves</p>
+        </a>
     </div>
 </body>
 </html>
