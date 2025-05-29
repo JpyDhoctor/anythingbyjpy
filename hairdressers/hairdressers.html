@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hairdressers | AnythingbyJpy</title>
+  <!-- Use your existing styles -->
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    
+    body {
+      background: var(--bg);
+      color: var(--light);
+    }
+    
+    /* Navbar (with Home Icon) */
+    nav {
+      background: rgba(11, 11, 11, 0.9);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 221, 87, 0.1);
+    }
+    
+    .nav-home {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--light);
+      font-weight: 500;
+    }
+    
+    .nav-home:hover {
+      color: var(--accent);
+    }
+    
+    .home-icon {
+      width: 24px;
+      height: 24px;
+    }
+    
+    /* Hero Section */
+    .hairdresser-hero {
+      text-align: center;
+      padding: 120px 20px 80px;
+      background: linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7)), 
+                  url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    }
+    
+    .hairdresser-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+    
+    /* Categories */
+    .categories {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .category-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid transparent;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.1);
+      border-color: var(--accent);
+    }
+    
+    .category-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .category-info {
+      padding: 25px;
+    }
+    
+    .category-info h2 {
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #e6c74d;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hairdresser-hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar with Home Icon -->
+  <nav>
+    <a href="../index.html" class="nav-home">
+      <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor">
+        <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/>
+      </svg>
+      <span>Home</span>
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hairdresser-hero">
+    <h1>Professional Hairdressers</h1>
+    <p>Discover top-rated stylists specializing in male and female haircuts, coloring, and treatments.</p>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories">
+    <div class="category-grid">
+      <!-- Male Hairdressers -->
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Male Hairdressing" class="category-img">
+        <div class="category-info">
+          <h2>Male Stylists</h2>
+          <p>Specialists in modern and classic cuts, beard grooming, and styling.</p>
+          <a href="#" class="btn">View Stylists</a>
+        </div>
+      </div>
+
+      <!-- Female Hairdressers -->
+      <div class="category-card">
+        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Female Hairdressing" class="category-img">
+        <div class="category-info">
+          <h2>Female Stylists</h2>
+          <p>Experts in coloring, extensions, bridal styling, and precision cuts.</p>
+          <a href="#" class="btn">View Stylists</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
