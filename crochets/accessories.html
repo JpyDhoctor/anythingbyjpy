@@ -175,13 +175,23 @@
           
           <div class="button-group">
             <a href="empress-accessories-gallery.html" class="btn">View Designs</a>
-            <a href="https://wa.me/2349057826072" class="whatsapp-direct" target="_blank">
-              <i class="fab fa-whatsapp"></i> Contact Us Directly
+            <a href="https://wa.me/2349057826072?text=Hello%20Empress%20Crochets!%20I%20saw%20your%20work%20on%20AnythingbyJpy%20and%20would%20like%20to%20discuss%20a%20custom%20design.%20Please%20let%20me%20know%20your%20availability%20and%20pricing." class="whatsapp-direct" target="_blank">
+              <i class="fab fa-whatsapp"></i> Request Custom Design
             </a>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    // Optional: You can add this JavaScript for more dynamic message handling
+    document.querySelector('.whatsapp-direct').addEventListener('click', function() {
+      const phone = "2349057826072";
+      const message = `Hello Empress Crochets! I saw your work on AnythingbyJpy and would like to discuss a custom design. Please let me know your availability and pricing.`;
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+    });
+  </script>
 </body>
 </html>
