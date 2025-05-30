@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedicure Specialists | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Same CSS as manicure-artists.html */
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --accent-dark: #e6c74d;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+      --text-secondary: #b0b0b0;
+    }
+    
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
+    }
+    
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: var(--accent);
+      color: #000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255, 221, 87, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .home-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
+    }
+    
+    .artists-container {
+      max-width: 1200px;
+      margin: 100px auto 50px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .profile-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      border: 1px solid transparent;
+    }
+    
+    .profile-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
+    }
+    
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent);
+      margin-bottom: 20px;
+    }
+    
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .skill-tag {
+      background: rgba(255, 221, 87, 0.2);
+      color: var(--accent);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 221, 87, 0.3);
+    }
+    
+    .whatsapp-btn {
+      background: #25D366;
+      color: white !important;
+    }
+    
+    .whatsapp-btn:hover {
+      background: #128C7E;
+    }
+    
+    @media (max-width: 768px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Home Navigation Icon -->
+  <a href="../index.html" class="home-icon" aria-label="Return to home">
+    <i class="fas fa-home"></i>
+  </a>
+
+  <!-- Main Content -->
+  <main class="artists-container">
+    <h2>Pedicure Specialists</h2>
+    <p>Certified technicians for all your pedicure needs</p>
+    
+    <div class="profile-grid">
+      <!-- Profile 1 - Zena -->
+      <div class="profile-card">
+        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Polish & Pamper by Zena" 
+             class="profile-img">
+        <h3>Polish & Pamper by Zena</h3>
+        <p>Medical pedicure certified specialist</p>
+        
+        <div class="skills">
+          <span class="skill-tag">Spa Pedicures</span>
+          <span class="skill-tag">Callus Treatment</span>
+          <span class="skill-tag">Paraffin Wax</span>
+        </div>
+        
+        <a href="zena-profile.html" class="btn">View Portfolio</a>
+        <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20saw%20your%20pedicure%20profile%20on%20AnythingbyJpy%20and%20need%20a%20medical%20pedicure." 
+           class="btn whatsapp-btn">
+           <i class="fab fa-whatsapp"></i> Book Now
+        </a>
+      </div>
+      
+      <!-- Profile 2 -->
+      <div class="profile-card">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Sole Revival by Chioma" 
+             class="profile-img">
+        <h3>Sole Revival by Chioma</h3>
+        <p>Foot health and relaxation expert</p>
+        
+        <div class="skills">
+          <span class="skill-tag">Reflexology</span>
+          <span class="skill-tag">Athlete Foot Care</span>
+          <span class="skill-tag">Gel Polish</span>
+        </div>
+        
+        <a href="chioma-profile.html" class="btn">View Portfolio</a>
+        <a href="https://wa.me/2349158730835?text=Hello%20Chioma!%20I%20saw%20your%20pedicure%20profile%20on%20AnythingbyJpy%20and%20want%20a%20reflexology%20session." 
+           class="btn whatsapp-btn">
+           <i class="fab fa-whatsapp"></i> Book Now
+        </a>
+      </div>
+      
+      <!-- Profile 3 -->
+      <div class="profile-card">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Happy Feet by Nneka" 
+             class="profile-img">
+        <h3>Happy Feet by Nneka</h3>
+        <p>Diabetic foot care specialist</p>
+        
+        <div class="skills">
+          <span class="skill-tag">Diabetic Pedicures</span>
+          <span class="skill-tag">Mens Pedicures</span>
+          <span class="skill-tag">Nail Restoration</span>
+        </div>
+        
+        <a href="nneka-profile.html" class="btn">View Portfolio</a>
+        <a href="https://wa.me/2349158730835?text=Hello%20Nneka!%20I%20saw%20your%20diabetic%20pedicure%20profile%20on%20AnythingbyJpy%20and%20need%20an%20appointment." 
+           class="btn whatsapp-btn">
+           <i class="fab fa-whatsapp"></i> Book Now
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
