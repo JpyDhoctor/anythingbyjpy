@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zena's Pedicure Portfolio | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --accent-dark: #e6c74d;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+      --text-secondary: #b0b0b0;
+    }
+    
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
+    }
+    
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: var(--accent);
+      color: #000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255, 221, 87, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .home-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
+    }
+    
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 100px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    .artist-header {
+      margin-bottom: 40px;
+    }
+    
+    .artist-header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 221, 87, 0.2);
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 11, 11, 0.9);
+      padding: 15px;
+    }
+    
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white !important;
+      padding: 8px 15px;
+      border-radius: 30px;
+      margin-top: 10px;
+      text-decoration: none !important;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-btn:hover {
+      background: #128C7E;
+    }
+    
+    .whatsapp-btn i {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Home Navigation Icon -->
+  <a href="../index.html" class="home-icon" aria-label="Return to home">
+    <i class="fas fa-home"></i>
+  </a>
+
+  <!-- Portfolio Content -->
+  <main class="portfolio-container">
+    <div class="artist-header">
+      <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+           alt="Polish & Pamper by Zena">
+      <h2>Polish & Pamper by Zena</h2>
+      <p>Medical Pedicure Specialist</p>
+    </div>
+    
+    <div class="gallery-grid">
+      <!-- Pedicure Design 1 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Medical Pedicure" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Medical Pedicure</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20love%20your%20Medical%20Pedicure%20work%20and%20want%20to%20book%20a%20session." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Pedicure Design 2 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Spa Pedicure" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Spa Pedicure</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20want%20to%20book%20your%20Spa%20Pedicure%20service%20shown%20in%20your%20portfolio." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Pedicure Designs 3-10 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Paraffin Wax Treatment" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Paraffin Wax Treatment</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I'm%20interested%20in%20your%20Paraffin%20Wax%20Treatment%20for%20my%20feet." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Duplicate and modify the above block for designs 4-10 -->
+      <!-- Design 4 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Gel Pedicure" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Gel Pedicure</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20want%20to%20try%20your%20Gel%20Pedicure%20service%20from%20your%20portfolio." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Design 5 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1597248881519-db089d3744a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="French Tip Pedicure" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>French Tip Pedicure</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20Can%20I%20get%20the%20French%20Tip%20Pedicure%20from%20your%20portfolio?" 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Design 6 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Diamond Pedicure" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Diamond Pedicure</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20love%20your%20Diamond%20Pedicure%20design%20and%20want%20to%20book%20it." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Design 7 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Callus Treatment" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Callus Treatment</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20need%20your%20Callus%20Treatment%20service%20shown%20in%20your%20portfolio." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Design 8 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1596704017256-8f5a4f2a2b1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Men's Pedicure" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Men's Pedicure</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20want%20to%20book%20your%20Men's%20Pedicure%20service." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Design 9 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Seasonal Pedicure" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Seasonal Pedicure</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I'm%20interested%20in%20your%20Seasonal%20Pedicure%20design." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+      
+      <!-- Design 10 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+             alt="Custom Design" 
+             class="gallery-img">
+        <div class="gallery-overlay">
+          <h3>Custom Design</h3>
+          <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20want%20to%20discuss%20a%20custom%20pedicure%20design%20with%20you." 
+             class="whatsapp-btn">
+             <i class="fab fa-whatsapp"></i> Book This Style
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
