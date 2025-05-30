@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empress Crochets | Wearables Gallery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Empress Crochets Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -19,197 +19,110 @@
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--light);
-      line-height: 1.6;
+      line-height: 1.5;
       padding: 0;
       margin: 0;
     }
     
-    .gallery-container {
-      max-width: 1200px;
-      margin: 100px auto 50px;
-      padding: 0 20px;
-    }
-    
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    .gallery-header h1 {
-      color: var(--accent);
-      margin-bottom: 10px;
+    .container {
+      max-width: 100%;
+      padding: 15px;
+      margin-top: 70px;
     }
     
     .back-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       color: var(--accent);
       text-decoration: none;
-      margin-bottom: 30px;
-      padding: 8px 16px;
-      border-radius: 30px;
-      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
     }
     
-    .back-btn:hover {
-      background: rgba(255, 221, 87, 0.1);
+    .gallery-title {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 1.5rem;
     }
     
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
     
     .gallery-item {
       background: var(--card-bg);
-      border-radius: 15px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 221, 87, 0.1);
-    }
-    
-    .gallery-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
-      border-color: var(--accent);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
     
     .gallery-img {
       width: 100%;
-      height: 350px;
+      height: 250px;
       object-fit: cover;
-      display: block;
     }
     
     .gallery-info {
-      padding: 20px;
+      padding: 15px;
       text-align: center;
     }
     
-    .gallery-info h3 {
-      margin-bottom: 15px;
-      color: var(--accent);
-    }
-    
     .whatsapp-btn {
+      display: block;
       background: var(--whatsapp);
       color: white;
       border: none;
-      padding: 12px 25px;
-      border-radius: 30px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      padding: 10px;
+      border-radius: 25px;
+      text-align: center;
+      margin: 10px auto;
+      width: 80%;
+      font-weight: 500;
       text-decoration: none;
-      width: 100%;
-      max-width: 200px;
-      margin: 0 auto;
     }
     
-    .whatsapp-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-    }
-    
-    .home-icon {
+    .home-btn {
       position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 50px;
-      height: 50px;
+      top: 15px;
+      left: 15px;
+      width: 40px;
+      height: 40px;
       background: var(--accent);
       color: #000;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
-      box-shadow: 0 4px 15px rgba(255, 221, 87, 0.3);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-    
-    .home-icon:hover {
-      transform: scale(1.1);
-    }
-    
-    @media (max-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      
-      .gallery-img {
-        height: 300px;
-      }
-      
-      .gallery-container {
-        margin-top: 80px;
-      }
+      z-index: 100;
     }
   </style>
 </head>
 <body>
-  <!-- Home Button -->
-  <a href="../index.html" class="home-icon" aria-label="Return to home">
+  <a href="index.html" class="home-btn">
     <i class="fas fa-home"></i>
   </a>
 
-  <div class="gallery-container">
-    <!-- Back Button -->
+  <div class="container">
     <a href="wearables.html" class="back-btn">
-      <i class="fas fa-arrow-left"></i> Back to Profile
+      <i class="fas fa-arrow-left"></i> Back
     </a>
     
-    <!-- Header -->
-    <div class="gallery-header">
-      <h1>Empress Crochets Wearables</h1>
-      <p>Premium handmade crochet clothing collection</p>
-    </div>
+    <h1 class="gallery-title">Empress Crochets Designs</h1>
     
-    <!-- Gallery Grid -->
     <div class="gallery-grid">
-      <!-- Item 1 -->
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Royal Winter Sweater" class="gallery-img">
+        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Winter Sweater" class="gallery-img">
         <div class="gallery-info">
-          <h3>Royal Winter Sweater</h3>
-          <a href="https://wa.me/2349057826072?text=Hello%20Empress%20Crochets!%20I%20want%20to%20order%20the%20'Royal%20Winter%20Sweater'%20from%20your%20wearables%20collection.%20Please%20share%20customization%20options%20and%20pricing." class="whatsapp-btn">
-            <i class="fab fa-whatsapp"></i> Order Now
+          <h3>Winter Sweater</h3>
+          <a href="https://wa.me/2349057826072?text=Hi%20Empress%20Crochets!%20I%20want%20to%20order%20the%20Winter%20Sweater%20from%20your%20gallery." class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Order via WhatsApp
           </a>
         </div>
       </div>
       
-      <!-- Item 2 -->
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Elegant Cardigan" class="gallery-img">
-        <div class="gallery-info">
-          <h3>Elegant Cardigan</h3>
-          <a href="https://wa.me/2349057826072?text=Hello%20Empress%20Crochets!%20I%20want%20to%20order%20the%20'Elegant%20Cardigan'%20from%20your%20wearables%20collection.%20Please%20share%20customization%20options%20and%20pricing." class="whatsapp-btn">
-            <i class="fab fa-whatsapp"></i> Order Now
-          </a>
-        </div>
-      </div>
-      
-      <!-- Item 3 -->
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1610220941079-235a5b21d3ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cozy Beanie Hat" class="gallery-img">
-        <div class="gallery-info">
-          <h3>Cozy Beanie Hat</h3>
-          <a href="https://wa.me/2349057826072?text=Hello%20Empress%20Crochets!%20I%20want%20to%20order%20the%20'Cozy%20Beanie%20Hat'%20from%20your%20wearables%20collection.%20Please%20share%20customization%20options%20and%20pricing." class="whatsapp-btn">
-            <i class="fab fa-whatsapp"></i> Order Now
-          </a>
-        </div>
-      </div>
-      
-      <!-- Add more items as needed -->
+      <!-- Add more items following same pattern -->
     </div>
   </div>
 </body>
