@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empress Crochets Gallery | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+      --whatsapp: #25D366;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .gallery-container {
+      max-width: 1400px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .gallery-header h1 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .back-btn i {
+      margin-right: 8px;
+    }
+    
+    .back-btn:hover {
+      transform: translateX(-5px);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: all 0.4s ease;
+      aspect-ratio: 1/1;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    
+    .item-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 20px;
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .item-overlay {
+      transform: translateY(0);
+    }
+    
+    .item-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--accent);
+    }
+    
+    .whatsapp-fixed {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--whatsapp);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-fixed:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="home-icon" aria-label="Return to home">
+    <i class="fas fa-home"></i>
+  </a>
+
+  <div class="gallery-container">
+    <a href="wearables.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Profile
+    </a>
+    
+    <div class="gallery-header">
+      <h1>Empress Crochets Collection</h1>
+      <p>Handmade wearables crafted with premium yarns and royal elegance</p>
+    </div>
+    
+    <div class="gallery-grid">
+      <!-- Sample Gallery Items - Replace with actual images -->
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/hR5cqR03/IMG-3634.png" alt="Crochet Summer Top" class="gallery-img">
+        <div class="item-overlay">
+          <div class="item-title">Summer Breeze Top</div>
+          <p>100% Cotton, Hand-dyed</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/0jqWY0B/IMG-3635.png" alt="Crochet Cardigan" class="gallery-img">
+        <div class="item-overlay">
+          <div class="item-title">Royal Cardigan</div>
+          <p>Wool blend, Gold accents</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/4W2LvX5/IMG-3636.png" alt="Crochet Beach Cover-up" class="gallery-img">
+        <div class="item-overlay">
+          <div class="item-title">Beach Goddess Cover-up</div>
+          <p>Lightweight, Breathable</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/6nZqYQ4/IMG-3637.png" alt="Crochet Winter Scarf" class="gallery-img">
+        <div class="item-overlay">
+          <div class="item-title">Winter Embrace Scarf</div>
+          <p>Chunky merino wool</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/0y7J3Q5/IMG-3638.png" alt="Crochet Bralette" class="gallery-img">
+        <div class="item-overlay">
+          <div class="item-title">Lace Fantasy Bralette</div>
+          <p>Silk blend, Adjustable</p>
+        </div>
+      </div>
+      
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/7YfLvP0/IMG-3639.png" alt="Crochet Bucket Hat" class="gallery-img">
+        <div class="item-overlay">
+          <div class="item-title">Sunset Bucket Hat</div>
+          <p>UV protective, Unisex</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/2349057826072?text=Hello%20Empress%20Crochets!%20I%20love%20your%20designs%20and%20want%20to%20order." 
+     class="whatsapp-fixed" 
+     target="_blank"
+     aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Simple image click enlargement (optional)
+    document.querySelectorAll('.gallery-img').forEach(img => {
+      img.addEventListener('click', () => {
+        img.style.transform = img.style.transform === 'scale(1.5)' ? 'scale(1)' : 'scale(1.5)';
+      });
+    });
+  </script>
+</body>
+</html>
