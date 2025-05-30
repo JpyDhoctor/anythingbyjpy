@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polish & Pamper by Zena | Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .gallery-header {
+      text-align: center;
+      padding: 40px 0;
+    }
+    
+    .gallery-header h1 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .gallery-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    
+    .gallery-info {
+      padding: 15px;
+      text-align: center;
+    }
+    
+    .gallery-info h3 {
+      margin-bottom: 10px;
+    }
+    
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="nail-techs.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Nail Technicians
+    </a>
+    
+    <div class="gallery-header">
+      <h1>Polish & Pamper by Zena</h1>
+      <p>Select a design to book via WhatsApp</p>
+    </div>
+    
+    <div class="gallery-grid">
+      <!-- Sample 1 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 1" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Classic French Tips</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Classic French Tips')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 2 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1596704017255-ee8a8d9df2fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 2" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Floral Accent Nails</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Floral Accent Nails')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 3 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1596948209014-9a81b1f4a0b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 3" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Ombre Glitter</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Ombre Glitter')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 4 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1597248881519-db089d3744a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 4" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Marble Effect</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Marble Effect')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 5 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1596704017319-7d37320b8a4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 5" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Geometric Patterns</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Geometric Patterns')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 6 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1596704017444-35b3167258e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 6" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Minimalist Chic</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Minimalist Chic')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 7 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1596704017336-3675a40aaed3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 7" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Bold & Bright</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Bold & Bright')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 8 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1596704017359-5a6c73a593de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 8" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Matte Elegance</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Matte Elegance')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 9 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1596704017353-259e0e5d5dcb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 9" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Glitter Gradient</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Glitter Gradient')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sample 10 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1596704017359-5a6c73a593de?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nail Design 10" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Seasonal Special</h3>
+          <button class="whatsapp-btn" onclick="sendWhatsAppMessage('Seasonal Special')">
+            <i class="fab fa-whatsapp"></i> Book This Design
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function sendWhatsAppMessage(designName) {
+      const phoneNumber = "+2349158730835";
+      const message = `Hello Polish & Pamper by Zena! I would like to book an appointment for the "${designName}" nail design I saw on AnythingbyJpy.`;
+      
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
