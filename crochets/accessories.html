@@ -12,6 +12,7 @@
       --accent: #ffdd57;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
+      --whatsapp: #25D366;
     }
     
     body {
@@ -81,11 +82,41 @@
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
+      margin-right: 15px;
     }
     
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255,221,87,0.3);
+    }
+    
+    .whatsapp-direct {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 20px;
+      background: var(--whatsapp);
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-direct:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    }
+    
+    .whatsapp-direct i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+    
+    .button-group {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
     }
     
     .home-icon {
@@ -116,6 +147,10 @@
         flex-direction: column;
         text-align: center;
       }
+      
+      .button-group {
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -137,7 +172,13 @@
           <h2>Empress Crochets</h2>
           <span class="profile-specialty">Accessories Specialist</span>
           <p>Creating elegant crochet accessories that add royal flair to any outfit since 2019.</p>
-          <a href="empress-accessories-gallery.html" class="btn">View Designs</a>
+          
+          <div class="button-group">
+            <a href="empress-accessories-gallery.html" class="btn">View Designs</a>
+            <a href="https://wa.me/2349057826072" class="whatsapp-direct" target="_blank">
+              <i class="fab fa-whatsapp"></i> Contact Us Directly
+            </a>
+          </div>
         </div>
       </div>
     </div>
