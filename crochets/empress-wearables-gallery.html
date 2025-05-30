@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empress Crochets Gallery | AnythingbyJpy</title>
+  <title>Empress Crochets | Wearables Gallery</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -12,7 +12,6 @@
       --accent: #ffdd57;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
-      --whatsapp: #25D366;
     }
     
     body {
@@ -25,7 +24,7 @@
     }
     
     .gallery-container {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 80px auto;
       padding: 0 20px;
     }
@@ -43,14 +42,11 @@
     .back-btn {
       display: inline-flex;
       align-items: center;
+      gap: 5px;
       color: var(--accent);
       text-decoration: none;
       margin-bottom: 20px;
       transition: all 0.3s ease;
-    }
-    
-    .back-btn i {
-      margin-right: 8px;
     }
     
     .back-btn:hover {
@@ -59,28 +55,26 @@
     
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 25px;
-      margin-top: 30px;
     }
     
     .gallery-item {
-      position: relative;
-      border-radius: 15px;
+      background: var(--card-bg);
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: all 0.4s ease;
-      aspect-ratio: 1/1;
+      transition: transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
     .gallery-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 221, 87, 0.2);
     }
     
     .gallery-img {
       width: 100%;
-      height: 100%;
+      height: 300px;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
@@ -89,54 +83,63 @@
       transform: scale(1.05);
     }
     
-    .item-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      padding: 20px;
-      color: white;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
+    .gallery-info {
+      padding: 15px;
+      text-align: center;
     }
     
-    .gallery-item:hover .item-overlay {
-      transform: translateY(0);
-    }
-    
-    .item-title {
-      font-weight: 600;
-      margin-bottom: 5px;
+    .gallery-info h3 {
       color: var(--accent);
+      margin-bottom: 10px;
     }
     
-    .whatsapp-fixed {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: var(--whatsapp);
+    .whatsapp-btn {
+      background: #25D366;
       color: white;
-      width: 60px;
-      height: 60px;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+    
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: var(--accent);
+      color: #000;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-      z-index: 100;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255, 221, 87, 0.3);
       transition: all 0.3s ease;
     }
     
-    .whatsapp-fixed:hover {
+    .home-icon:hover {
       transform: scale(1.1);
-      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+      box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
     }
     
     @media (max-width: 768px) {
       .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -152,77 +155,86 @@
     </a>
     
     <div class="gallery-header">
-      <h1>Empress Crochets Collection</h1>
-      <p>Handmade wearables crafted with premium yarns and royal elegance</p>
+      <h1>Empress Crochets</h1>
+      <p>Royal Wearables Collection</p>
     </div>
     
     <div class="gallery-grid">
-      <!-- Sample Gallery Items - Replace with actual images -->
+      <!-- Item 1 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/hR5cqR03/IMG-3634.png" alt="Crochet Summer Top" class="gallery-img">
-        <div class="item-overlay">
-          <div class="item-title">Summer Breeze Top</div>
-          <p>100% Cotton, Hand-dyed</p>
+        <img src="https://i.ibb.co/hR5cqR03/IMG-3634.png" alt="Summer Breeze Top" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Summer Breeze Top</h3>
+          <button class="whatsapp-btn" onclick="contactArtist('Summer Breeze Top')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
         </div>
       </div>
       
+      <!-- Item 2 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/0jqWY0B/IMG-3635.png" alt="Crochet Cardigan" class="gallery-img">
-        <div class="item-overlay">
-          <div class="item-title">Royal Cardigan</div>
-          <p>Wool blend, Gold accents</p>
+        <img src="https://i.ibb.co/0jqWY0B/IMG-3635.png" alt="Royal Cardigan" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Royal Cardigan</h3>
+          <button class="whatsapp-btn" onclick="contactArtist('Royal Cardigan')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
         </div>
       </div>
       
+      <!-- Item 3 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/4W2LvX5/IMG-3636.png" alt="Crochet Beach Cover-up" class="gallery-img">
-        <div class="item-overlay">
-          <div class="item-title">Beach Goddess Cover-up</div>
-          <p>Lightweight, Breathable</p>
+        <img src="https://i.ibb.co/4W2LvX5/IMG-3636.png" alt="Beach Goddess Cover-up" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Beach Goddess Cover-up</h3>
+          <button class="whatsapp-btn" onclick="contactArtist('Beach Goddess Cover-up')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
         </div>
       </div>
       
+      <!-- Item 4 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/6nZqYQ4/IMG-3637.png" alt="Crochet Winter Scarf" class="gallery-img">
-        <div class="item-overlay">
-          <div class="item-title">Winter Embrace Scarf</div>
-          <p>Chunky merino wool</p>
+        <img src="https://i.ibb.co/6nZqYQ4/IMG-3637.png" alt="Winter Embrace Scarf" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Winter Embrace Scarf</h3>
+          <button class="whatsapp-btn" onclick="contactArtist('Winter Embrace Scarf')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
         </div>
       </div>
       
+      <!-- Item 5 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/0y7J3Q5/IMG-3638.png" alt="Crochet Bralette" class="gallery-img">
-        <div class="item-overlay">
-          <div class="item-title">Lace Fantasy Bralette</div>
-          <p>Silk blend, Adjustable</p>
+        <img src="https://i.ibb.co/0y7J3Q5/IMG-3638.png" alt="Lace Fantasy Bralette" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Lace Fantasy Bralette</h3>
+          <button class="whatsapp-btn" onclick="contactArtist('Lace Fantasy Bralette')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
         </div>
       </div>
       
+      <!-- Item 6 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/7YfLvP0/IMG-3639.png" alt="Crochet Bucket Hat" class="gallery-img">
-        <div class="item-overlay">
-          <div class="item-title">Sunset Bucket Hat</div>
-          <p>UV protective, Unisex</p>
+        <img src="https://i.ibb.co/7YfLvP0/IMG-3639.png" alt="Sunset Bucket Hat" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Sunset Bucket Hat</h3>
+          <button class="whatsapp-btn" onclick="contactArtist('Sunset Bucket Hat')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/2349057826072?text=Hello%20Empress%20Crochets!%20I%20love%20your%20designs%20and%20want%20to%20order." 
-     class="whatsapp-fixed" 
-     target="_blank"
-     aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
 
   <script>
-    // Simple image click enlargement (optional)
-    document.querySelectorAll('.gallery-img').forEach(img => {
-      img.addEventListener('click', () => {
-        img.style.transform = img.style.transform === 'scale(1.5)' ? 'scale(1)' : 'scale(1.5)';
-      });
-    });
+    function contactArtist(itemName) {
+      const phone = "+2349057826072";
+      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" wearables from AnythingbyJpy. Can we discuss pricing and availability?`;
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+    }
   </script>
 </body>
 </html>
