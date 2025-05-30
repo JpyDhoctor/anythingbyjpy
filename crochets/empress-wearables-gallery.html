@@ -93,6 +93,25 @@
       margin-bottom: 10px;
     }
     
+    .price-tag {
+      display: block;
+      color: var(--light);
+      font-weight: 600;
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+    
+    .price-tag i {
+      color: var(--accent);
+      margin-right: 5px;
+    }
+    
+    .non-negotiable {
+      font-size: 0.8rem;
+      color: #b0b0b0;
+      font-style: italic;
+    }
+    
     .whatsapp-btn {
       background: #25D366;
       color: white;
@@ -162,10 +181,13 @@
     <div class="gallery-grid">
       <!-- Item 1 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/hR5cqR03/IMG-3634.png" alt="Summer Breeze Top" class="gallery-img">
+        <img src="https://i.ibb.co/hR5cqR03/IMG-3634.png" alt="Ultra Thick and Chunky Beanie" class="gallery-img">
         <div class="gallery-info">
-          <h3>Summer Breeze Top</h3>
-          <button class="whatsapp-btn" onclick="contactArtist('Summer Breeze Top')">
+          <h3>Ultra Thick and Chunky Beanie</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>13,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Ultra Thick and Chunky Beanie')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -176,6 +198,9 @@
         <img src="https://i.ibb.co/0jqWY0B/IMG-3635.png" alt="Royal Cardigan" class="gallery-img">
         <div class="gallery-info">
           <h3>Royal Cardigan</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>25,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
           <button class="whatsapp-btn" onclick="contactArtist('Royal Cardigan')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
@@ -187,6 +212,9 @@
         <img src="https://i.ibb.co/4W2LvX5/IMG-3636.png" alt="Beach Goddess Cover-up" class="gallery-img">
         <div class="gallery-info">
           <h3>Beach Goddess Cover-up</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>18,500 <span class="non-negotiable">Non negotiable</span>
+          </span>
           <button class="whatsapp-btn" onclick="contactArtist('Beach Goddess Cover-up')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
@@ -198,6 +226,9 @@
         <img src="https://i.ibb.co/6nZqYQ4/IMG-3637.png" alt="Winter Embrace Scarf" class="gallery-img">
         <div class="gallery-info">
           <h3>Winter Embrace Scarf</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>15,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
           <button class="whatsapp-btn" onclick="contactArtist('Winter Embrace Scarf')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
@@ -209,6 +240,9 @@
         <img src="https://i.ibb.co/0y7J3Q5/IMG-3638.png" alt="Lace Fantasy Bralette" class="gallery-img">
         <div class="gallery-info">
           <h3>Lace Fantasy Bralette</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>12,500 <span class="non-negotiable">Non negotiable</span>
+          </span>
           <button class="whatsapp-btn" onclick="contactArtist('Lace Fantasy Bralette')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
@@ -220,6 +254,9 @@
         <img src="https://i.ibb.co/7YfLvP0/IMG-3639.png" alt="Sunset Bucket Hat" class="gallery-img">
         <div class="gallery-info">
           <h3>Sunset Bucket Hat</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>10,500 <span class="non-negotiable">Non negotiable</span>
+          </span>
           <button class="whatsapp-btn" onclick="contactArtist('Sunset Bucket Hat')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
@@ -231,9 +268,21 @@
   <script>
     function contactArtist(itemName) {
       const phone = "+2349057826072";
-      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" wearables from AnythingbyJpy. Can we discuss pricing and availability?`;
+      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" (₦${getPrice(itemName)}) from AnythingbyJpy. Is this available?`;
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+    }
+
+    function getPrice(itemName) {
+      const prices = {
+        "Ultra Thick and Chunky Beanie": "13,000",
+        "Royal Cardigan": "25,000",
+        "Beach Goddess Cover-up": "18,500",
+        "Winter Embrace Scarf": "15,000",
+        "Lace Fantasy Bralette": "12,500",
+        "Sunset Bucket Hat": "10,500"
+      };
+      return prices[itemName] || "";
     }
   </script>
 </body>
