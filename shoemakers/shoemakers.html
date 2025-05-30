@@ -3,388 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viceno Pairs | Handcrafted Luxury Footwear</title>
+  <title>Viceno Pairs | Master Shoemaker | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --bg: #0b0b0b;
       --accent: #ffdd57;
+      --accent-dark: #e6c74d;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
       --text-secondary: #b0b0b0;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
+    
     body {
+      font-family: "Poppins", sans-serif;
       background-color: var(--bg);
       color: var(--light);
       line-height: 1.6;
     }
-
-    /* ===== HEADER ===== */
-    .brand-header {
-      background: linear-gradient(rgba(11, 11, 11, 0.9), rgba(11, 11, 11, 0.9));
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255, 221, 87, 0.1);
-    }
-
+    
+    /* Home Icon */
     .home-icon {
-      color: var(--accent);
-      font-size: 1.8rem;
-      transition: transform 0.3s ease;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: var(--accent);
+      color: #000;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255, 221, 87, 0.3);
+      transition: all 0.3s ease;
     }
-
+    
     .home-icon:hover {
       transform: scale(1.1);
-    }
-
-    /* ===== HERO SECTION ===== */
-    .brand-hero {
-      text-align: center;
-      padding: 180px 20px 100px;
-      background: linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7));
-      position: relative;
-    }
-
-    .brand-logo {
-      width: 200px;
-      margin-bottom: 30px;
-      transition: transform 0.4s ease;
-    }
-
-    .brand-logo:hover {
-      transform: rotate(5deg);
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: var(--accent);
-    }
-
-    .brand-tagline {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      color: var(--text-secondary);
-    }
-
-    /* ===== PORTFOLIO ===== */
-    .portfolio-section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 50px;
-      color: var(--accent);
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      width: 100px;
-      height: 3px;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--accent);
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .portfolio-item {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
-    }
-
-    .portfolio-img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 20px;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-    }
-
-    .portfolio-item:hover .portfolio-overlay {
-      transform: translateY(0);
-    }
-
-    .portfolio-title {
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    /* ===== PRODUCT SHOWCASE ===== */
-    .product-showcase {
-      padding: 80px 20px;
-      background: var(--card-bg);
+      box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
     }
     
-    .product-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    /* Profile Container */
+    .profile-container {
+      max-width: 800px;
+      margin: 100px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent);
+      margin-bottom: 20px;
+    }
+    
+    .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
+      gap: 10px;
       justify-content: center;
+      margin: 25px 0;
     }
     
-    .product-card {
-      background: var(--bg);
-      width: 350px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    
-    .product-card:hover {
-      transform: translateY(-10px);
-    }
-    
-    .product-image {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-    
-    .product-info {
-      padding: 20px;
-    }
-    
-    .product-name {
+    .skill-tag {
+      background: rgba(255, 221, 87, 0.2);
       color: var(--accent);
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-    
-    .product-price {
-      color: var(--light);
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-    
-    .cta-button {
-      background: var(--accent);
-      color: var(--bg);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    
-    .cta-button:hover {
-      background: #ffcc00;
-    }
-
-    /* ===== FOOTER ===== */
-    .brand-footer {
-      background: #111;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .footer-logo {
-      width: 100px;
-      margin-bottom: 20px;
-    }
-
-    .copyright {
-      color: var(--text-secondary);
+      padding: 5px 15px;
+      border-radius: 20px;
       font-size: 0.9rem;
     }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .portfolio-grid,
-      .product-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .product-card {
-        width: 100%;
-      }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 221, 87, 0.3);
+    }
+    
+    .whatsapp-btn {
+      background: #25D366;
+      color: white !important;
+    }
+    
+    .whatsapp-btn:hover {
+      background: #128C7E;
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="brand-header">
-    <a href="../index.html" class="home-icon" aria-label="Return to homepage">
-      <i class="fas fa-home"></i>
-    </a>
+  <!-- Home Navigation Icon -->
+  <a href="../index.html" class="home-icon" aria-label="Return to home">
+    <i class="fas fa-home"></i>
+  </a>
+
+  <!-- Main Profile -->
+  <main class="profile-container">
+    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+         alt="Viceno Pairs" 
+         class="profile-img">
+    
     <h2>Viceno Pairs</h2>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="brand-hero">
-    <img src="https://i.ibb.co/Xf4V7n2r/viceno-logo.png" alt="Viceno Pairs Logo" class="brand-logo">
-    <h1>Viceno Pairs</h1>
-    <p class="brand-tagline">Handcrafted luxury footwear blending traditional techniques with contemporary design</p>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section class="portfolio-section">
-    <h2 class="section-title">Our Craftsmanship</h2>
-    <div class="portfolio-grid">
-      <!-- Oxford Brogues -->
-      <div class="portfolio-item">
-        <img src="https://i.ibb.co/DPj06rWL/oxford-brogues.webp" 
-             alt="Oxford Brogues" 
-             class="portfolio-img" 
-             loading="lazy"
-             width="400" height="300">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Oxford Brogues</h3>
-          <p>Full-grain leather with hand-punched detailing</p>
-        </div>
-      </div>
-      
-      <!-- Chelsea Boots -->
-      <div class="portfolio-item">
-        <img src="https://i.ibb.co/DPj06rWL/chelsea-boots.webp" 
-             alt="Chelsea Boots" 
-             class="portfolio-img" 
-             loading="lazy"
-             width="400" height="300">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Chelsea Boots</h3>
-          <p>Premium suede with elastic gussets</p>
-        </div>
-      </div>
-      
-      <!-- Tassel Loafers -->
-      <div class="portfolio-item">
-        <img src="https://i.ibb.co/DPj06rWL/tassel-loafer.webp" 
-             alt="Tassel Loafers" 
-             class="portfolio-img" 
-             loading="lazy"
-             width="400" height="300">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Tassel Loafers</h3>
-          <p>Italian calfskin with hand-stitched tassels</p>
-        </div>
-      </div>
+    <p>Master Craftsman of Luxury Footwear Since 2012</p>
+    
+    <div class="skills">
+      <span class="skill-tag">Hand-stitched</span>
+      <span class="skill-tag">Premium Leather</span>
+      <span class="skill-tag">Custom Designs</span>
+      <span class="skill-tag">Orthopedic Options</span>
     </div>
-  </section>
-
-  <!-- Product Showcase -->
-  <section class="product-showcase">
-    <h2 class="section-title">Featured Collection</h2>
-    <div class="product-container">
-      <!-- Oxford Brogues Product Card -->
-      <div class="product-card">
-        <img src="https://i.ibb.co/DPj06rWL/oxford-brogues.webp" 
-             alt="Viceno Oxford" 
-             class="product-image"
-             loading="lazy"
-             width="350" height="250">
-        <div class="product-info">
-          <h3 class="product-name">Viceno Oxford</h3>
-          <p class="product-price">$299</p>
-          <button class="cta-button">Add to Cart</button>
-        </div>
-      </div>
-      
-      <!-- Chelsea Boots Product Card -->
-      <div class="product-card">
-        <img src="https://i.ibb.co/DPj06rWL/chelsea-boots.webp" 
-             alt="Viceno Chelsea" 
-             class="product-image"
-             loading="lazy"
-             width="350" height="250">
-        <div class="product-info">
-          <h3 class="product-name">Viceno Chelsea</h3>
-          <p class="product-price">$279</p>
-          <button class="cta-button">Add to Cart</button>
-        </div>
-      </div>
-      
-      <!-- Tassel Loafers Product Card -->
-      <div class="product-card">
-        <img src="https://i.ibb.co/DPj06rWL/tassel-loafer.webp" 
-             alt="Limited Edition" 
-             class="product-image"
-             loading="lazy"
-             width="350" height="250">
-        <div class="product-info">
-          <h3 class="product-name">Tassel Loafers</h3>
-          <p class="product-price">$349</p>
-          <button class="cta-button">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="brand-footer">
-    <img src="https://i.ibb.co/Xf4V7n2r/viceno-logo.png" alt="Viceno Pairs Logo" class="footer-logo">
-    <p class="copyright">&copy; <span id="year"></span> Viceno Pairs. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+    
+    <a href="viceno-gallery.html" class="btn">Book Consultation</a>
+    <a href="https://wa.me/2347015191893?text=Hello%20Viceno%20Pairs!%20I%20saw%20your%20profile%20on%20AnythingbyJpy%20and%20would%20like%20to%20discuss%20custom%20shoes." 
+       class="btn whatsapp-btn">
+       <i class="fab fa-whatsapp"></i> Chat Directly
+    </a>
+  </main>
 </body>
 </html>
