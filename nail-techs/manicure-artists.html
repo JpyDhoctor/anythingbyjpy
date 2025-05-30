@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nail Art Specialists | AnythingbyJpy</title>
+  <title>Manicure Specialists | AnythingbyJpy</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -51,27 +51,6 @@
       margin: 100px auto 50px;
       padding: 0 20px;
       text-align: center;
-    }
-    
-    .service-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    
-    .service-tab {
-      padding: 10px 25px;
-      border-radius: 30px;
-      background: var(--card-bg);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .service-tab.active {
-      background: var(--accent);
-      color: #000;
-      font-weight: 600;
     }
     
     .profile-grid {
@@ -151,11 +130,6 @@
       .profile-grid {
         grid-template-columns: 1fr;
       }
-      
-      .service-tabs {
-        flex-direction: column;
-        align-items: center;
-      }
     }
   </style>
 </head>
@@ -167,17 +141,11 @@
 
   <!-- Main Content -->
   <main class="artists-container">
-    <h2>Nail Art Specialists</h2>
-    <p>Certified technicians for all your manicure & pedicure needs</p>
+    <h2>Manicure Specialists</h2>
+    <p>Certified technicians for all your manicure needs</p>
     
-    <div class="service-tabs">
-      <div class="service-tab active" data-category="manicure">Manicure Artists</div>
-      <div class="service-tab" data-category="pedicure">Pedicure Specialists</div>
-    </div>
-    
-    <!-- Manicure Artists -->
-    <div class="profile-grid" id="manicure-artists">
-      <!-- Profile 1 - Zena (Appears in both categories) -->
+    <div class="profile-grid">
+      <!-- Profile 1 -->
       <div class="profile-card">
         <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
              alt="Polish & Pamper by Zena" 
@@ -240,94 +208,6 @@
         </a>
       </div>
     </div>
-    
-    <!-- Pedicure Specialists (Same profiles but filtered) -->
-    <div class="profile-grid" id="pedicure-artists" style="display:none;">
-      <!-- Profile 1 - Zena (Appears in both categories) -->
-      <div class="profile-card">
-        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-             alt="Polish & Pamper by Zena" 
-             class="profile-img">
-        <h3>Polish & Pamper by Zena</h3>
-        <p>Medical pedicure certified specialist</p>
-        
-        <div class="skills">
-          <span class="skill-tag">Spa Pedicures</span>
-          <span class="skill-tag">Callus Treatment</span>
-          <span class="skill-tag">Paraffin Wax</span>
-        </div>
-        
-        <a href="zena-profile.html" class="btn">View Portfolio</a>
-        <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20saw%20your%20pedicure%20profile%20on%20AnythingbyJpy%20and%20need%20a%20medical%20pedicure." 
-           class="btn whatsapp-btn">
-           <i class="fab fa-whatsapp"></i> Book Now
-        </a>
-      </div>
-      
-      <!-- Profile 2 -->
-      <div class="profile-card">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-             alt="Sole Revival by Chioma" 
-             class="profile-img">
-        <h3>Sole Revival by Chioma</h3>
-        <p>Foot health and relaxation expert</p>
-        
-        <div class="skills">
-          <span class="skill-tag">Reflexology</span>
-          <span class="skill-tag">Athlete Foot Care</span>
-          <span class="skill-tag">Gel Polish</span>
-        </div>
-        
-        <a href="chioma-profile.html" class="btn">View Portfolio</a>
-        <a href="https://wa.me/2349158730835?text=Hello%20Chioma!%20I%20saw%20your%20pedicure%20profile%20on%20AnythingbyJpy%20and%20want%20a%20reflexology%20session." 
-           class="btn whatsapp-btn">
-           <i class="fab fa-whatsapp"></i> Book Now
-        </a>
-      </div>
-      
-      <!-- Profile 3 -->
-      <div class="profile-card">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-             alt="Happy Feet by Nneka" 
-             class="profile-img">
-        <h3>Happy Feet by Nneka</h3>
-        <p>Diabetic foot care specialist</p>
-        
-        <div class="skills">
-          <span class="skill-tag">Diabetic Pedicures</span>
-          <span class="skill-tag">Mens Pedicures</span>
-          <span class="skill-tag">Nail Restoration</span>
-        </div>
-        
-        <a href="nneka-profile.html" class="btn">View Portfolio</a>
-        <a href="https://wa.me/2349158730835?text=Hello%20Nneka!%20I%20saw%20your%20diabetic%20pedicure%20profile%20on%20AnythingbyJpy%20and%20need%20an%20appointment." 
-           class="btn whatsapp-btn">
-           <i class="fab fa-whatsapp"></i> Book Now
-        </a>
-      </div>
-    </div>
   </main>
-
-  <script>
-    // Tab switching functionality
-    const tabs = document.querySelectorAll('.service-tab');
-    const manicureSection = document.getElementById('manicure-artists');
-    const pedicureSection = document.getElementById('pedicure-artists');
-    
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        
-        if(tab.dataset.category === 'manicure') {
-          manicureSection.style.display = 'grid';
-          pedicureSection.style.display = 'none';
-        } else {
-          manicureSection.style.display = 'none';
-          pedicureSection.style.display = 'grid';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
