@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nail Technicians | AnythingbyJpy</title>
+  <title>Polish and Pamper by Zena | Nail Technician</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -12,6 +12,7 @@
       --accent: #ffdd57;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
+      --whatsapp: #25D366;
     }
     
     body {
@@ -23,35 +24,36 @@
       margin: 0;
     }
     
-    .container {
+    .profile-container {
       max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+      margin: 80px auto;
+      padding: 0 20px;
     }
     
     .profile-header {
       text-align: center;
-      padding: 40px 0;
+      margin-bottom: 40px;
     }
     
     .profile-card {
       background: var(--card-bg);
       border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 40px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      padding: 40px;
+      margin: 0 auto;
+      max-width: 800px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
     
-    .profile-top {
+    .profile-content {
       display: flex;
-      align-items: center;
       gap: 30px;
+      align-items: center;
       margin-bottom: 30px;
     }
     
     .profile-img {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--accent);
@@ -62,100 +64,121 @@
       margin-bottom: 10px;
     }
     
-    .specialty {
+    .profile-specialty {
       display: inline-block;
       background: rgba(255,221,87,0.2);
       color: var(--accent);
       padding: 5px 15px;
       border-radius: 20px;
-      font-size: 0.9rem;
       margin-bottom: 15px;
     }
     
     .btn {
       display: inline-block;
       padding: 12px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      margin-top: 20px;
-    }
-    
-    .btn-primary {
       background: var(--accent);
       color: #000;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-right: 15px;
     }
     
-    .btn-primary:hover {
+    .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255,221,87,0.3);
     }
     
-    /* Home Icon */
+    .whatsapp-chat-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--whatsapp);
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+    
+    .whatsapp-chat-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    }
+    
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
     .home-icon {
       position: fixed;
       top: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
+      left: 20px;
+      z-index: 1000;
       background: var(--accent);
       color: #000;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(255, 221, 87, 0.3);
       transition: all 0.3s ease;
     }
     
     .home-icon:hover {
       transform: scale(1.1);
-      box-shadow: 0 6px 15px rgba(255,221,87,0.4);
+      box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
     }
     
     @media (max-width: 768px) {
-      .profile-top {
+      .profile-content {
         flex-direction: column;
         text-align: center;
+      }
+      
+      .button-group {
+        align-items: center;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Home Icon -->
-  <a href="../index.html" class="home-icon" aria-label="Return to home page">
+  <a href="../index.html" class="home-icon" aria-label="Return to home">
     <i class="fas fa-home"></i>
   </a>
 
-  <div class="container">
+  <div class="profile-container">
     <div class="profile-header">
-      <h1>Nail Technicians</h1>
-      <p>Meet our talented nail artists specializing in manicures and pedicures</p>
+      <h1>Polish and Pamper by Zena</h1>
+      <p>Professional Nail Care Services</p>
     </div>
     
     <div class="profile-card">
-      <div class="profile-top">
-        <img src="https://i.ibb.co/6081wJ5x/IMG-3612.png" alt="Polish & Pamper by Zena" class="profile-img">
+      <div class="profile-content">
+        <img src="https://i.ibb.co/example.jpg" alt="Zena Nail Technician" class="profile-img">
         <div class="profile-info">
-          <h2>Polish & Pamper by Zena</h2>
-          <span class="specialty">Manicures & Pedicures Specialist</span>
-          <p>With over 5 years of experience, Zena creates stunning nail designs with meticulous attention to detail and hygiene standards.</p>
-          <a href="zena-gallery.html" class="btn btn-primary">Book Appointment</a>
+          <h2>Zena</h2>
+          <span class="profile-specialty">Nail Technician</span>
+          <p>Specializing in gel manicures, nail art, and luxury nail treatments since 2019.</p>
+          
+          <div class="button-group">
+            <a href="#appointment" class="btn">Book Appointment</a>
+            <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20saw%20your%20nail%20services%20on%20AnythingbyJpy%20and%20would%20like%20to%20chat%20about%20your%20services.%20Please%20let%20me%20know%20your%20availability." 
+               class="whatsapp-chat-btn"
+               target="_blank">
+              <i class="fab fa-whatsapp"></i> Chat Directly
+            </a>
+          </div>
         </div>
-      </div>
-      
-      <div class="profile-details">
-        <h3>Services Offered</h3>
-        <ul>
-          <li>Classic Manicure</li>
-          <li>Spa Pedicure</li>
-          <li>Gel Nail Extensions</li>
-          <li>Nail Art Design</li>
-          <li>Nail Repair</li>
-        </ul>
       </div>
     </div>
   </div>
