@@ -34,6 +34,11 @@
       margin-bottom: 40px;
     }
     
+    .gallery-header h1 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -41,6 +46,11 @@
       color: var(--accent);
       text-decoration: none;
       margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .back-btn:hover {
+      transform: translateX(-5px);
     }
     
     .gallery-grid {
@@ -54,21 +64,52 @@
       border-radius: 10px;
       overflow: hidden;
       transition: transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
     .gallery-item:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 221, 87, 0.2);
     }
     
     .gallery-img {
       width: 100%;
       height: 300px;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
     }
     
     .gallery-info {
       padding: 15px;
       text-align: center;
+    }
+    
+    .gallery-info h3 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .price-tag {
+      display: block;
+      color: var(--light);
+      font-weight: 600;
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+    
+    .price-tag i {
+      color: var(--accent);
+      margin-right: 5px;
+    }
+    
+    .non-negotiable {
+      font-size: 0.8rem;
+      color: #b0b0b0;
+      font-style: italic;
     }
     
     .whatsapp-btn {
@@ -83,6 +124,8 @@
       margin-top: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
     }
     
     .whatsapp-btn:hover {
@@ -138,10 +181,13 @@
     <div class="gallery-grid">
       <!-- Item 1 -->
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Royal Tote Bag" class="gallery-img">
+        <img src="https://i.ibb.co/example1.jpg" alt="Royal Handbag" class="gallery-img">
         <div class="gallery-info">
-          <h3>Royal Tote Bag</h3>
-          <button class="whatsapp-btn" onclick="contactArtist('Royal Tote Bag')">
+          <h3>Royal Handbag</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>18,500 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Royal Handbag', '18,500')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -149,35 +195,80 @@
       
       <!-- Item 2 -->
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Empress Clutch" class="gallery-img">
+        <img src="https://i.ibb.co/example2.jpg" alt="Elegant Clutch" class="gallery-img">
         <div class="gallery-info">
-          <h3>Empress Clutch</h3>
-          <button class="whatsapp-btn" onclick="contactArtist('Empress Clutch')">
+          <h3>Elegant Clutch</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>15,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Elegant Clutch', '15,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
       </div>
       
-      <!-- Item 3-10 follow same pattern -->
-      <!-- Sample of 3rd item -->
+      <!-- Item 3 -->
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Throne Purse" class="gallery-img">
+        <img src="https://i.ibb.co/example3.jpg" alt="Designer Headband" class="gallery-img">
         <div class="gallery-info">
-          <h3>Throne Purse</h3>
-          <button class="whatsapp-btn" onclick="contactArtist('Throne Purse')">
+          <h3>Designer Headband</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>8,500 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Designer Headband', '8,500')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
       </div>
       
-      <!-- Continue with 7 more items following same structure -->
+      <!-- Item 4 -->
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/example4.jpg" alt="Statement Necklace" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Statement Necklace</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>12,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Statement Necklace', '12,000')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
+        </div>
+      </div>
+      
+      <!-- Item 5 -->
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/example5.jpg" alt="Chic Waist Belt" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Chic Waist Belt</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>9,500 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Chic Waist Belt', '9,500')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
+        </div>
+      </div>
+      
+      <!-- Item 6 -->
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/example6.jpg" alt="Boho Earrings" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Boho Earrings</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>7,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Boho Earrings', '7,000')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    function contactArtist(itemName) {
+    function contactArtist(itemName, price) {
       const phone = "+2349057826072";
-      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" accessories from AnythingbyJpy. Can we discuss pricing and availability?`;
+      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" (₦${price}) accessory from AnythingbyJpy. Is this available?`;
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
     }
