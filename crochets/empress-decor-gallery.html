@@ -34,6 +34,11 @@
       margin-bottom: 40px;
     }
     
+    .gallery-header h1 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
     .back-btn {
       display: inline-flex;
       align-items: center;
@@ -41,6 +46,11 @@
       color: var(--accent);
       text-decoration: none;
       margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .back-btn:hover {
+      transform: translateX(-5px);
     }
     
     .gallery-grid {
@@ -54,21 +64,52 @@
       border-radius: 10px;
       overflow: hidden;
       transition: transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
     
     .gallery-item:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 221, 87, 0.2);
     }
     
     .gallery-img {
       width: 100%;
       height: 300px;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
     }
     
     .gallery-info {
       padding: 15px;
       text-align: center;
+    }
+    
+    .gallery-info h3 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    
+    .price-tag {
+      display: block;
+      color: var(--light);
+      font-weight: 600;
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+    
+    .price-tag i {
+      color: var(--accent);
+      margin-right: 5px;
+    }
+    
+    .non-negotiable {
+      font-size: 0.8rem;
+      color: #b0b0b0;
+      font-style: italic;
     }
     
     .whatsapp-btn {
@@ -83,6 +124,8 @@
       margin-top: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
     }
     
     .whatsapp-btn:hover {
@@ -141,7 +184,10 @@
         <img src="https://images.unsplash.com/photo-1603575448878-868a20723f5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Royal Throw Blanket" class="gallery-img">
         <div class="gallery-info">
           <h3>Royal Throw Blanket</h3>
-          <button class="whatsapp-btn" onclick="contactArtist('Royal Throw Blanket')">
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>25,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Royal Throw Blanket', '25,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -152,32 +198,77 @@
         <img src="https://images.unsplash.com/photo-1603575448878-868a20723f5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Empress Pillow Covers" class="gallery-img">
         <div class="gallery-info">
           <h3>Empress Pillow Covers</h3>
-          <button class="whatsapp-btn" onclick="contactArtist('Empress Pillow Covers')">
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>18,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Empress Pillow Covers', '18,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
       </div>
       
-      <!-- Item 3-10 follow same pattern -->
-      <!-- Sample of 3rd item -->
+      <!-- Item 3 -->
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1603575448878-868a20723f5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Throne Table Runner" class="gallery-img">
         <div class="gallery-info">
           <h3>Throne Table Runner</h3>
-          <button class="whatsapp-btn" onclick="contactArtist('Throne Table Runner')">
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>15,500 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Throne Table Runner', '15,500')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
       </div>
       
-      <!-- Continue with 7 more items following same structure -->
+      <!-- Item 4 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1603575448878-868a20723f5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Regal Wall Hanging" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Regal Wall Hanging</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>22,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Regal Wall Hanging', '22,000')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
+        </div>
+      </div>
+      
+      <!-- Item 5 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1603575448878-868a20723f5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Majestic Curtains" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Majestic Curtains</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>30,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Majestic Curtains', '30,000')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
+        </div>
+      </div>
+      
+      <!-- Item 6 -->
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1603575448878-868a20723f5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Royal Bedspread" class="gallery-img">
+        <div class="gallery-info">
+          <h3>Royal Bedspread</h3>
+          <span class="price-tag">
+            <i class="fas fa-naira-sign"></i>35,000 <span class="non-negotiable">Non negotiable</span>
+          </span>
+          <button class="whatsapp-btn" onclick="contactArtist('Royal Bedspread', '35,000')">
+            <i class="fab fa-whatsapp"></i> Contact Artist
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    function contactArtist(itemName) {
+    function contactArtist(itemName, price) {
       const phone = "+2349057826072";
-      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" home decor from AnythingbyJpy. Can we discuss pricing and availability?`;
+      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" (₦${price}) home decor from AnythingbyJpy. Is this available?`;
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
     }
