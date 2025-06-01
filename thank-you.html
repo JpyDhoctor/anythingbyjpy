@@ -1,13 +1,111 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- [Previous thank-you page code remains identical] -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | AnythingbyJpy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0b0b0b;
+            --accent: #ffdd57;
+            --light: #f1f1f1;
+            --card-bg: #1a1a1a;
+            --text-secondary: #b0b0b0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .thank-you-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 221, 87, 0.1);
+        }
+        
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: #000;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .home-btn:hover {
+            background-color: #e6c74d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 221, 87, 0.3);
+        }
+        
+        .home-btn i {
+            margin-right: 10px;
+        }
+        
+        .checkmark {
+            color: var(--accent);
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 1s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="thank-you-container">
-        <h1>Thank You!</h1>
-        <p>Your message has been successfully sent.</p>
+        <div class="checkmark">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Message Received!</h1>
+        <p>Thank you for contacting us. We've received your message and will get back to you within 24 hours.</p>
+        <p>For urgent inquiries, you can WhatsApp us directly at <a href="https://wa.me/2347088291429" style="color: var(--accent);">+234 708 829 1429</a></p>
         <a href="https://jpydhoctor.github.io/anythingbyjpy/index.html" class="home-btn">
             <i class="fas fa-arrow-left"></i> Return to Homepage
         </a>
