@@ -1,0 +1,13 @@
+# Prevent direct access to log file
+<Files "whatsapp_clicks.log">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Allow only your domain to access tracker
+<Files "track-click.php">
+    SetEnvIf Referer "^https://jpydhoctor.github.io/" local_referer
+    Order Deny,Allow
+    Deny from all
+    Allow from env=local_referer
+</Files>
