@@ -112,7 +112,6 @@
       margin-right: 5px;
     }
 
-    /* NEW STYLES ADDED FOR PRICE TAGS */
     .price-container {
       display: flex;
       align-items: center;
@@ -331,5 +330,22 @@
       </div>
     </div>
   </main>
+
+  <!-- WhatsApp Click Tracking Script -->
+  <script>
+    // Track all WhatsApp button clicks
+    document.querySelectorAll('.whatsapp-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        // Get current total clicks or start at 0
+        let totalClicks = parseInt(localStorage.getItem('galleryWhatsappClicks')) || 0;
+        totalClicks++;
+        localStorage.setItem('galleryWhatsappClicks', totalClicks);
+        
+        // Optional: Log which product was clicked
+        const productName = this.closest('.gallery-overlay').querySelector('h3').textContent;
+        console.log(`Clicked: ${productName} | Total Clicks: ${totalClicks}`);
+      });
+    });
+  </script>
 </body>
 </html>
