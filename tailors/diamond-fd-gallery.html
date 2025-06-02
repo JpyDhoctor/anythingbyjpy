@@ -4,7 +4,193 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diamond FD's Gallery | AnythingbyJpy</title>
-  <!-- [Same CSS styles as before] -->
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --accent: #ffdd57;
+      --accent-dark: #e6c74d;
+      --light: #f1f1f1;
+      --card-bg: #1a1a1a;
+      --text-secondary: #b0b0b0;
+      --whatsapp: #25D366;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    /* Home Icon */
+    .home-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .home-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 221, 87, 0.5);
+    }
+
+    .home-icon i {
+      color: #000;
+      font-size: 1.2rem;
+    }
+
+    /* Header */
+    .tailors-header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(rgba(11, 11, 11, 0.9), rgba(11, 11, 11, 0.9)), 
+                  url('https://images.unsplash.com/photo-1539533018447-63fcce2678e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+    }
+
+    .tailors-header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--accent), #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Tailors Grid - Updated to Profile Style */
+    .tailors {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .tailor-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      border: 1px solid transparent;
+    }
+
+    .tailor-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
+    }
+
+    .profile-content {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .tailor-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+    }
+
+    .tailor-content h2 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .tailor-content p {
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+    }
+
+    .specialty {
+      display: inline-block;
+      padding: 5px 15px;
+      background: rgba(255, 221, 87, 0.2);
+      color: var(--accent);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .profile-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .profile-btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 221, 87, 0.3);
+    }
+
+    .whatsapp-chat-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 25px;
+      background: var(--whatsapp);
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-chat-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .tailors-header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .profile-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .button-group {
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <a href="../index.html" class="home-icon" aria-label="Return to Home">
