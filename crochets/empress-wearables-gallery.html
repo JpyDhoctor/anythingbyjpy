@@ -187,7 +187,7 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>15,000 <span class="non-negotiable">Non negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Ultra Thick and Chunky Beanie')">
+          <button class="whatsapp-btn" onclick="contactArtist('Ultra Thick and Chunky Beanie', '15,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -201,7 +201,7 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>20,000 <span class="non-negotiable">Non negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Ruffled bucket hat with chunky boho earrings combo')">
+          <button class="whatsapp-btn" onclick="contactArtist('Ruffled bucket hat with chunky boho earrings combo', '20,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -215,7 +215,7 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>16,000 <span class="non-negotiable">Non negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Plum Rose Top')">
+          <button class="whatsapp-btn" onclick="contactArtist('Plum Rose Top', '16,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -229,7 +229,7 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>35,000 <span class="slightly-negotiable"> slightly negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Geometry Set')">
+          <button class="whatsapp-btn" onclick="contactArtist('Geometry Set', '35,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -243,7 +243,7 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>25,000 <span class="slightly-negotiable">slightly negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Bloomers Set')">
+          <button class="whatsapp-btn" onclick="contactArtist('Bloomers Set', '25,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -257,7 +257,7 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>15,000 <span class="non-negotiable">Non negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Butter Fly Top')">
+          <button class="whatsapp-btn" onclick="contactArtist('Butter Fly Top', '15,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -266,23 +266,39 @@
   </div>
 
   <script>
-    function contactArtist(itemName) {
+    // Price mapping for all items
+    const itemPrices = {
+      "Ultra Thick and Chunky Beanie": "15,000",
+      "Ruffled bucket hat with chunky boho earrings combo": "20,000",
+      "Plum Rose Top": "16,000",
+      "Geometry Set": "35,000",
+      "Bloomers Set": "25,000",
+      "Butter Fly Top": "15,000"
+    };
+
+    function contactArtist(itemName, price) {
+      // Track the click
+      trackWhatsAppClick(itemName);
+      
+      // Open WhatsApp chat
       const phone = "+2349057826072";
-      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" (₦${getPrice(itemName)}) from AnythingbyJpy. Is this available?`;
-      const encoded = encodeURIComponent(message);
-      window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" (₦${price}) from AnythingbyJpy. Is this available?`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
     }
 
-    function getPrice(itemName) {
-      const prices = {
-        "Ultra Thick and Chunky Beanie": "13,000",
-        "Royal Cardigan": "25,000",
-        "Beach Goddess Cover-up": "18,500",
-        "Winter Embrace Scarf": "15,000",
-        "Lace Fantasy Bralette": "12,500",
-        "Sunset Bucket Hat": "10,500"
-      };
-      return prices[itemName] || "";
+    function trackWhatsAppClick(itemName) {
+      // Update total clicks
+      let totalClicks = parseInt(localStorage.getItem('empressWearablesTotalClicks')) || 0;
+      totalClicks++;
+      localStorage.setItem('empressWearablesTotalClicks', totalClicks);
+      
+      // Update item-specific clicks
+      let itemClicks = parseInt(localStorage.getItem(`empressWearables_${itemName}`)) || 0;
+      itemClicks++;
+      localStorage.setItem(`empressWearables_${itemName}`, itemClicks);
+      
+      // Log to console (for testing)
+      console.log(`Clicked: ${itemName} | Item Clicks: ${itemClicks} | Total Clicks: ${totalClicks}`);
     }
   </script>
 </body>
