@@ -181,7 +181,10 @@
           
           <div class="button-group">
             <a href="empress-wearables-gallery.html" class="btn">View Designs</a>
-            <a href="https://wa.me/2349057826072?text=Hello%20Empress%20Crochets!%20I%20saw%20your%20wearables%20on%20AnythingbyJpy%20and%20would%20like%20to%20discuss%20a%20custom%20design.%20Please%20let%20me%20know%20your%20availability%20and%20pricing." class="whatsapp-direct" target="_blank">
+            <a href="https://wa.me/2349057826072?text=Hello%20Empress%20Crochets!%20I%20saw%20your%20wearables%20on%20AnythingbyJpy%20and%20would%20like%20to%20discuss%20a%20custom%20design.%20Please%20let%20me%20know%20your%20availability%20and%20pricing." 
+               class="whatsapp-direct" 
+               id="customDesignBtn"
+               target="_blank">
               <i class="fab fa-whatsapp"></i> Request Custom Design
             </a>
           </div>
@@ -189,5 +192,30 @@
       </div>
     </div>
   </div>
+
+  <!-- WhatsApp Click Tracking Script -->
+  <script>
+    document.getElementById('customDesignBtn').addEventListener('click', function() {
+      // Get current click count or initialize to 0
+      let clickCount = parseInt(localStorage.getItem('empressCustomDesignClicks')) || 0;
+      
+      // Increment count
+      clickCount++;
+      
+      // Store updated count
+      localStorage.setItem('empressCustomDesignClicks', clickCount);
+      
+      // Log to console (for testing)
+      console.log('Custom Design Requests:', clickCount);
+      
+      // (Optional) Send data to analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          'event_category': 'WhatsApp',
+          'event_label': 'Custom Design Request'
+        });
+      }
+    });
+  </script>
 </body>
 </html>
