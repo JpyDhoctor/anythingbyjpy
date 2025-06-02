@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hairdressers | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --bg: #0b0b0b;
@@ -11,6 +13,7 @@
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
       --text-secondary: #b0b0b0;
+      --whatsapp: #25D366;
     }
     
     * {
@@ -104,7 +107,7 @@
       transform: translateY(-3px);
     }
     
-    /* Stylists Grid */
+    /* Stylists Grid - Updated to Profile Cards */
     .stylists-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -113,7 +116,7 @@
     
     .stylists-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 30px;
       margin-top: 30px;
     }
@@ -121,7 +124,8 @@
     .stylist-card {
       background: var(--card-bg);
       border-radius: 15px;
-      overflow: hidden;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid transparent;
     }
@@ -132,14 +136,19 @@
       border-color: var(--accent);
     }
     
-    .stylist-img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
+    .profile-content {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 20px;
     }
     
-    .stylist-info {
-      padding: 25px;
+    .stylist-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
     }
     
     .stylist-info h2 {
@@ -148,15 +157,24 @@
     }
     
     .stylist-specialty {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
+      display: inline-block;
+      background: rgba(255,221,87,0.2);
+      color: var(--accent);
+      padding: 5px 15px;
+      border-radius: 20px;
       margin-bottom: 15px;
-      display: block;
+      font-size: 0.9rem;
     }
     
     .stylist-bio {
       margin-bottom: 20px;
       font-size: 0.95rem;
+    }
+    
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
     
     .profile-btn {
@@ -168,12 +186,32 @@
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
+      text-align: center;
     }
     
     .profile-btn:hover {
       background: #e6c74d;
       transform: translateY(-3px);
       box-shadow: 0 5px 15px rgba(255, 221, 87, 0.3);
+    }
+    
+    .whatsapp-chat-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 25px;
+      background: var(--whatsapp);
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-chat-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
     }
     
     /* Responsive */
@@ -184,6 +222,15 @@
       
       .category-tabs {
         flex-direction: column;
+        align-items: center;
+      }
+      
+      .profile-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .button-group {
         align-items: center;
       }
     }
@@ -219,23 +266,37 @@
       <div class="stylists-grid">
         <!-- Stylist 1 -->
         <div class="stylist-card">
-          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="James Wilson" class="stylist-img">
-          <div class="stylist-info">
-            <h2>James Wilson</h2>
-            <span class="stylist-specialty">Specialty: Classic & Modern Cuts</span>
-            <p class="stylist-bio">With 10+ years of experience, James specializes in precision scissor cuts and beard grooming. His attention to detail ensures every client leaves looking sharp.</p>
-            <a href="#" class="profile-btn">View Profile</a>
+          <div class="profile-content">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="James Wilson" class="stylist-img">
+            <div class="stylist-info">
+              <h2>James Wilson</h2>
+              <span class="stylist-specialty">Classic & Modern Cuts</span>
+            </div>
+          </div>
+          <p class="stylist-bio">With 10+ years of experience, James specializes in precision scissor cuts and beard grooming. His attention to detail ensures every client leaves looking sharp.</p>
+          <div class="button-group">
+            <a href="#" class="profile-btn">Book Appointment</a>
+            <a href="#" class="whatsapp-chat-btn">
+              <i class="fab fa-whatsapp"></i> Chat Directly
+            </a>
           </div>
         </div>
 
         <!-- Stylist 2 -->
         <div class="stylist-card">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marcus Lee" class="stylist-img">
-          <div class="stylist-info">
-            <h2>Marcus Lee</h2>
-            <span class="stylist-specialty">Specialty: Fades & Texture</span>
-            <p class="stylist-bio">Marcus is a master of clipper work, creating seamless fades and textured styles. His expertise includes Afro hair care and scalp treatments.</p>
-            <a href="#" class="profile-btn">View Profile</a>
+          <div class="profile-content">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marcus Lee" class="stylist-img">
+            <div class="stylist-info">
+              <h2>Marcus Lee</h2>
+              <span class="stylist-specialty">Fades & Texture</span>
+            </div>
+          </div>
+          <p class="stylist-bio">Marcus is a master of clipper work, creating seamless fades and textured styles. His expertise includes Afro hair care and scalp treatments.</p>
+          <div class="button-group">
+            <a href="#" class="profile-btn">Book Appointment</a>
+            <a href="#" class="whatsapp-chat-btn">
+              <i class="fab fa-whatsapp"></i> Chat Directly
+            </a>
           </div>
         </div>
       </div>
@@ -246,23 +307,37 @@
       <div class="stylists-grid">
         <!-- Stylist 1 -->
         <div class="stylist-card">
-          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sophia Chen" class="stylist-img">
-          <div class="stylist-info">
-            <h2>Sophia Chen</h2>
-            <span class="stylist-specialty">Specialty: Balayage & Extensions</span>
-            <p class="stylist-bio">Sophia is a color specialist with a passion for creating natural-looking balayage and seamless hair extensions. Certified in Olaplex treatments.</p>
-            <a href="#" class="profile-btn">View Profile</a>
+          <div class="profile-content">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sophia Chen" class="stylist-img">
+            <div class="stylist-info">
+              <h2>Sophia Chen</h2>
+              <span class="stylist-specialty">Balayage & Extensions</span>
+            </div>
+          </div>
+          <p class="stylist-bio">Sophia is a color specialist with a passion for creating natural-looking balayage and seamless hair extensions. Certified in Olaplex treatments.</p>
+          <div class="button-group">
+            <a href="#" class="profile-btn">Book Appointment</a>
+            <a href="#" class="whatsapp-chat-btn">
+              <i class="fab fa-whatsapp"></i> Chat Directly
+            </a>
           </div>
         </div>
 
         <!-- Stylist 2 -->
         <div class="stylist-card">
-          <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elena Rodriguez" class="stylist-img">
-          <div class="stylist-info">
-            <h2>Elena Rodriguez</h2>
-            <span class="stylist-specialty">Specialty: Bridal & Curly Hair</span>
-            <p class="stylist-bio">Elena excels in bridal styling and curly hair care. Her DevaCurl certification ensures your curls get the expert attention they deserve.</p>
-            <a href="#" class="profile-btn">View Profile</a>
+          <div class="profile-content">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elena Rodriguez" class="stylist-img">
+            <div class="stylist-info">
+              <h2>Elena Rodriguez</h2>
+              <span class="stylist-specialty">Bridal & Curly Hair</span>
+            </div>
+          </div>
+          <p class="stylist-bio">Elena excels in bridal styling and curly hair care. Her DevaCurl certification ensures your curls get the expert attention they deserve.</p>
+          <div class="button-group">
+            <a href="#" class="profile-btn">Book Appointment</a>
+            <a href="#" class="whatsapp-chat-btn">
+              <i class="fab fa-whatsapp"></i> Chat Directly
+            </a>
           </div>
         </div>
       </div>
