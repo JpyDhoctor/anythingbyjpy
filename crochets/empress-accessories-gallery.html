@@ -267,10 +267,29 @@
 
   <script>
     function contactArtist(itemName, price) {
+      // Track the click
+      trackWhatsAppClick(itemName);
+      
+      // Open WhatsApp as before
       const phone = "+2349057826072";
       const message = `Hello Empress Crochets! I'm interested in your "${itemName}" (₦${price}) accessory from AnythingbyJpy. Is this available?`;
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+    }
+
+    function trackWhatsAppClick(itemName) {
+      // Get or initialize total clicks
+      let totalClicks = parseInt(localStorage.getItem('empressWhatsappClicks')) || 0;
+      totalClicks++;
+      localStorage.setItem('empressWhatsappClicks', totalClicks);
+      
+      // Get or initialize item-specific clicks
+      let itemClicks = parseInt(localStorage.getItem(`empressItem_${itemName}`)) || 0;
+      itemClicks++;
+      localStorage.setItem(`empressItem_${itemName}`, itemClicks);
+      
+      // Log to console (for testing)
+      console.log(`Clicked: ${itemName} | Item Clicks: ${itemClicks} | Total Clicks: ${totalClicks}`);
     }
   </script>
 </body>
