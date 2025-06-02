@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Men's Tailors | AnythingbyJpy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --bg: #0b0b0b;
@@ -12,6 +14,7 @@
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
       --text-secondary: #b0b0b0;
+      --whatsapp: #25D366;
     }
 
     * {
@@ -70,20 +73,20 @@
       color: transparent;
     }
 
-    /* Tailors Grid */
+    /* Tailors Grid - Updated to Profile Style */
     .tailors {
       max-width: 1200px;
       margin: 50px auto;
       padding: 0 20px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 30px;
     }
 
     .tailor-card {
       background: var(--card-bg);
       border-radius: 15px;
-      overflow: hidden;
+      padding: 30px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
       transition: all 0.4s ease;
       border: 1px solid transparent;
@@ -95,14 +98,19 @@
       box-shadow: 0 15px 30px rgba(255, 221, 87, 0.2);
     }
 
-    .tailor-img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
+    .profile-content {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
-    .tailor-content {
-      padding: 25px;
+    .tailor-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
     }
 
     .tailor-content h2 {
@@ -126,34 +134,65 @@
       margin-bottom: 8px;
     }
 
-    .btn {
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .profile-btn {
       display: inline-block;
       padding: 10px 25px;
+      background: var(--accent);
+      color: #000;
       border-radius: 30px;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
-      margin-top: 10px;
+      text-align: center;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #000;
-    }
-
-    .btn-primary:hover {
+    .profile-btn:hover {
       background: var(--accent-dark);
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 221, 87, 0.3);
+    }
+
+    .whatsapp-chat-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 25px;
+      background: var(--whatsapp);
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-chat-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
     }
 
     @media (max-width: 768px) {
       .tailors-header h1 {
         font-size: 2.2rem;
       }
+      
+      .profile-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .button-group {
+        align-items: center;
+      }
     }
   </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <a href="../index.html" class="home-icon" aria-label="Return to Home">
@@ -166,48 +205,75 @@
   </section>
 
   <div class="tailors">
-    <!-- Tailor 1 -->
+    <!-- Tailor 1 - Updated to Diamond FD -->
     <div class="tailor-card">
-      <img src="https://images.unsplash.com/photo-1593030103066-0093718efeb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Master Tailor James" class="tailor-img">
-      <div class="tailor-content">
-        <h2>James Wilson</h2>
-        <p>20+ years experience in bespoke suiting</p>
-        <div>
-          <span class="specialty">Suits</span>
-          <span class="specialty">Tuxedos</span>
-          <span class="specialty">Shirts</span>
+      <div class="profile-content">
+        <img src="https://images.unsplash.com/photo-1593030103066-0093718efeb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Diamond FD" class="tailor-img">
+        <div class="tailor-content">
+          <h2>Diamond FD</h2>
+          <p>20+ years experience in bespoke suiting</p>
+          <div>
+            <span class="specialty">Suits</span>
+            <span class="specialty">Tuxedos</span>
+            <span class="specialty">Shirts</span>
+          </div>
         </div>
-        <a href="#" class="btn btn-primary">Book Consultation</a>
+      </div>
+      <div class="button-group">
+        <a href="#" class="profile-btn">Book Consultation</a>
+        <a href="https://wa.me/2348114868634?text=Hello%20Diamond%20FD!%20I%20saw%20your%20tailoring%20services%20on%20AnythingbyJpy%20and%20would%20like%20to%20chat%20about%20your%20services.%20Please%20let%20me%20know%20your%20availability." 
+           class="whatsapp-chat-btn"
+           target="_blank">
+          <i class="fab fa-whatsapp"></i> Chat Directly
+        </a>
       </div>
     </div>
 
     <!-- Tailor 2 -->
     <div class="tailor-card">
-      <img src="https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Tailor Ahmed" class="tailor-img">
-      <div class="tailor-content">
-        <h2>Ahmed Khan</h2>
-        <p>Modern cuts with traditional craftsmanship</p>
-        <div>
-          <span class="specialty">Casual Wear</span>
-          <span class="specialty">Leather</span>
-          <span class="specialty">Alterations</span>
+      <div class="profile-content">
+        <img src="https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Tailor Ahmed" class="tailor-img">
+        <div class="tailor-content">
+          <h2>Ahmed Khan</h2>
+          <p>Modern cuts with traditional craftsmanship</p>
+          <div>
+            <span class="specialty">Casual Wear</span>
+            <span class="specialty">Leather</span>
+            <span class="specialty">Alterations</span>
+          </div>
         </div>
-        <a href="#" class="btn btn-primary">Book Consultation</a>
+      </div>
+      <div class="button-group">
+        <a href="#" class="profile-btn">Book Consultation</a>
+        <a href="https://wa.me/2348114868634?text=Hello%20Ahmed%20Khan!%20I%20saw%20your%20tailoring%20services%20on%20AnythingbyJpy%20and%20would%20like%20to%20chat%20about%20your%20services.%20Please%20let%20me%20know%20your%20availability." 
+           class="whatsapp-chat-btn"
+           target="_blank">
+          <i class="fab fa-whatsapp"></i> Chat Directly
+        </a>
       </div>
     </div>
 
     <!-- Tailor 3 -->
     <div class="tailor-card">
-      <img src="https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Tailor Marcus" class="tailor-img">
-      <div class="tailor-content">
-        <h2>Marcus Chen</h2>
-        <p>Luxury fabrics and precision tailoring</p>
-        <div>
-          <span class="specialty">Wool</span>
-          <span class="specialty">Silk</span>
-          <span class="specialty">Wedding</span>
+      <div class="profile-content">
+        <img src="https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" alt="Tailor Marcus" class="tailor-img">
+        <div class="tailor-content">
+          <h2>Marcus Chen</h2>
+          <p>Luxury fabrics and precision tailoring</p>
+          <div>
+            <span class="specialty">Wool</span>
+            <span class="specialty">Silk</span>
+            <span class="specialty">Wedding</span>
+          </div>
         </div>
-        <a href="#" class="btn btn-primary">Book Consultation</a>
+      </div>
+      <div class="button-group">
+        <a href="#" class="profile-btn">Book Consultation</a>
+        <a href="https://wa.me/2348114868634?text=Hello%20Marcus%20Chen!%20I%20saw%20your%20tailoring%20services%20on%20AnythingbyJpy%20and%20would%20like%20to%20chat%20about%20your%20services.%20Please%20let%20me%20know%20your%20availability." 
+           class="whatsapp-chat-btn"
+           target="_blank">
+          <i class="fab fa-whatsapp"></i> Chat Directly
+        </a>
       </div>
     </div>
   </div>
