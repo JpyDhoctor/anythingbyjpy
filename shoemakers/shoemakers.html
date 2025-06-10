@@ -4,15 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Viceno Pairs | Master Shoemaker | AnythingbyJpy</title>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-492876698"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-492876698');
-  </script>
-  <!-- End Google Analytics -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -115,6 +106,20 @@
     .whatsapp-btn:hover {
       background: #128C7E;
     }
+
+    /* Admin Stats Panel */
+    .stats-panel {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      z-index: 1000;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -146,21 +151,60 @@
     </a>
   </main>
 
-  <!-- WhatsApp Click Tracker -->
+  <!-- Admin Stats Panel (hidden by default) -->
+  <div class="stats-panel" id="statsPanel">
+    <strong>Visitor Stats</strong>
+    <div>Total WhatsApp Clicks: <span id="clickCount">0</span></div>
+    <div>Last Visit: <span id="lastVisit">Never</span></div>
+  </div>
+
+  <!-- Enhanced Tracking Script -->
   <script>
-    document.getElementById('whatsappBtn').addEventListener('click', function() {
-      // LocalStorage tracking
+    // Initialize stats when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load click count
       let clicks = localStorage.getItem('whatsappClicks') || 0;
-      localStorage.setItem('whatsappClicks', ++clicks);
-      console.log("Total WhatsApp Clicks:", clicks);
+      document.getElementById('clickCount').textContent = clicks;
       
-      // Google Analytics tracking
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'whatsapp_click', {
-          'event_category': 'Contact',
-          'event_label': 'Viceno Pairs Main Page'
-        });
+      // Track last visit
+      const lastVisit = localStorage.getItem('lastVisit');
+      if (lastVisit) {
+        document.getElementById('lastVisit').textContent = new Date(parseInt(lastVisit)).toLocaleString();
       }
+      localStorage.setItem('lastVisit', Date.now());
+      
+      // Show stats panel with keyboard shortcut (Ctrl+Shift+S)
+      document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.shiftKey && e.key === 'S') {
+          const panel = document.getElementById('statsPanel');
+          panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+      });
+    });
+
+    // Enhanced WhatsApp click tracking
+    document.getElementById('whatsappBtn').addEventListener('click', function() {
+      // Track total clicks
+      let clicks = localStorage.getItem('whatsappClicks') || 0;
+      clicks = parseInt(clicks) + 1;
+      localStorage.setItem('whatsappClicks', clicks);
+      document.getElementById('clickCount').textContent = clicks;
+      
+      // Store detailed click data
+      const clickData = {
+        timestamp: new Date().toISOString(),
+        deviceInfo: {
+          screenWidth: window.screen.width,
+          screenHeight: window.screen.height,
+          platform: navigator.platform
+        }
+      };
+      
+      const clickHistory = JSON.parse(localStorage.getItem('clickHistory') || '[]');
+      clickHistory.push(clickData);
+      localStorage.setItem('clickHistory', JSON.stringify(clickHistory));
+      
+      console.log('WhatsApp click recorded:', clickData);
     });
   </script>
 </body>
