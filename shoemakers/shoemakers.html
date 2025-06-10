@@ -4,10 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Viceno Pairs | Master Shoemaker | AnythingbyJpy</title>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YOUR_MEASUREMENT_ID');
+  </script>
+  <!-- End Google Analytics -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-      :root {
+    :root {
       --bg: #0b0b0b;
       --accent: #ffdd57;
       --accent-dark: #e6c74d;
@@ -132,17 +141,26 @@
     
     <a href="viceno-gallery.html" class="btn">View Designs</a>
     <a href="https://wa.me/2347015191893?text=Hello%20Viceno%20Pairs!%20I%20saw%20your%20profile%20on%20AnythingbyJpy%20and%20would%20like%20to%20discuss%20custom%20shoes." 
-       class="btn whatsapp-btn">
+       class="btn whatsapp-btn" id="whatsappBtn">
        <i class="fab fa-whatsapp"></i> Chat Directly
     </a>
   </main>
 
   <!-- WhatsApp Click Tracker -->
   <script>
-    document.querySelector('.whatsapp-btn').addEventListener('click', function() {
+    document.getElementById('whatsappBtn').addEventListener('click', function() {
+      // LocalStorage tracking
       let clicks = localStorage.getItem('whatsappClicks') || 0;
       localStorage.setItem('whatsappClicks', ++clicks);
       console.log("Total WhatsApp Clicks:", clicks);
+      
+      // Google Analytics tracking
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', {
+          'event_category': 'Contact',
+          'event_label': 'Viceno Pairs Main Page'
+        });
+      }
     });
   </script>
 </body>
