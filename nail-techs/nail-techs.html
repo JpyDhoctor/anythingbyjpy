@@ -368,185 +368,138 @@
   </button>
 
   <script>
-  // Firebase configuration - USE YOUR ACTUAL CONFIG HERE
- const firebaseConfig = {
-  apiKey: "AIzaSyBaVbVPknR3w2H5arB2ogGK4lu88eS6FKg",
-  authDomain: "polishandpamperbyzenachat.firebaseapp.com",
-  databaseURL: "https://polishandpamperbyzenachat-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "polishandpamperbyzenachat",
-  storageBucket: "polishandpamperbyzenachat.firebasestorage.app",
-  messagingSenderId: "360680821375",
-  appId: "1:360680821375:web:ceeca5ba42a777dba7a54a",
-  measurementId: "G-B1MX9PN6FX"
-};
+  // Firebase config - PASTE YOUR ACTUAL CONFIG HERE
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
 
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
 
-  // Password Configuration
-  const ADMIN_PASSWORD = "ZenaNails2024";
-  let adminTimeout;
+  // Client/Admin Setup
+  const clientId = 'client_' + (localStorage.getItem('clientId') || Math.random().toString(36).substr(2, 9));
+  localStorage.setItem('clientId', clientId);
   let isAdmin = false;
 
   // DOM Elements
-  const chatModal = document.getElementById('chatModal');
-  const openChatBtn = document.getElementById('openChatBtn');
-  const chatMessages = document.getElementById('chatMessages');
-  const messageInput = document.getElementById('messageInput');
-  const adminPanelLink = document.getElementById('adminPanelLink');
-  const adminModal = document.getElementById('adminModal');
-  const adminMessages = document.getElementById('adminMessages');
-  const conversationSelector = document.getElementById('conversationSelector');
-  const adminMessageInput = document.getElementById('adminMessageInput');
+  const elements = {
+    chatModal: document.getElementById('chatModal'),
+    openChatBtn: document.getElementById('openChatBtn'),
+    chatMessages: document.getElementById('chatMessages'),
+    messageInput: document.getElementById('messageInput'),
+    adminPanelLink: document.getElementById('adminPanelLink'),
+    adminModal: document.getElementById('adminModal'),
+    adminMessages: document.getElementById('adminMessages'),
+    conversationSelector: document.getElementById('conversationSelector'),
+    adminMessageInput: document.getElementById('adminMessageInput'),
+    secretAdminBtn: document.getElementById('secretAdminBtn')
+  };
 
-  // Generate client ID
-  let clientId = localStorage.getItem('clientId');
-  if (!clientId) {
-    clientId = 'client_' + Math.random().toString(36).substr(2, 9);
-    localStorage.setItem('clientId', clientId);
-  }
-
-  // Password System
-  document.getElementById('secretAdminBtn').addEventListener('click', () => {
-    const password = prompt("🔒 Enter admin password:");
-    if (password === ADMIN_PASSWORD) {
+  // Password Protection
+  elements.secretAdminBtn.addEventListener('click', () => {
+    if (prompt("Admin password:") === "ZenaNails2024") {
       isAdmin = true;
-      adminPanelLink.style.display = 'block';
-      alert("Admin mode activated!");
-      resetAdminTimeout();
-    } else if (password) {
-      alert("Incorrect password");
+      elements.adminPanelLink.style.display = 'block';
     }
   });
 
-  function resetAdminTimeout() {
-    clearTimeout(adminTimeout);
-    adminTimeout = setTimeout(() => {
-      adminPanelLink.style.display = 'none';
-      isAdmin = false;
-    }, 3600000); // 1 hour timeout
-  }
-
-  // Chat System Functions
-  function sendMessage() {
-    const messageText = messageInput.value.trim();
-    if (!messageText) return;
-
-    const message = {
-      text: messageText,
-      sender: clientId,
+  // Message Handling
+  function sendMessage(sender, recipient, text, isAdminMessage) {
+    const messageRef = database.ref('conversations/' + recipient + '/messages');
+    messageRef.push({
+      text: text,
+      sender: sender,
       timestamp: Date.now(),
-      isAdmin: false
-    };
-
-    database.ref('conversations/' + clientId + '/messages').push(message);
-    addMessageToUI(message, true);
-    messageInput.value = '';
+      isAdmin: isAdminMessage
+    });
   }
 
-  function sendAdminMessage() {
-    const messageText = adminMessageInput.value.trim();
-    const clientId = conversationSelector.value;
-    if (!messageText || !clientId) return;
-
-    const message = {
-      text: messageText,
-      sender: 'zena',
-      timestamp: Date.now(),
-      isAdmin: true
-    };
-
-    database.ref('conversations/' + clientId + '/messages').push(message);
-    adminMessageInput.value = '';
+  function displayMessage(message, isCurrentUser) {
+    const msgElement = document.createElement('div');
+    msgElement.className = `message ${isCurrentUser ? 'client-message' : 'zena-message'}`;
+    msgElement.textContent = message.text;
+    return msgElement;
   }
 
-  function addMessageToUI(message, isFromCurrentUser, isAdminView = false) {
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('message');
-    messageDiv.classList.add(isFromCurrentUser ? 'client-message' : 'zena-message');
-    messageDiv.textContent = message.text;
-    
-    const container = isAdminView ? adminMessages : chatMessages;
-    container.appendChild(messageDiv);
-    container.scrollTop = container.scrollHeight;
-  }
-
-  // Message Listeners
-  function setupMessageListener(clientId, isAdminView = false) {
+  // Chat Listeners
+  function setupChatListener(clientId, isAdminView = false) {
     database.ref('conversations/' + clientId + '/messages')
       .orderByChild('timestamp')
       .on('value', (snapshot) => {
-        const container = isAdminView ? adminMessages : chatMessages;
+        const container = isAdminView ? elements.adminMessages : elements.chatMessages;
         container.innerHTML = '';
         
-        snapshot.forEach((childSnapshot) => {
-          const message = childSnapshot.val();
-          addMessageToUI(message, 
-            message.sender === (isAdminView ? clientId : clientId), 
-            isAdminView);
+        snapshot.forEach(msg => {
+          const message = msg.val();
+          container.appendChild(
+            displayMessage(message, 
+              isAdminView 
+                ? message.sender === clientId 
+                : message.sender === clientId
+            )
+          );
         });
+        container.scrollTop = container.scrollHeight;
       });
   }
 
   // Event Listeners
-  openChatBtn.addEventListener('click', () => {
-    chatModal.style.display = 'block';
-    setupMessageListener(clientId);
+  elements.openChatBtn.addEventListener('click', () => {
+    elements.chatModal.style.display = 'block';
+    setupChatListener(clientId);
   });
 
-  adminPanelLink.addEventListener('click', (e) => {
+  elements.adminPanelLink.addEventListener('click', (e) => {
     e.preventDefault();
-    adminModal.style.display = 'block';
-    loadConversations();
+    elements.adminModal.style.display = 'block';
+    database.ref('conversations').once('value').then(snap => {
+      elements.conversationSelector.innerHTML = '<option value="">Select client</option>';
+      snap.forEach(client => {
+        const option = document.createElement('option');
+        option.value = client.key;
+        option.textContent = `Client ${client.key.substr(0, 5)}...`;
+        elements.conversationSelector.appendChild(option);
+      });
+    });
   });
 
-  document.getElementById('closeChat').addEventListener('click', () => {
-    chatModal.style.display = 'none';
+  elements.conversationSelector.addEventListener('change', (e) => {
+    if (e.target.value) setupChatListener(e.target.value, true);
   });
 
-  document.getElementById('closeAdmin').addEventListener('click', () => {
-    adminModal.style.display = 'none';
-  });
-
-  messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendMessage();
-  });
-
-  adminMessageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') sendAdminMessage();
-  });
-
-  conversationSelector.addEventListener('change', (e) => {
-    if (e.target.value) {
-      adminMessages.innerHTML = '';
-      setupMessageListener(e.target.value, true);
+  elements.messageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && e.target.value.trim()) {
+      sendMessage(clientId, clientId, e.target.value.trim(), false);
+      e.target.value = '';
     }
   });
 
-  // Load all conversations for admin
-  function loadConversations() {
-    conversationSelector.innerHTML = '<option value="">Select client</option>';
-    database.ref('conversations').once('value').then((snapshot) => {
-      snapshot.forEach((clientSnapshot) => {
-        const option = document.createElement('option');
-        option.value = clientSnapshot.key;
-        option.textContent = 'Client: ' + clientSnapshot.key.substring(0, 8) + '...';
-        conversationSelector.appendChild(option);
-      });
-    });
-  }
-
-  // Close modals when clicking outside
-  window.addEventListener('click', (e) => {
-    if (e.target === chatModal) chatModal.style.display = 'none';
-    if (e.target === adminModal) adminModal.style.display = 'none';
+  elements.adminMessageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter' && e.target.value.trim() && elements.conversationSelector.value) {
+      sendMessage('zena', elements.conversationSelector.value, e.target.value.trim(), true);
+      e.target.value = '';
+    }
   });
 
-  // Auto-check for admin mode
-  if (window.location.search.includes('admin=true')) {
-    document.getElementById('secretAdminBtn').click();
-  }
-  </script>
+  // Modal Close Handlers
+  document.querySelectorAll('.close-chat').forEach(btn => {
+    btn.addEventListener('click', () => {
+      elements.chatModal.style.display = 'none';
+      elements.adminModal.style.display = 'none';
+    });
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === elements.chatModal) elements.chatModal.style.display = 'none';
+    if (e.target === elements.adminModal) elements.adminModal.style.display = 'none';
+  });
+</script>
 </body>
 </html>
