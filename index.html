@@ -935,7 +935,401 @@
       animation-delay: 0.8s;
     }
 
-    /* ===== RESPONSIVE ===== */
+    /* ===== CHAT SYSTEM STYLES ===== */
+    .chat-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.3s ease;
+    }
+
+    .chat-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(255, 221, 87, 0.4);
+    }
+
+    .chat-btn .badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ff4d4d;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chat-container {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 350px;
+      max-height: 500px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      border: 1px solid rgba(255, 221, 87, 0.3);
+    }
+
+    .chat-container.active {
+      display: flex;
+    }
+
+    .chat-header {
+      padding: 15px;
+      background: rgba(255, 221, 87, 0.1);
+      border-bottom: 1px solid rgba(255, 221, 87, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .received {
+      background: rgba(255, 221, 87, 0.1);
+      border: 1px solid rgba(255, 221, 87, 0.2);
+      margin-right: auto;
+      border-bottom-left-radius: 5px;
+    }
+
+    .sent {
+      background: rgba(255, 221, 87, 0.2);
+      margin-left: auto;
+      border-bottom-right-radius: 5px;
+    }
+
+    .offer-message {
+      background: rgba(255, 221, 87, 0.1);
+      border: 1px dashed var(--accent);
+      padding: 10px;
+      border-radius: 8px;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .offer-message .price {
+      font-weight: bold;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .offer-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+
+    .offer-btn {
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .accept-btn {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .reject-btn {
+      background: #f44336;
+      color: white;
+    }
+
+    .counter-btn {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .chat-input-area {
+      padding: 15px;
+      border-top: 1px solid rgba(255, 221, 87, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 10px 15px;
+      background: #2a2a2a;
+      border: 1px solid #3a3a3a;
+      border-radius: 20px;
+      color: var(--light);
+      font-family: 'Poppins', sans-serif;
+      resize: none;
+      max-height: 100px;
+    }
+
+    .chat-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .chat-controls {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .send-btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .send-btn:hover {
+      background: var(--accent-dark);
+    }
+
+    .offer-btn {
+      background: none;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .offer-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* Admin Chat Dashboard */
+    .admin-chat-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .admin-chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 221, 87, 0.2);
+    }
+
+    .conversation-list {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+    }
+
+    .conversation-sidebar {
+      border-right: 1px solid rgba(255, 221, 87, 0.2);
+      padding-right: 20px;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .conversation-item {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .conversation-item:hover {
+      background: rgba(255, 221, 87, 0.1);
+    }
+
+    .conversation-item.active {
+      background: rgba(255, 221, 87, 0.1);
+      border-color: var(--accent);
+    }
+
+    .conversation-preview {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .conversation-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .admin-chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .admin-chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .admin-chat-input textarea {
+      flex: 1;
+      padding: 10px 15px;
+      background: #2a2a2a;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      color: var(--light);
+      font-family: 'Poppins', sans-serif;
+      resize: none;
+    }
+
+    .admin-send-btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 0 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .admin-send-btn:hover {
+      background: var(--accent-dark);
+    }
+
+    /* Offer Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .offer-modal {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--accent);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .form-row {
+      margin-bottom: 15px;
+    }
+
+    .form-row label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .form-row input, .form-row textarea {
+      width: 100%;
+      padding: 10px 15px;
+      background: #2a2a2a;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      color: var(--light);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* Responsive Styles */
     @media (max-width: 992px) {
       .about, .contact-container {
         grid-template-columns: 1fr;
@@ -953,6 +1347,18 @@
       .about-content h2::after {
         left: 50%;
         transform: translateX(-50%);
+      }
+
+      .conversation-list {
+        grid-template-columns: 1fr;
+      }
+
+      .conversation-sidebar {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 221, 87, 0.2);
+        padding-right: 0;
+        padding-bottom: 20px;
+        max-height: 300px;
       }
     }
 
@@ -978,6 +1384,12 @@
       .stats {
         grid-template-columns: 1fr;
       }
+
+      .chat-container {
+        width: 300px;
+        right: 20px;
+        bottom: 80px;
+      }
     }
 
     @media (max-width: 576px) {
@@ -995,6 +1407,18 @@
       
       .contact-form {
         padding: 30px 20px;
+      }
+
+      .chat-container {
+        width: calc(100% - 40px);
+        right: 20px;
+        left: 20px;
+        max-height: 400px;
+      }
+
+      .chat-btn {
+        bottom: 20px;
+        right: 20px;
       }
     }
   </style>
@@ -1014,6 +1438,8 @@
           <a href="#services" class="nav-link">Services</a>
           <a href="#partners" class="nav-link">Partners</a>
           <a href="#contact" class="nav-link">Contact</a>
+          <!-- Admin Dashboard Link (only shown to admin) -->
+          <a href="#admin-chat" class="nav-link admin-link" style="display: none;">Admin Dashboard</a>
         </div>
         
         <button class="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">
@@ -1416,6 +1842,36 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Admin Chat Dashboard (Hidden by default) -->
+  <section id="admin-chat" class="admin-chat-container" style="display: none;">
+    <div class="admin-chat-header">
+      <h2>Admin Chat Dashboard</h2>
+      <button id="refresh-chats" class="btn btn-primary">Refresh Conversations</button>
+    </div>
+    <div class="conversation-list">
+      <div class="conversation-sidebar">
+        <h3>Active Conversations</h3>
+        <div id="admin-conversation-list">
+          <!-- Conversations will be loaded here -->
+        </div>
+      </div>
+      <div class="conversation-content">
+        <div class="admin-chat-messages" id="admin-chat-messages">
+          <!-- Messages will be loaded here -->
+        </div>
+        <div class="admin-chat-input">
+          <textarea id="admin-message-input" placeholder="Type your message..."></textarea>
+          <button id="admin-send-btn" class="admin-send-btn">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <img src="jpy-logo.jpg" alt="AnythingbyJpy Logo" class="footer-logo animate" />
@@ -1442,6 +1898,64 @@ document.addEventListener('DOMContentLoaded', function() {
       &copy; <span id="year"></span> AnythingbyJpy. All rights reserved.
     </p>
   </footer>
+
+  <!-- Chat Button -->
+  <div class="chat-btn" id="chatBtn">
+    <i class="fas fa-comments"></i>
+    <span class="badge" id="unreadCount" style="display: none;">0</span>
+  </div>
+
+  <!-- Chat Container -->
+  <div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+      <h3>Chat with Artisan</h3>
+      <button class="close-chat" id="closeChat">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <!-- Messages will appear here -->
+    </div>
+    <div class="chat-input-area">
+      <div id="offerMessage" class="offer-message" style="display: none;">
+        <div id="offerContent"></div>
+        <div class="offer-actions" id="offerActions">
+          <button class="offer-btn accept-btn" id="acceptOffer">Accept</button>
+          <button class="offer-btn reject-btn" id="rejectOffer">Reject</button>
+          <button class="offer-btn counter-btn" id="counterOffer">Counter</button>
+        </div>
+      </div>
+      <textarea class="chat-input" id="messageInput" placeholder="Type your message..."></textarea>
+      <div class="chat-controls">
+        <button class="offer-btn" id="makeOfferBtn">
+          <i class="fas fa-handshake"></i> Make Offer
+        </button>
+        <button class="send-btn" id="sendMessageBtn">
+          <i class="fas fa-paper-plane"></i> Send
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offer Modal -->
+  <div class="modal-overlay" id="offerModal">
+    <div class="offer-modal">
+      <div class="modal-header">
+        <h3>Make an Offer</h3>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+      <div class="form-row">
+        <label for="offerPrice">Price (₦)</label>
+        <input type="number" id="offerPrice" placeholder="Enter amount">
+      </div>
+      <div class="form-row">
+        <label for="offerDetails">Offer Details</label>
+        <textarea id="offerDetails" placeholder="Describe your offer..."></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="cancelOffer">Cancel</button>
+        <button class="btn btn-primary" id="submitOffer">Submit Offer</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Set current year in footer
@@ -1548,6 +2062,376 @@ document.addEventListener('DOMContentLoaded', function() {
       );
 
       animateElements.forEach((el) => observer.observe(el));
+    });
+
+    // Chat System Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // DOM Elements
+      const chatBtn = document.getElementById('chatBtn');
+      const chatContainer = document.getElementById('chatContainer');
+      const closeChat = document.getElementById('closeChat');
+      const chatMessages = document.getElementById('chatMessages');
+      const messageInput = document.getElementById('messageInput');
+      const sendMessageBtn = document.getElementById('sendMessageBtn');
+      const makeOfferBtn = document.getElementById('makeOfferBtn');
+      const offerModal = document.getElementById('offerModal');
+      const closeModal = document.getElementById('closeModal');
+      const cancelOffer = document.getElementById('cancelOffer');
+      const submitOffer = document.getElementById('submitOffer');
+      const offerPrice = document.getElementById('offerPrice');
+      const offerDetails = document.getElementById('offerDetails');
+      const offerMessage = document.getElementById('offerMessage');
+      const offerContent = document.getElementById('offerContent');
+      const acceptOffer = document.getElementById('acceptOffer');
+      const rejectOffer = document.getElementById('rejectOffer');
+      const counterOffer = document.getElementById('counterOffer');
+      const unreadCount = document.getElementById('unreadCount');
+      const adminChatSection = document.getElementById('admin-chat');
+      const adminLink = document.querySelector('.admin-link');
+      const refreshChats = document.getElementById('refresh-chats');
+      const adminConversationList = document.getElementById('admin-conversation-list');
+      const adminChatMessages = document.getElementById('admin-chat-messages');
+      const adminMessageInput = document.getElementById('admin-message-input');
+      const adminSendBtn = document.getElementById('admin-send-btn');
+
+      // Demo data - in a real app, this would come from a database
+      let conversations = [];
+      let messages = {};
+      let currentConversation = null;
+      let isAdmin = false; // Set to true for admin view
+      let unreadMessages = 0;
+
+      // Check if user is admin (in a real app, this would be proper authentication)
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('admin') === 'true') {
+        isAdmin = true;
+        adminChatSection.style.display = 'block';
+        adminLink.style.display = 'block';
+      }
+
+      // Initialize with some demo conversations and messages
+      function initializeDemoData() {
+        conversations = [
+          { id: '1', artisan: 'Jessica (Tailor)', lastMessage: 'I can make that for ₦15,000', timestamp: '10:30 AM', unread: false },
+          { id: '2', artisan: 'Viceno (Shoemaker)', lastMessage: 'The shoes will be ready in 2 weeks', timestamp: 'Yesterday', unread: true },
+          { id: '3', artisan: 'Barber Joe', lastMessage: 'What time works for you?', timestamp: 'Monday', unread: false }
+        ];
+
+        messages = {
+          '1': [
+            { sender: 'client', text: 'Hi Jessica, I need a custom dress for an event', timestamp: '10:00 AM' },
+            { sender: 'artisan', text: 'Hello! What style are you looking for?', timestamp: '10:05 AM' },
+            { sender: 'client', text: 'A long evening gown in blue', timestamp: '10:15 AM' },
+            { sender: 'artisan', text: 'I can make that for ₦15,000', timestamp: '10:30 AM', isOffer: true, price: 15000, details: 'Includes fabric and fittings' }
+          ],
+          '2': [
+            { sender: 'artisan', text: 'Thanks for your shoe order!', timestamp: 'Yesterday' },
+            { sender: 'client', text: 'How long will it take to complete?', timestamp: 'Yesterday' },
+            { sender: 'artisan', text: 'The shoes will be ready in 2 weeks', timestamp: 'Yesterday' }
+          ],
+          '3': [
+            { sender: 'artisan', text: 'Hi there, ready for your haircut?', timestamp: 'Monday' },
+            { sender: 'client', text: 'Yes, what time do you have available?', timestamp: 'Monday' },
+            { sender: 'artisan', text: 'What time works for you?', timestamp: 'Monday' }
+          ]
+        };
+
+        // Calculate unread messages
+        unreadMessages = conversations.filter(c => c.unread).length;
+        updateUnreadCount();
+      }
+
+      // Update unread count badge
+      function updateUnreadCount() {
+        if (unreadMessages > 0) {
+          unreadCount.textContent = unreadMessages;
+          unreadCount.style.display = 'flex';
+        } else {
+          unreadCount.style.display = 'none';
+        }
+      }
+
+      // Toggle chat window
+      chatBtn.addEventListener('click', function() {
+        chatContainer.classList.toggle('active');
+        if (chatContainer.classList.contains('active')) {
+          unreadMessages = 0;
+          updateUnreadCount();
+        }
+      });
+
+      closeChat.addEventListener('click', function() {
+        chatContainer.classList.remove('active');
+      });
+
+      // Open offer modal
+      makeOfferBtn.addEventListener('click', function() {
+        offerModal.classList.add('active');
+      });
+
+      // Close offer modal
+      closeModal.addEventListener('click', function() {
+        offerModal.classList.remove('active');
+      });
+
+      cancelOffer.addEventListener('click', function() {
+        offerModal.classList.remove('active');
+      });
+
+      // Submit offer
+      submitOffer.addEventListener('click', function() {
+        const price = offerPrice.value;
+        const details = offerDetails.value;
+        
+        if (!price || !details) {
+          alert('Please fill in all fields');
+          return;
+        }
+
+        // Create offer message
+        const offerMsg = {
+          sender: 'client',
+          text: `I'm offering ₦${price} - ${details}`,
+          timestamp: getCurrentTime(),
+          isOffer: true,
+          price: parseFloat(price),
+          details: details
+        };
+
+        // Add to messages
+        if (currentConversation) {
+          messages[currentConversation.id].push(offerMsg);
+          renderMessages(currentConversation.id);
+        }
+
+        // Reset and close modal
+        offerPrice.value = '';
+        offerDetails.value = '';
+        offerModal.classList.remove('active');
+      });
+
+      // Handle offer actions
+      acceptOffer.addEventListener('click', function() {
+        addMessage('client', 'I accept your offer!');
+        offerMessage.style.display = 'none';
+      });
+
+      rejectOffer.addEventListener('click', function() {
+        addMessage('client', 'I decline your offer.');
+        offerMessage.style.display = 'none';
+      });
+
+      counterOffer.addEventListener('click', function() {
+        const currentOffer = messages[currentConversation.id].find(m => m.isOffer && m.sender === 'artisan');
+        if (currentOffer) {
+          offerPrice.value = currentOffer.price - 2000; // Example counter
+          offerDetails.value = `Counter offer for ${currentOffer.details}`;
+          offerModal.classList.add('active');
+          offerMessage.style.display = 'none';
+        }
+      });
+
+      // Send message
+      sendMessageBtn.addEventListener('click', function() {
+        const text = messageInput.value.trim();
+        if (text) {
+          addMessage('client', text);
+          messageInput.value = '';
+          
+          // Simulate artisan reply after 1-3 seconds
+          if (Math.random() > 0.3) { // 70% chance of reply
+            setTimeout(() => {
+              const replies = [
+                'Thanks for your message!',
+                'I can help with that.',
+                'What size do you need?',
+                'Let me check my schedule.',
+                'That will be ₦12,000.'
+              ];
+              const randomReply = replies[Math.floor(Math.random() * replies.length)];
+              addMessage('artisan', randomReply);
+              
+              // Sometimes include an offer
+              if (Math.random() > 0.7 && !messages[currentConversation.id].some(m => m.isOffer)) {
+                setTimeout(() => {
+                  const offerMsg = {
+                    sender: 'artisan',
+                    text: `I can do this for ₦${Math.floor(Math.random() * 5000) + 8000}`,
+                    timestamp: getCurrentTime(),
+                    isOffer: true,
+                    price: Math.floor(Math.random() * 5000) + 8000,
+                    details: 'Standard service with materials included'
+                  };
+                  messages[currentConversation.id].push(offerMsg);
+                  renderMessages(currentConversation.id);
+                }, 1000);
+              }
+            }, Math.random() * 2000 + 1000);
+          }
+        }
+      });
+
+      // Send message on Enter key (but allow Shift+Enter for new lines)
+      messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessageBtn.click();
+        }
+      });
+
+      // Admin send message
+      adminSendBtn.addEventListener('click', function() {
+        const text = adminMessageInput.value.trim();
+        if (text && currentConversation) {
+          // Add as admin message
+          messages[currentConversation.id].push({
+            sender: 'admin',
+            text: text,
+            timestamp: getCurrentTime()
+          });
+          renderAdminMessages(currentConversation.id);
+          adminMessageInput.value = '';
+        }
+      });
+
+      // Admin refresh conversations
+      refreshChats.addEventListener('click', function() {
+        renderAdminConversationList();
+      });
+
+      // Add a new message to current conversation
+      function addMessage(sender, text) {
+        if (currentConversation) {
+          messages[currentConversation.id].push({
+            sender: sender,
+            text: text,
+            timestamp: getCurrentTime()
+          });
+          renderMessages(currentConversation.id);
+        }
+      }
+
+      // Render messages for a conversation
+      function renderMessages(conversationId) {
+        chatMessages.innerHTML = '';
+        const conversationMessages = messages[conversationId] || [];
+        
+        conversationMessages.forEach(msg => {
+          const messageDiv = document.createElement('div');
+          
+          if (msg.isOffer) {
+            messageDiv.className = 'message offer-message';
+            messageDiv.innerHTML = `
+              <div><strong>${msg.sender === 'artisan' ? currentConversation.artisan : 'You'}</strong> made an offer</div>
+              <div class="price">₦${msg.price.toLocaleString()}</div>
+              <div>${msg.details}</div>
+            `;
+            
+            if (msg.sender === 'artisan') {
+              const actions = document.createElement('div');
+              actions.className = 'offer-actions';
+              actions.innerHTML = `
+                <button class="offer-btn accept-btn">Accept</button>
+                <button class="offer-btn reject-btn">Reject</button>
+                <button class="offer-btn counter-btn">Counter</button>
+              `;
+              messageDiv.appendChild(actions);
+              
+              // Add event listeners to these buttons
+              actions.querySelector('.accept-btn').addEventListener('click', function() {
+                addMessage('client', 'I accept your offer!');
+              });
+              
+              actions.querySelector('.reject-btn').addEventListener('click', function() {
+                addMessage('client', 'I decline your offer.');
+              });
+              
+              actions.querySelector('.counter-btn').addEventListener('click', function() {
+                offerPrice.value = msg.price - 2000; // Example counter
+                offerDetails.value = `Counter offer for ${msg.details}`;
+                offerModal.classList.add('active');
+              });
+            }
+          } else {
+            messageDiv.className = `message ${msg.sender === 'client' ? 'sent' : 'received'}`;
+            messageDiv.innerHTML = `
+              <div class="message-text">${msg.text}</div>
+              <div class="message-time">${msg.timestamp}</div>
+            `;
+          }
+          
+          chatMessages.appendChild(messageDiv);
+        });
+        
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      // Render admin conversation list
+      function renderAdminConversationList() {
+        adminConversationList.innerHTML = '';
+        
+        conversations.forEach(conv => {
+          const convItem = document.createElement('div');
+          convItem.className = `conversation-item ${currentConversation && currentConversation.id === conv.id ? 'active' : ''}`;
+          convItem.innerHTML = `
+            <div class="conversation-artisan"><strong>${conv.artisan}</strong></div>
+            <div class="conversation-preview">${conv.lastMessage}</div>
+            <div class="conversation-time">${conv.timestamp}</div>
+          `;
+          
+          convItem.addEventListener('click', function() {
+            currentConversation = conv;
+            renderAdminConversationList();
+            renderAdminMessages(conv.id);
+          });
+          
+          adminConversationList.appendChild(convItem);
+        });
+      }
+
+      // Render messages in admin view
+      function renderAdminMessages(conversationId) {
+        adminChatMessages.innerHTML = '';
+        const conversationMessages = messages[conversationId] || [];
+        
+        conversationMessages.forEach(msg => {
+          const messageDiv = document.createElement('div');
+          messageDiv.className = `message ${msg.sender === 'admin' ? 'sent' : 'received'}`;
+          
+          let senderName = msg.sender === 'client' ? 'Client' : 
+                          msg.sender === 'artisan' ? conversations.find(c => c.id === conversationId)?.artisan || 'Artisan' : 
+                          'Admin';
+          
+          messageDiv.innerHTML = `
+            <div class="message-sender"><strong>${senderName}</strong></div>
+            <div class="message-text">${msg.text}</div>
+            <div class="message-time">${msg.timestamp}</div>
+          `;
+          
+          adminChatMessages.appendChild(messageDiv);
+        });
+        
+        // Scroll to bottom
+        adminChatMessages.scrollTop = adminChatMessages.scrollHeight;
+      }
+
+      // Get current time in HH:MM AM/PM format
+      function getCurrentTime() {
+        const now = new Date();
+        let hours = now.getHours();
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        return `${hours}:${minutes} ${ampm}`;
+      }
+
+      // Initialize demo data and render if admin
+      initializeDemoData();
+      if (isAdmin) {
+        renderAdminConversationList();
+      }
     });
   </script>
 </body>
