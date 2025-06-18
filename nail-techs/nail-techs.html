@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +5,9 @@
   <title>Polish and Pamper by Zena | Nail Technician</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   <style>
     :root {
       --bg: #0b0b0b;
@@ -83,6 +85,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       margin-right: 15px;
+      cursor: pointer;
     }
     
     .btn:hover {
@@ -90,23 +93,24 @@
       box-shadow: 0 10px 20px rgba(255,221,87,0.3);
     }
     
-    .whatsapp-chat-btn {
+    .chat-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
-      background: var(--whatsapp);
-      color: white;
+      padding: 12px 30px;
+      background: var(--accent);
+      color: #000;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
       margin-top: 10px;
+      cursor: pointer;
     }
     
-    .whatsapp-chat-btn:hover {
+    .chat-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 10px 20px rgba(255,221,87,0.3);
     }
     
     .button-group {
@@ -139,6 +143,117 @@
       box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
     }
     
+    /* Chat Modal Styles */
+    .chat-modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+    }
+    
+    .chat-content {
+      background-color: var(--card-bg);
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    
+    .close-chat {
+      color: var(--light);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .close-chat:hover {
+      color: var(--accent);
+    }
+    
+    .chat-header {
+      color: var(--accent);
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .chat-messages {
+      height: 300px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+      padding: 10px;
+      background-color: rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+    
+    .message {
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 15px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+    
+    .client-message {
+      background-color: var(--accent);
+      color: #000;
+      margin-left: auto;
+      border-bottom-right-radius: 5px;
+    }
+    
+    .zena-message {
+      background-color: rgba(255,255,255,0.1);
+      margin-right: auto;
+      border-bottom-left-radius: 5px;
+    }
+    
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .chat-input input {
+      flex: 1;
+      padding: 10px 15px;
+      border-radius: 30px;
+      border: none;
+      background-color: rgba(255,255,255,0.1);
+      color: var(--light);
+    }
+    
+    .chat-input button {
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
+      background-color: var(--accent);
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    /* Admin Panel Link */
+    .admin-panel-link {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      z-index: 1000;
+      display: none; /* Hidden by default, shown to admin */
+    }
+    
     @media (max-width: 768px) {
       .profile-content {
         flex-direction: column;
@@ -148,12 +263,22 @@
       .button-group {
         align-items: center;
       }
+      
+      .chat-content {
+        width: 90%;
+        margin: 10% auto;
+      }
     }
   </style>
 </head>
 <body>
   <a href="../index.html" class="home-icon" aria-label="Return to home">
     <i class="fas fa-home"></i>
+  </a>
+
+  <!-- Admin Panel Link (hidden by default) -->
+  <a href="#" id="adminPanelLink" class="admin-panel-link">
+    <i class="fas fa-user-shield"></i> Admin Panel
   </a>
 
   <div class="profile-container">
@@ -172,15 +297,221 @@
           
           <div class="button-group">
             <a href="zena-gallery.html" class="btn">Book Appointment</a>
-            <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20saw%20your%20nail%20services%20on%20AnythingbyJpy%20and%20would%20like%20to%20chat%20about%20your%20services.%20Please%20let%20me%20know%20your%20availability." 
-               class="whatsapp-chat-btn"
-               target="_blank">
-              <i class="fab fa-whatsapp"></i> Chat Directly
-            </a>
+            <button id="openChatBtn" class="chat-btn">
+              <i class="fas fa-comments"></i> Chat Directly
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Chat Modal -->
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-content">
+      <span class="close-chat">&times;</span>
+      <h3 class="chat-header">Chat with Zena</h3>
+      <div id="chatMessages" class="chat-messages"></div>
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type your message...">
+        <button id="sendMessageBtn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Modal (hidden by default) -->
+  <div id="adminModal" class="chat-modal">
+    <div class="chat-content" style="width: 90%; max-width: 800px;">
+      <span class="close-chat" id="closeAdmin">&times;</span>
+      <h3 class="chat-header">Admin Conversation Monitor</h3>
+      <div id="adminControls">
+        <select id="conversationSelector">
+          <option value="">Select a conversation</option>
+        </select>
+      </div>
+      <div id="adminMessages" class="chat-messages" style="height: 400px;"></div>
+    </div>
+  </div>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+  apiKey: "AIzaSyBaVbVPknR3w2H5arB2ogGK4lu88eS6FKg",
+  authDomain: "polishandpamperbyzenachat.firebaseapp.com",
+  databaseURL: "https://polishandpamperbyzenachat-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "polishandpamperbyzenachat",
+  storageBucket: "polishandpamperbyzenachat.firebasestorage.app",
+  messagingSenderId: "360680821375",
+  appId: "1:360680821375:web:7a598327d40f417aa7a54a",
+  measurementId: "G-Q9NTSVPJC3"
+};
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // DOM Elements
+    const chatModal = document.getElementById('chatModal');
+    const openChatBtn = document.getElementById('openChatBtn');
+    const closeChat = document.querySelector('.close-chat');
+    const chatMessages = document.getElementById('chatMessages');
+    const messageInput = document.getElementById('messageInput');
+    const sendMessageBtn = document.getElementById('sendMessageBtn');
+    const adminPanelLink = document.getElementById('adminPanelLink');
+    const adminModal = document.getElementById('adminModal');
+    const closeAdmin = document.getElementById('closeAdmin');
+    const adminMessages = document.getElementById('adminMessages');
+    const conversationSelector = document.getElementById('conversationSelector');
+
+    // Generate a unique ID for this client session
+    let clientId = localStorage.getItem('clientId');
+    if (!clientId) {
+      clientId = 'client_' + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem('clientId', clientId);
+    }
+
+    // Track if this is an admin (you would implement proper authentication in production)
+    const isAdmin = window.location.search.includes('admin=true');
+    if (isAdmin) {
+      adminPanelLink.style.display = 'block';
+    }
+
+    // Open chat modal
+    openChatBtn.addEventListener('click', () => {
+      chatModal.style.display = 'block';
+      loadChatMessages();
+    });
+
+    // Close chat modal
+    closeChat.addEventListener('click', () => {
+      chatModal.style.display = 'none';
+    });
+
+    // Close admin modal
+    closeAdmin.addEventListener('click', () => {
+      adminModal.style.display = 'none';
+    });
+
+    // Open admin modal
+    adminPanelLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      adminModal.style.display = 'block';
+      loadAllConversations();
+    });
+
+    // Send message
+    sendMessageBtn.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    function sendMessage() {
+      const messageText = messageInput.value.trim();
+      if (messageText === '') return;
+
+      const timestamp = Date.now();
+      const message = {
+        text: messageText,
+        sender: clientId,
+        timestamp: timestamp
+      };
+
+      // Save message to Firebase
+      database.ref('conversations/' + clientId + '/messages').push(message);
+      
+      // Add message to UI
+      addMessageToUI(message, true);
+      
+      // Clear input
+      messageInput.value = '';
+    }
+
+    function addMessageToUI(message, isClient) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message');
+      messageDiv.classList.add(isClient ? 'client-message' : 'zena-message');
+      messageDiv.textContent = message.text;
+      
+      const messagesContainer = isAdmin ? adminMessages : chatMessages;
+      messagesContainer.appendChild(messageDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function loadChatMessages() {
+      chatMessages.innerHTML = '';
+      
+      database.ref('conversations/' + clientId + '/messages').on('value', (snapshot) => {
+        const messages = [];
+        snapshot.forEach((childSnapshot) => {
+          messages.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+          });
+        });
+        
+        // Sort messages by timestamp
+        messages.sort((a, b) => a.timestamp - b.timestamp);
+        
+        // Display messages
+        messages.forEach((message) => {
+          addMessageToUI(message, message.sender === clientId);
+        });
+      });
+    }
+
+    function loadAllConversations() {
+      conversationSelector.innerHTML = '<option value="">Select a conversation</option>';
+      adminMessages.innerHTML = '';
+      
+      database.ref('conversations').once('value', (snapshot) => {
+        snapshot.forEach((clientSnapshot) => {
+          const option = document.createElement('option');
+          option.value = clientSnapshot.key;
+          option.textContent = 'Conversation with ' + clientSnapshot.key;
+          conversationSelector.appendChild(option);
+        });
+      });
+    }
+
+    conversationSelector.addEventListener('change', (e) => {
+      const selectedClientId = e.target.value;
+      if (!selectedClientId) return;
+      
+      adminMessages.innerHTML = '';
+      
+      database.ref('conversations/' + selectedClientId + '/messages').on('value', (snapshot) => {
+        const messages = [];
+        snapshot.forEach((childSnapshot) => {
+          messages.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+          });
+        });
+        
+        // Sort messages by timestamp
+        messages.sort((a, b) => a.timestamp - b.timestamp);
+        
+        // Display messages
+        messages.forEach((message) => {
+          addMessageToUI(message, message.sender === selectedClientId);
+        });
+      });
+    });
+
+    // Close modals when clicking outside
+    window.addEventListener('click', (event) => {
+      if (event.target === chatModal) {
+        chatModal.style.display = 'none';
+      }
+      if (event.target === adminModal) {
+        adminModal.style.display = 'none';
+      }
+    });
+
+    // Initialize chat if admin
+    if (isAdmin) {
+      adminPanelLink.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
