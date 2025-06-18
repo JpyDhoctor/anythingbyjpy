@@ -5,9 +5,6 @@
   <title>Polish and Pamper by Zena | Nail Technician</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   <style>
     :root {
       --bg: #0b0b0b;
@@ -92,24 +89,23 @@
       box-shadow: 0 10px 20px rgba(255,221,87,0.3);
     }
     
-    .chat-btn {
+    .whatsapp-chat-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 30px;
-      background: var(--accent);
-      color: #000;
+      padding: 10px 20px;
+      background: var(--whatsapp);
+      color: white;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
       margin-top: 10px;
-      cursor: pointer;
     }
     
-    .chat-btn:hover {
+    .whatsapp-chat-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(255,221,87,0.3);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
     }
     
     .button-group {
@@ -142,138 +138,6 @@
       box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
     }
     
-    /* Chat Modal Styles */
-    .chat-modal {
-      display: none;
-      position: fixed;
-      z-index: 1001;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-    }
-    
-    .chat-content {
-      background-color: var(--card-bg);
-      margin: 5% auto;
-      padding: 20px;
-      border-radius: 15px;
-      width: 80%;
-      max-width: 500px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    
-    .close-chat {
-      color: var(--light);
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    
-    .close-chat:hover {
-      color: var(--accent);
-    }
-    
-    .chat-header {
-      color: var(--accent);
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .chat-messages {
-      height: 300px;
-      overflow-y: auto;
-      margin-bottom: 15px;
-      padding: 10px;
-      background-color: rgba(0,0,0,0.2);
-      border-radius: 10px;
-    }
-    
-    .message {
-      margin-bottom: 10px;
-      padding: 8px 12px;
-      border-radius: 15px;
-      max-width: 80%;
-      word-wrap: break-word;
-    }
-    
-    .client-message {
-      background-color: var(--accent);
-      color: #000;
-      margin-left: auto;
-      border-bottom-right-radius: 5px;
-    }
-    
-    .zena-message {
-      background-color: rgba(255,255,255,0.1);
-      margin-right: auto;
-      border-bottom-left-radius: 5px;
-    }
-    
-    .chat-input {
-      display: flex;
-      gap: 10px;
-    }
-    
-    .chat-input input {
-      flex: 1;
-      padding: 10px 15px;
-      border-radius: 30px;
-      border: none;
-      background-color: rgba(255,255,255,0.1);
-      color: var(--light);
-    }
-    
-    .chat-input button {
-      padding: 10px 20px;
-      border-radius: 30px;
-      border: none;
-      background-color: var(--accent);
-      color: #000;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    
-    /* Admin Panel Link */
-    .admin-panel-link {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--accent);
-      color: #000;
-      padding: 10px 15px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      z-index: 1000;
-      display: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    
-    /* Password Button */
-    #secretAdminBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      border: none;
-      border-radius: 50%;
-      opacity: 0.3;
-      cursor: pointer;
-      z-index: 1000;
-      transition: all 0.3s;
-    }
-    
-    #secretAdminBtn:hover {
-      opacity: 0.8;
-    }
-    
     @media (max-width: 768px) {
       .profile-content {
         flex-direction: column;
@@ -283,27 +147,12 @@
       .button-group {
         align-items: center;
       }
-      
-      .chat-content {
-        width: 90%;
-        margin: 10% auto;
-      }
-      
-      .admin-panel-link {
-        bottom: 70px;
-        right: 20px;
-      }
     }
   </style>
 </head>
 <body>
   <a href="../index.html" class="home-icon" aria-label="Return to home">
     <i class="fas fa-home"></i>
-  </a>
-
-  <!-- Admin Panel Link -->
-  <a href="?admin=true" id="adminPanelLink" class="admin-panel-link">
-    <i class="fas fa-user-shield"></i> Admin Panel
   </a>
 
   <div class="profile-container">
@@ -322,185 +171,15 @@
           
           <div class="button-group">
             <a href="zena-gallery.html" class="btn">Book Appointment</a>
-            <button id="openChatBtn" class="chat-btn">
-              <i class="fas fa-comments"></i> Chat Directly
-            </button>
+            <a href="https://wa.me/2349158730835?text=Hello%20Zena!%20I%20saw%20your%20nail%20services%20on%20AnythingbyJpy%20and%20would%20like%20to%20chat%20about%20your%20services.%20Please%20let%20me%20know%20your%20availability." 
+               class="whatsapp-chat-btn"
+               target="_blank">
+              <i class="fab fa-whatsapp"></i> Chat Directly
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Chat Modal -->
-  <div id="chatModal" class="chat-modal">
-    <div class="chat-content">
-      <span class="close-chat">&times;</span>
-      <h3 class="chat-header">Chat with Zena</h3>
-      <div id="chatMessages" class="chat-messages"></div>
-      <div class="chat-input">
-        <input type="text" id="messageInput" placeholder="Type your message...">
-        <button id="sendMessageBtn">Send</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Admin Modal (hidden by default) -->
-  <div id="adminModal" class="chat-modal">
-    <div class="chat-content" style="width: 90%; max-width: 800px;">
-      <span class="close-chat" id="closeAdmin">&times;</span>
-      <h3 class="chat-header">Admin Conversation Monitor</h3>
-      <div id="adminControls">
-        <select id="conversationSelector">
-          <option value="">Select a conversation</option>
-        </select>
-      </div>
-      <div id="adminMessages" class="chat-messages" style="height: 400px;"></div>
-      <div class="chat-input">
-        <input type="text" id="adminMessageInput" placeholder="Type reply as Zena...">
-        <button id="adminSendBtn">Send as Zena</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Password Button -->
-  <button id="secretAdminBtn" aria-label="Admin access">
-    <i class="fas fa-lock" style="color: #000;"></i>
-  </button>
-
-  <script>
-  // Firebase config - PASTE YOUR ACTUAL CONFIG HERE
-  const firebaseConfig = {
-  apiKey: "AIzaSyBaVbVPknR3w2H5arB2ogGK4lu88eS6FKg",
-  authDomain: "polishandpamperbyzenachat.firebaseapp.com",
-  databaseURL: "https://polishandpamperbyzenachat-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "polishandpamperbyzenachat",
-  storageBucket: "polishandpamperbyzenachat.firebasestorage.app",
-  messagingSenderId: "360680821375",
-  appId: "1:360680821375:web:ceeca5ba42a777dba7a54a",
-  measurementId: "G-B1MX9PN6FX"
-};
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-
-  // Client/Admin Setup
-  const clientId = 'client_' + (localStorage.getItem('clientId') || Math.random().toString(36).substr(2, 9));
-  localStorage.setItem('clientId', clientId);
-  let isAdmin = false;
-
-  // DOM Elements
-  const elements = {
-    chatModal: document.getElementById('chatModal'),
-    openChatBtn: document.getElementById('openChatBtn'),
-    chatMessages: document.getElementById('chatMessages'),
-    messageInput: document.getElementById('messageInput'),
-    adminPanelLink: document.getElementById('adminPanelLink'),
-    adminModal: document.getElementById('adminModal'),
-    adminMessages: document.getElementById('adminMessages'),
-    conversationSelector: document.getElementById('conversationSelector'),
-    adminMessageInput: document.getElementById('adminMessageInput'),
-    secretAdminBtn: document.getElementById('secretAdminBtn')
-  };
-
-  // Password Protection
-  elements.secretAdminBtn.addEventListener('click', () => {
-    if (prompt("Admin password:") === "ZenaNails2024") {
-      isAdmin = true;
-      elements.adminPanelLink.style.display = 'block';
-    }
-  });
-
-  // Message Handling
-  function sendMessage(sender, recipient, text, isAdminMessage) {
-    const messageRef = database.ref('conversations/' + recipient + '/messages');
-    messageRef.push({
-      text: text,
-      sender: sender,
-      timestamp: Date.now(),
-      isAdmin: isAdminMessage
-    });
-  }
-
-  function displayMessage(message, isCurrentUser) {
-    const msgElement = document.createElement('div');
-    msgElement.className = `message ${isCurrentUser ? 'client-message' : 'zena-message'}`;
-    msgElement.textContent = message.text;
-    return msgElement;
-  }
-
-  // Chat Listeners
-  function setupChatListener(clientId, isAdminView = false) {
-    database.ref('conversations/' + clientId + '/messages')
-      .orderByChild('timestamp')
-      .on('value', (snapshot) => {
-        const container = isAdminView ? elements.adminMessages : elements.chatMessages;
-        container.innerHTML = '';
-        
-        snapshot.forEach(msg => {
-          const message = msg.val();
-          container.appendChild(
-            displayMessage(message, 
-              isAdminView 
-                ? message.sender === clientId 
-                : message.sender === clientId
-            )
-          );
-        });
-        container.scrollTop = container.scrollHeight;
-      });
-  }
-
-  // Event Listeners
-  elements.openChatBtn.addEventListener('click', () => {
-    elements.chatModal.style.display = 'block';
-    setupChatListener(clientId);
-  });
-
-  elements.adminPanelLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    elements.adminModal.style.display = 'block';
-    database.ref('conversations').once('value').then(snap => {
-      elements.conversationSelector.innerHTML = '<option value="">Select client</option>';
-      snap.forEach(client => {
-        const option = document.createElement('option');
-        option.value = client.key;
-        option.textContent = `Client ${client.key.substr(0, 5)}...`;
-        elements.conversationSelector.appendChild(option);
-      });
-    });
-  });
-
-  elements.conversationSelector.addEventListener('change', (e) => {
-    if (e.target.value) setupChatListener(e.target.value, true);
-  });
-
-  elements.messageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && e.target.value.trim()) {
-      sendMessage(clientId, clientId, e.target.value.trim(), false);
-      e.target.value = '';
-    }
-  });
-
-  elements.adminMessageInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter' && e.target.value.trim() && elements.conversationSelector.value) {
-      sendMessage('zena', elements.conversationSelector.value, e.target.value.trim(), true);
-      e.target.value = '';
-    }
-  });
-
-  // Modal Close Handlers
-  document.querySelectorAll('.close-chat').forEach(btn => {
-    btn.addEventListener('click', () => {
-      elements.chatModal.style.display = 'none';
-      elements.adminModal.style.display = 'none';
-    });
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === elements.chatModal) elements.chatModal.style.display = 'none';
-    if (e.target === elements.adminModal) elements.adminModal.style.display = 'none';
-  });
-</script>
 </body>
 </html>
