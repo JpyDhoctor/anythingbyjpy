@@ -368,8 +368,8 @@
   </button>
 
   <script>
-    // Firebase configuration - REPLACE WITH YOUR ACTUAL CONFIG
-    const firebaseConfig = {
+  // Firebase configuration - USE YOUR ACTUAL CONFIG HERE
+ const firebaseConfig = {
   apiKey: "AIzaSyBaVbVPknR3w2H5arB2ogGK4lu88eS6FKg",
   authDomain: "polishandpamperbyzenachat.firebaseapp.com",
   databaseURL: "https://polishandpamperbyzenachat-default-rtdb.europe-west1.firebasedatabase.app",
@@ -380,194 +380,173 @@
   measurementId: "G-B1MX9PN6FX"
 };
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
 
-    // Password Configuration
-    const ADMIN_PASSWORD = "ZenaNails2024"; // CHANGE THIS TO YOUR SECURE PASSWORD
-    let adminTimeout;
+  // Password Configuration
+  const ADMIN_PASSWORD = "ZenaNails2024";
+  let adminTimeout;
+  let isAdmin = false;
 
-    // DOM Elements
-    const chatModal = document.getElementById('chatModal');
-    const openChatBtn = document.getElementById('openChatBtn');
-    const closeChat = document.querySelector('.close-chat');
-    const chatMessages = document.getElementById('chatMessages');
-    const messageInput = document.getElementById('messageInput');
-    const sendMessageBtn = document.getElementById('sendMessageBtn');
-    const adminPanelLink = document.getElementById('adminPanelLink');
-    const adminModal = document.getElementById('adminModal');
-    const closeAdmin = document.getElementById('closeAdmin');
-    const adminMessages = document.getElementById('adminMessages');
-    const conversationSelector = document.getElementById('conversationSelector');
-    const adminMessageInput = document.getElementById('adminMessageInput');
-    const adminSendBtn = document.getElementById('adminSendBtn');
-    const secretAdminBtn = document.getElementById('secretAdminBtn');
+  // DOM Elements
+  const chatModal = document.getElementById('chatModal');
+  const openChatBtn = document.getElementById('openChatBtn');
+  const chatMessages = document.getElementById('chatMessages');
+  const messageInput = document.getElementById('messageInput');
+  const adminPanelLink = document.getElementById('adminPanelLink');
+  const adminModal = document.getElementById('adminModal');
+  const adminMessages = document.getElementById('adminMessages');
+  const conversationSelector = document.getElementById('conversationSelector');
+  const adminMessageInput = document.getElementById('adminMessageInput');
 
-    // Generate client ID
-    let clientId = localStorage.getItem('clientId');
-    if (!clientId) {
-      clientId = 'client_' + Math.random().toString(36).substr(2, 9);
-      localStorage.setItem('clientId', clientId);
+  // Generate client ID
+  let clientId = localStorage.getItem('clientId');
+  if (!clientId) {
+    clientId = 'client_' + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem('clientId', clientId);
+  }
+
+  // Password System
+  document.getElementById('secretAdminBtn').addEventListener('click', () => {
+    const password = prompt("🔒 Enter admin password:");
+    if (password === ADMIN_PASSWORD) {
+      isAdmin = true;
+      adminPanelLink.style.display = 'block';
+      alert("Admin mode activated!");
+      resetAdminTimeout();
+    } else if (password) {
+      alert("Incorrect password");
     }
+  });
 
-    // Password System
-    secretAdminBtn.addEventListener('click', () => {
-      const password = prompt("🔒 Enter admin password:");
-      if (password === ADMIN_PASSWORD) {
-        adminPanelLink.style.display = 'block';
-        alert("Admin mode activated!");
-        resetAdminTimeout();
-      } else if (password) {
-        alert("Incorrect password");
-      }
-    });
+  function resetAdminTimeout() {
+    clearTimeout(adminTimeout);
+    adminTimeout = setTimeout(() => {
+      adminPanelLink.style.display = 'none';
+      isAdmin = false;
+    }, 3600000); // 1 hour timeout
+  }
 
-    function resetAdminTimeout() {
-      clearTimeout(adminTimeout);
-      adminTimeout = setTimeout(() => {
-        adminPanelLink.style.display = 'none';
-      }, 3600000); // 1 hour timeout
-    }
+  // Chat System Functions
+  function sendMessage() {
+    const messageText = messageInput.value.trim();
+    if (!messageText) return;
 
-    // Chat System
-    openChatBtn.addEventListener('click', () => {
-      chatModal.style.display = 'block';
-      loadChatMessages();
-    });
+    const message = {
+      text: messageText,
+      sender: clientId,
+      timestamp: Date.now(),
+      isAdmin: false
+    };
 
-    closeChat.addEventListener('click', () => {
-      chatModal.style.display = 'none';
-    });
+    database.ref('conversations/' + clientId + '/messages').push(message);
+    addMessageToUI(message, true);
+    messageInput.value = '';
+  }
 
-    closeAdmin.addEventListener('click', () => {
-      adminModal.style.display = 'none';
-    });
+  function sendAdminMessage() {
+    const messageText = adminMessageInput.value.trim();
+    const clientId = conversationSelector.value;
+    if (!messageText || !clientId) return;
 
-    adminPanelLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      adminModal.style.display = 'block';
-      loadAllConversations();
-    });
+    const message = {
+      text: messageText,
+      sender: 'zena',
+      timestamp: Date.now(),
+      isAdmin: true
+    };
 
-    sendMessageBtn.addEventListener('click', sendMessage);
-    messageInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendMessage();
-    });
+    database.ref('conversations/' + clientId + '/messages').push(message);
+    adminMessageInput.value = '';
+  }
 
-    adminSendBtn.addEventListener('click', sendAdminMessage);
-    adminMessageInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendAdminMessage();
-    });
+  function addMessageToUI(message, isFromCurrentUser, isAdminView = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+    messageDiv.classList.add(isFromCurrentUser ? 'client-message' : 'zena-message');
+    messageDiv.textContent = message.text;
+    
+    const container = isAdminView ? adminMessages : chatMessages;
+    container.appendChild(messageDiv);
+    container.scrollTop = container.scrollHeight;
+  }
 
-    function sendMessage() {
-      const messageText = messageInput.value.trim();
-      if (messageText === '') return;
-
-      const timestamp = Date.now();
-      const message = {
-        text: messageText,
-        sender: clientId,
-        timestamp: timestamp
-      };
-
-      database.ref('conversations/' + clientId + '/messages').push(message);
-      addMessageToUI(message, true);
-      messageInput.value = '';
-    }
-
-    function sendAdminMessage() {
-      const messageText = adminMessageInput.value.trim();
-      if (messageText === '' || !conversationSelector.value) return;
-
-      const timestamp = Date.now();
-      const message = {
-        text: messageText,
-        sender: 'zena',
-        timestamp: timestamp
-      };
-
-      database.ref('conversations/' + conversationSelector.value + '/messages').push(message);
-      addMessageToUI(message, false, true);
-      adminMessageInput.value = '';
-    }
-
-    function addMessageToUI(message, isClient, isAdminView = false) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message');
-      messageDiv.classList.add(isClient ? 'client-message' : 'zena-message');
-      messageDiv.textContent = message.text;
-      
-      const messagesContainer = isAdminView ? adminMessages : chatMessages;
-      messagesContainer.appendChild(messageDiv);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function loadChatMessages() {
-      chatMessages.innerHTML = '';
-      
-      database.ref('conversations/' + clientId + '/messages').on('value', (snapshot) => {
-        const messages = [];
-        snapshot.forEach((childSnapshot) => {
-          messages.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val()
-          });
-        });
+  // Message Listeners
+  function setupMessageListener(clientId, isAdminView = false) {
+    database.ref('conversations/' + clientId + '/messages')
+      .orderByChild('timestamp')
+      .on('value', (snapshot) => {
+        const container = isAdminView ? adminMessages : chatMessages;
+        container.innerHTML = '';
         
-        messages.sort((a, b) => a.timestamp - b.timestamp);
-        messages.forEach((message) => {
-          addMessageToUI(message, message.sender === clientId);
-        });
-      });
-    }
-
-    function loadAllConversations() {
-      conversationSelector.innerHTML = '<option value="">Select a conversation</option>';
-      adminMessages.innerHTML = '';
-      
-      database.ref('conversations').once('value', (snapshot) => {
-        snapshot.forEach((clientSnapshot) => {
-          const option = document.createElement('option');
-          option.value = clientSnapshot.key;
-          option.textContent = 'Conversation with ' + clientSnapshot.key.substr(0, 8) + '...';
-          conversationSelector.appendChild(option);
-        });
-      });
-    }
-
-    conversationSelector.addEventListener('change', (e) => {
-      const selectedClientId = e.target.value;
-      if (!selectedClientId) return;
-      
-      adminMessages.innerHTML = '';
-      
-      database.ref('conversations/' + selectedClientId + '/messages').on('value', (snapshot) => {
-        const messages = [];
         snapshot.forEach((childSnapshot) => {
-          messages.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val()
-          });
-        });
-        
-        messages.sort((a, b) => a.timestamp - b.timestamp);
-        messages.forEach((message) => {
-          addMessageToUI(message, message.sender === selectedClientId, true);
+          const message = childSnapshot.val();
+          addMessageToUI(message, 
+            message.sender === (isAdminView ? clientId : clientId), 
+            isAdminView);
         });
       });
-    });
+  }
 
-    // Close modals when clicking outside
-    window.addEventListener('click', (event) => {
-      if (event.target === chatModal) chatModal.style.display = 'none';
-      if (event.target === adminModal) adminModal.style.display = 'none';
-    });
+  // Event Listeners
+  openChatBtn.addEventListener('click', () => {
+    chatModal.style.display = 'block';
+    setupMessageListener(clientId);
+  });
 
-    // Auto-check for admin mode in URL
-    if (window.location.search.includes('admin=true')) {
-      secretAdminBtn.click();
+  adminPanelLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    adminModal.style.display = 'block';
+    loadConversations();
+  });
+
+  document.getElementById('closeChat').addEventListener('click', () => {
+    chatModal.style.display = 'none';
+  });
+
+  document.getElementById('closeAdmin').addEventListener('click', () => {
+    adminModal.style.display = 'none';
+  });
+
+  messageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  adminMessageInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendAdminMessage();
+  });
+
+  conversationSelector.addEventListener('change', (e) => {
+    if (e.target.value) {
+      adminMessages.innerHTML = '';
+      setupMessageListener(e.target.value, true);
     }
+  });
+
+  // Load all conversations for admin
+  function loadConversations() {
+    conversationSelector.innerHTML = '<option value="">Select client</option>';
+    database.ref('conversations').once('value').then((snapshot) => {
+      snapshot.forEach((clientSnapshot) => {
+        const option = document.createElement('option');
+        option.value = clientSnapshot.key;
+        option.textContent = 'Client: ' + clientSnapshot.key.substring(0, 8) + '...';
+        conversationSelector.appendChild(option);
+      });
+    });
+  }
+
+  // Close modals when clicking outside
+  window.addEventListener('click', (e) => {
+    if (e.target === chatModal) chatModal.style.display = 'none';
+    if (e.target === adminModal) adminModal.style.display = 'none';
+  });
+
+  // Auto-check for admin mode
+  if (window.location.search.includes('admin=true')) {
+    document.getElementById('secretAdminBtn').click();
+  }
   </script>
 </body>
 </html>
