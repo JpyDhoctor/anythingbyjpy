@@ -8,7 +8,7 @@
   <style>
     :root {
       --bg: #0b0b0b;
-      --accent: #ffdd57; /* Gold accent to match original */
+      --accent: #ffdd57;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
       --whatsapp: #25D366;
@@ -89,7 +89,8 @@
     }
     
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 12px 30px;
       background: var(--accent);
       color: #000;
@@ -97,7 +98,6 @@
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
-      margin-right: 15px;
       border: none;
       cursor: pointer;
       font-family: 'Poppins', sans-serif;
@@ -106,6 +106,17 @@
     .btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255,221,87,0.3);
+    }
+    
+    .location-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      padding: 10px 15px;
+      border-radius: 30px;
+      margin-left: 10px;
+      font-size: 0.9rem;
     }
     
     .whatsapp-chat-btn {
@@ -128,9 +139,16 @@
     
     .button-group {
       display: flex;
+      align-items: center;
       gap: 15px;
       margin-top: 25px;
       flex-wrap: wrap;
+    }
+    
+    .button-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     
     .home-icon {
@@ -163,6 +181,12 @@
       }
       
       .button-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .button-row {
+        width: 100%;
         justify-content: center;
       }
       
@@ -192,7 +216,12 @@
           <p>Specializing in precision cuts, fades, and modern hairstyles with a flawless finish. Bringing sharp, clean looks to clients since 2018 with attention to detail that sets the standard.</p>
           
           <div class="button-group">
-            <a href="thuggery-gallery.html" class="btn">Book Session</a>
+            <div class="button-row">
+              <a href="thuggery-gallery.html" class="btn">Book Session</a>
+              <span class="location-tag">
+                <i class="fas fa-map-marker-alt"></i> Port Harcourt
+              </span>
+            </div>
             <a href="https://wa.me/2349046879633?text=Hello%20Thuggery%20Haircuts!%20I%20saw%20your%20profile%20on%20AnythingbyJpy%20and%20would%20like%20to%20book%20a%20session.%20Please%20let%20me%20know%20your%20availability." 
                class="whatsapp-chat-btn"
                target="_blank">
