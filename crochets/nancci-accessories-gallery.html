@@ -111,6 +111,12 @@
       color: #b0b0b0;
       font-style: italic;
     }
+
+     .negotiable {
+      font-size: 0.8rem;
+      color: #b0b0b0;
+      font-style: italic;
+    }
     
     .whatsapp-btn {
       background: #25D366;
@@ -174,20 +180,20 @@
     </a>
     
     <div class="gallery-header">
-      <h1>Empress Crochets</h1>
+      <h1>Nancci Crochets</h1>
       <p>Royal Accessories Collection</p>
     </div>
     
     <div class="gallery-grid">
       <!-- Item 1 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/93fnM141/3feadc7a-7387-47b1-9400-efb7cf814aa6.jpg" alt="Hair Pins" class="gallery-img">
+        <img src="https://i.ibb.co/DDq1c3FM/b65d91a3-d124-4adb-badd-b8ee39f9862e.jpg" alt="Squid Game keychain" class="gallery-img">
         <div class="gallery-info">
-          <h3>Hair Pins</h3>
+          <h3>Squis game keychain</h3>
           <span class="price-tag">
-            <i class="fas fa-naira-sign"></i>1,000 <span class="non-negotiable">Non negotiable</span>
+            <i class="fas fa-naira-sign"></i>10,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Hair pins', '1,000')">
+          <button class="whatsapp-btn" onclick="contactArtist('Squid game keychain', '10,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -195,13 +201,13 @@
       
       <!-- Item 2 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/ptjW44v/39240de2-b6ed-4453-a57e-7301ce1e6494.jpg" alt="Elegant Clutch" class="gallery-img">
+        <img src="https://i.ibb.co/XksDCPKr/c5442e42-5b12-4035-bab7-529fdc9b09f4.jpg" alt="Bag" class="gallery-img">
         <div class="gallery-info">
-          <h3>Flower earrings</h3>
+          <h3>Bag</h3>
           <span class="price-tag">
-            <i class="fas fa-naira-sign"></i>3,000 <span class="non-negotiable">Non negotiable</span>
+            <i class="fas fa-naira-sign"></i>70,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Flower earrings', '3,000')">
+          <button class="whatsapp-btn" onclick="contactArtist('Bag', '70,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -209,13 +215,13 @@
       
       <!-- Item 3 -->
       <div class="gallery-item">
-        <img src="https://i.ibb.co/v6B0kysm/8537e3e9-53a3-4e46-909f-2e4818f5c845.jpg" alt="Geometry bag" class="gallery-img">
+        <img src="https://i.ibb.co/TMNDhPx4/f14e0320-55d6-4ad6-b9c8-ab350b003198.jpg" alt="Spiderman/Gwen keychain" class="gallery-img">
         <div class="gallery-info">
-          <h3>Geometry bag</h3>
+          <h3>Spiderman/Gwen keychain</h3>
           <span class="price-tag">
-            <i class="fas fa-naira-sign"></i>20,000 <span class="Slightly-negotiable">Slightly negotiable</span>
+            <i class="fas fa-naira-sign"></i>10,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Geometry bag', '20,000')">
+          <button class="whatsapp-btn" onclick="contactArtist('Spiderman/Gwen keychain', '10,000')">
             <i class="fab fa-whatsapp"></i> Contact Artist
           </button>
         </div>
@@ -271,8 +277,8 @@
       trackWhatsAppClick(itemName);
       
       // Open WhatsApp as before
-      const phone = "+2349057826072";
-      const message = `Hello Empress Crochets! I'm interested in your "${itemName}" (₦${price}) accessory from AnythingbyJpy. Is this available?`;
+      const phone = "+2349045105716";
+      const message = `Hello Nancci Crochets! I'm interested in your "${itemName}" (₦${price}) accessory from AnythingbyJpy. Is this available?`;
       const encoded = encodeURIComponent(message);
       window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
     }
