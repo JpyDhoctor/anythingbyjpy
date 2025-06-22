@@ -90,7 +90,7 @@
       box-shadow: 0 10px 20px rgba(255,221,87,0.3);
     }
 
-      .back-btn {
+    .back-btn {
       display: inline-flex;
       align-items: center;
       gap: 5px;
@@ -133,6 +133,17 @@
       gap: 15px;
     }
     
+    .location-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+    
     .home-icon {
       position: fixed;
       top: 20px;
@@ -164,12 +175,18 @@
       
       .button-group {
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
       }
       
       .btn, .whatsapp-direct {
         width: 100%;
         text-align: center;
         justify-content: center;
+      }
+      
+      .location-tag {
+        margin-top: 15px;
       }
     }
   </style>
@@ -206,6 +223,9 @@
                target="_blank">
               <i class="fab fa-whatsapp"></i> Request Custom Design
             </a>
+            <span class="location-tag">
+              <i class="fas fa-map-marker-alt"></i> Benin
+            </span>
           </div>
         </div>
       </div>
