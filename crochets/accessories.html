@@ -87,69 +87,51 @@
     .profile-info p {
       opacity: 0.9;
       max-width: 500px;
+      margin-bottom: 25px;
     }
     
+    /* BUTTON STYLES - KEY CHANGES */
     .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 12px 30px;
+      display: inline-block;
+      padding: 10px 25px;
       background: var(--accent);
       color: #000;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-    }
-    
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(255,221,87,0.3);
+      margin-right: 20px;
+      font-size: 0.95rem;
     }
     
     .whatsapp-direct {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 25px;
+      padding: 10px 20px;
       background: var(--whatsapp);
       color: white;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
-    }
-    
-    .whatsapp-direct:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      font-size: 0.95rem;
     }
     
     .location-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.1);
-      padding: 8px 15px;
-      border-radius: 30px;
+      display: block;
+      margin-top: 15px;
+      color: var(--light);
       font-size: 0.9rem;
-      margin-top: 10px;
+    }
+    
+    .location-tag i {
+      margin-right: 5px;
+      color: var(--accent);
     }
     
     .button-group {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 25px;
-    }
-    
-    .button-row {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      margin-top: 10px;
     }
     
     .home-icon {
@@ -170,50 +152,31 @@
       transition: all 0.3s ease;
     }
     
-    .home-icon:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(255, 221, 87, 0.4);
-    }
-    
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      color: var(--accent);
-      text-decoration: none;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    .back-btn:hover {
-      transform: translateX(-5px);
-    }
-    
     @media (max-width: 768px) {
       .profile-content {
         flex-direction: column;
         text-align: center;
       }
       
-      .button-group {
+      .profile-info {
+        display: flex;
+        flex-direction: column;
         align-items: center;
       }
       
-      .button-row {
-        justify-content: center;
+      .profile-info p {
+        text-align: center;
       }
       
-      .profile-header h1 {
-        font-size: 2rem;
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
       
-      .btn, .whatsapp-direct {
-        width: 100%;
-        justify-content: center;
-      }
-      
-      .location-tag {
-        margin-top: 15px;
+      .btn {
+        margin-right: 0;
+        margin-bottom: 15px;
       }
     }
   </style>
@@ -222,11 +185,6 @@
   <a href="crochets.html" class="home-icon" aria-label="Return to home">
     <i class="fas fa-home"></i>
   </a>
-  
-  <div class="gallery-container">
-    <a href="crochets.html" class="back-btn">
-      <i class="fas fa-arrow-left"></i> Back 
-    </a>
 
   <div class="profile-container">
     <div class="profile-header">
@@ -243,15 +201,12 @@
           <p>Creating elegant crochet accessories that add royal flair to any outfit since 2022.</p>
           
           <div class="button-group">
-            <div class="button-row">
-              <a href="nancci-accessories-gallery.html" class="btn">View Designs</a>
-              <a href="https://wa.me/2349045105716?text=Hello%20Nancci%20Crochets!%20I%20saw%20your%20work%20on%20AnythingbyJpy%20and%20would%20like%20to%20discuss%20a%20custom%20design.%20Please%20let%20me%20know%20your%20availability%20and%20pricing." 
-                 class="whatsapp-direct" 
-                 id="customDesignBtn"
-                 target="_blank">
-                <i class="fab fa-whatsapp"></i> Request Custom Design
-              </a>
-            </div>
+            <a href="nancci-accessories-gallery.html" class="btn">View Designs</a>
+            <a href="https://wa.me/2349045105716?text=Hello%20Nancci%20Crochets!%20I%20saw%20your%20accessories%20on%20AnythingbyJpy%20and%20would%20like%20to%20discuss%20a%20custom%20design.%20Please%20let%20me%20know%20your%20availability%20and%20pricing." 
+               class="whatsapp-direct" 
+               target="_blank">
+              <i class="fab fa-whatsapp"></i> Request Custom Design
+            </a>
             <span class="location-tag">
               <i class="fas fa-map-marker-alt"></i> Benin
             </span>
@@ -260,30 +215,5 @@
       </div>
     </div>
   </div>
-
-  <!-- WhatsApp Click Tracking Script -->
-  <script>
-    document.getElementById('customDesignBtn').addEventListener('click', function() {
-      // Get current click count or initialize to 0
-      let clickCount = parseInt(localStorage.getItem('nancciCustomDesignClicks')) || 0;
-      
-      // Increment count
-      clickCount++;
-      
-      // Store updated count
-      localStorage.setItem('nancciCustomDesignClicks', clickCount);
-      
-      // Log to console (for testing)
-      console.log('Custom Design Requests:', clickCount);
-      
-      // (Optional) Send data to analytics
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'click', {
-          'event_category': 'WhatsApp',
-          'event_label': 'Custom Design Request'
-        });
-      }
-    });
-  </script>
 </body>
 </html>
