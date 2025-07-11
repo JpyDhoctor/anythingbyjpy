@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Viceno Pairs | Master Shoemaker | AnythingbyJpy</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CE0PBFBVCY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CE0PBFBVCY');
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -184,7 +192,13 @@
 
     // Enhanced WhatsApp click tracking
     document.getElementById('whatsappBtn').addEventListener('click', function() {
-      // Track total clicks
+      // Track in Google Analytics
+      gtag('event', 'click', {
+        'event_category': 'WhatsApp',
+        'event_label': 'Viceno Pairs Contact'
+      });
+      
+      // Track total clicks locally
       let clicks = localStorage.getItem('whatsappClicks') || 0;
       clicks = parseInt(clicks) + 1;
       localStorage.setItem('whatsappClicks', clicks);
