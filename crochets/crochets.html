@@ -16,6 +16,8 @@
       --text-secondary: #b0b0b0;
       --disclaimer-red: #ff3860;
       --disclaimer-dark: #cc2a4b;
+      --telegram: #0088cc;
+      --telegram-dark: #006699;
     }
     
     body {
@@ -176,6 +178,35 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 221, 87, 0.3);
     }
+
+    /* Contact Button */
+    .contact-section {
+      margin-top: 60px;
+      padding: 40px;
+      background: var(--card-bg);
+      border-radius: 15px;
+      border: 1px solid var(--accent);
+    }
+
+    .telegram-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 35px;
+      background: var(--telegram);
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .telegram-btn:hover {
+      background: var(--telegram-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
+    }
     
     /* Responsive Adjustments */
     @media (max-width: 768px) {
@@ -185,6 +216,10 @@
       
       .category-card {
         padding: 40px 20px;
+      }
+
+      .contact-section {
+        padding: 30px 20px;
       }
     }
   </style>
@@ -234,6 +269,16 @@
         <h3>Accessories</h3>
         <p>Bags, purses, and small personal items</p>
         <div class="btn">Browse Collection</div>
+      </a>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+      <h3>Interested in Custom Crochet Items?</h3>
+      <p>Contact me to connect with our talented crochet artisans</p>
+      <a href="https://t.me/+2347088291429?text=Hello%20JPY!%20I%20saw%20the%20crochet%20collections%20on%20AnythingbyJpy%20and%20would%20like%20you%20to%20connect%20me%20with%20your%20crochet%20artisans%20for%20a%20custom%20order." 
+         class="telegram-btn">
+        <i class="fab fa-telegram"></i> Contact Through JPY
       </a>
     </div>
   </main>
