@@ -12,6 +12,10 @@
       --accent: #ffdd57;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
+      --telegram: #0088cc;
+      --telegram-dark: #006699;
+      --disclaimer-red: #ff3860;
+      --disclaimer-dark: #cc2a4b;
     }
     
     body {
@@ -23,6 +27,40 @@
       margin: 0;
     }
     
+    /* Disclaimer Icon */
+    .disclaimer-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--disclaimer-red);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255, 56, 96, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: shake 2s infinite;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+      20%, 40%, 60%, 80% { transform: rotate(5deg); }
+    }
+    
+    .disclaimer-icon:hover {
+      transform: scale(1.1) rotate(10deg);
+      background: var(--disclaimer-dark);
+      box-shadow: 0 6px 20px rgba(255, 56, 96, 0.6);
+      animation: none;
+    }
+
     .gallery-container {
       max-width: 1200px;
       margin: 80px auto;
@@ -119,8 +157,8 @@
       font-style: italic;
     }
     
-    .whatsapp-btn {
-      background: #25D366;
+    .telegram-btn {
+      background: var(--telegram);
       color: white;
       border: none;
       padding: 8px 20px;
@@ -135,9 +173,10 @@
       font-weight: 500;
     }
     
-    .whatsapp-btn:hover {
+    .telegram-btn:hover {
+      background: var(--telegram-dark);
       transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
     }
     
     .home-icon {
@@ -171,6 +210,11 @@
   </style>
 </head>
 <body>
+  <!-- Disclaimer Icon -->
+  <a href="disclaimer.html" class="disclaimer-icon" aria-label="View payment disclaimer">
+    <i class="fas fa-exclamation-triangle"></i>
+  </a>
+
   <a href="crochets.html" class="home-icon" aria-label="Return to home">
     <i class="fas fa-home"></i>
   </a>
@@ -194,8 +238,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>80,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Nancci Strawberry plushie', '80,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Nancci Strawberry plushie', '80,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -208,8 +252,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>45,000 <span class="non-negotiable">Non negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Nancci Bunny plushies', '45,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Nancci Bunny plushies', '45,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -222,8 +266,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>50,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Nancci Heart pillows', '50,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Nancci Heart pillows', '50,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -238,8 +282,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>15,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Hanging baskets', '15,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Hanging baskets', '15,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -252,8 +296,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>15,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Hanging plants', '15,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Hanging plants', '15,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -262,10 +306,10 @@
 
   <script>
     function contactArtist(itemName, price) {
-      const phone = "+2349045105716";
-      const message = `Hello Nancci Crochets! I'm interested in your "${itemName}" (₦${price}) home decor from AnythingbyJpy. Is this available?`;
+      const phone = "+2347088291429";
+      const message = `Hello JPY! I'm interested in Nancci Crochets' "${itemName}" (₦${price}) home decor from AnythingbyJpy. Please connect me with them for this item.`;
       const encoded = encodeURIComponent(message);
-      window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+      window.open(`https://t.me/${phone}?text=${encoded}`, '_blank');
     }
   </script>
 </body>
