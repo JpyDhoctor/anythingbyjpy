@@ -12,6 +12,10 @@
       --accent: #ffdd57;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
+      --telegram: #0088cc;
+      --telegram-dark: #006699;
+      --disclaimer-red: #ff3860;
+      --disclaimer-dark: #cc2a4b;
     }
     
     body {
@@ -23,6 +27,40 @@
       margin: 0;
     }
     
+    /* Disclaimer Icon */
+    .disclaimer-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--disclaimer-red);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255, 56, 96, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: shake 2s infinite;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+      20%, 40%, 60%, 80% { transform: rotate(5deg); }
+    }
+    
+    .disclaimer-icon:hover {
+      transform: scale(1.1) rotate(10deg);
+      background: var(--disclaimer-dark);
+      box-shadow: 0 6px 20px rgba(255, 56, 96, 0.6);
+      animation: none;
+    }
+
     .gallery-container {
       max-width: 1200px;
       margin: 80px auto;
@@ -117,8 +155,9 @@
       color: #b0b0b0;
       font-style: italic;
     }
-    .whatsapp-btn {
-      background: #25D366;
+
+    .telegram-btn {
+      background: var(--telegram);
       color: white;
       border: none;
       padding: 8px 20px;
@@ -133,9 +172,10 @@
       font-weight: 500;
     }
     
-    .whatsapp-btn:hover {
+    .telegram-btn:hover {
+      background: var(--telegram-dark);
       transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
     }
     
     .home-icon {
@@ -169,6 +209,11 @@
   </style>
 </head>
 <body>
+  <!-- Disclaimer Icon -->
+  <a href="disclaimer.html" class="disclaimer-icon" aria-label="View payment disclaimer">
+    <i class="fas fa-exclamation-triangle"></i>
+  </a>
+
   <a href="../index.html" class="home-icon" aria-label="Return to home">
     <i class="fas fa-home"></i>
   </a>
@@ -192,8 +237,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>45,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Granny square shrug', '45,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Granny square shrug', '45,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -206,8 +251,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>35,000 <span class="negotiable"> negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Bloomers Shorts', '35,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Bloomers Shorts', '35,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -220,8 +265,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>20,000 <span class="non-negotiable">Non negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Shrugs', '20,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Shrugs', '20,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -234,8 +279,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>55,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Bloomer shorts and bralette', '55,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Bloomer shorts and bralette', '55,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -248,8 +293,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>18,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Halter Top', '18,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Halter Top', '18,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -262,8 +307,8 @@
           <span class="price-tag">
             <i class="fas fa-naira-sign"></i>35,000 <span class="negotiable">negotiable</span>
           </span>
-          <button class="whatsapp-btn" onclick="contactArtist('Skirts', '35,000')">
-            <i class="fab fa-whatsapp"></i> Contact Artist
+          <button class="telegram-btn" onclick="contactArtist('Skirts', '35,000')">
+            <i class="fab fa-telegram"></i> Contact Through JPY
           </button>
         </div>
       </div>
@@ -283,24 +328,24 @@
 
     function contactArtist(itemName, price) {
       // Track the click
-      trackWhatsAppClick(itemName);
+      trackTelegramClick(itemName);
       
-      // Open WhatsApp chat
-      const phone = "+2349045105716";
-      const message = `Hello Nancci Crochets! I'm interested in your "${itemName}" (₦${price}) from AnythingbyJpy. Is this available?`;
-      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+      // Open Telegram chat
+      const phone = "+2347088291429";
+      const message = `Hello JPY! I'm interested in Nancci Crochets' "${itemName}" (₦${price}) from AnythingbyJpy. Please connect me with them for this item.`;
+      window.open(`https://t.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
     }
 
-    function trackWhatsAppClick(itemName) {
+    function trackTelegramClick(itemName) {
       // Update total clicks
-      let totalClicks = parseInt(localStorage.getItem('empressWearablesTotalClicks')) || 0;
+      let totalClicks = parseInt(localStorage.getItem('nancciWearablesTotalClicks')) || 0;
       totalClicks++;
-      localStorage.setItem('empressWearablesTotalClicks', totalClicks);
+      localStorage.setItem('nancciWearablesTotalClicks', totalClicks);
       
       // Update item-specific clicks
-      let itemClicks = parseInt(localStorage.getItem(`empressWearables_${itemName}`)) || 0;
+      let itemClicks = parseInt(localStorage.getItem(`nancciWearables_${itemName}`)) || 0;
       itemClicks++;
-      localStorage.setItem(`empressWearables_${itemName}`, itemClicks);
+      localStorage.setItem(`nancciWearables_${itemName}`, itemClicks);
       
       // Log to console (for testing)
       console.log(`Clicked: ${itemName} | Item Clicks: ${itemClicks} | Total Clicks: ${totalClicks}`);
