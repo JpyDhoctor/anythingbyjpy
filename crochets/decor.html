@@ -12,7 +12,10 @@
       --accent: #ffdd57;
       --light: #f1f1f1;
       --card-bg: #1a1a1a;
-      --whatsapp: #25D366;
+      --telegram: #0088cc;
+      --telegram-dark: #006699;
+      --disclaimer-red: #ff3860;
+      --disclaimer-dark: #cc2a4b;
     }
     
     body {
@@ -24,6 +27,40 @@
       margin: 0;
     }
     
+    /* Disclaimer Icon */
+    .disclaimer-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--disclaimer-red);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(255, 56, 96, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      animation: shake 2s infinite;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+      20%, 40%, 60%, 80% { transform: rotate(5deg); }
+    }
+    
+    .disclaimer-icon:hover {
+      transform: scale(1.1) rotate(10deg);
+      background: var(--disclaimer-dark);
+      box-shadow: 0 6px 20px rgba(255, 56, 96, 0.6);
+      animation: none;
+    }
+
     .profile-container {
       max-width: 1200px;
       margin: 80px auto;
@@ -109,12 +146,12 @@
       box-shadow: 0 10px 20px rgba(255,221,87,0.3);
     }
     
-    .whatsapp-direct {
+    .telegram-direct {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 12px 25px;
-      background: var(--whatsapp);
+      background: var(--telegram);
       color: white;
       border-radius: 30px;
       font-weight: 600;
@@ -122,9 +159,10 @@
       transition: all 0.3s ease;
     }
     
-    .whatsapp-direct:hover {
+    .telegram-direct:hover {
+      background: var(--telegram-dark);
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
     }
     
     .location-tag {
@@ -207,7 +245,7 @@
         font-size: 2rem;
       }
       
-      .btn, .whatsapp-direct {
+      .btn, .telegram-direct {
         width: 100%;
         justify-content: center;
       }
@@ -219,6 +257,11 @@
   </style>
 </head>
 <body>
+  <!-- Disclaimer Icon -->
+  <a href="disclaimer.html" class="disclaimer-icon" aria-label="View payment disclaimer">
+    <i class="fas fa-exclamation-triangle"></i>
+  </a>
+
   <a href="crochets.html" class="home-icon" aria-label="Return to home">
     <i class="fas fa-home"></i>
   </a>
@@ -245,11 +288,11 @@
           <div class="button-group">
             <div class="button-row">
               <a href="nancci-decor-gallery.html" class="btn">View Designs</a>
-              <a href="https://wa.me/2349045105716?text=Hello%20Nancci%20Crochets!%20I%20saw%20your%20home%20decor%20on%20AnythingbyJpy%20and%20would%20like%20to%20discuss%20a%20custom%20design.%20Please%20let%20me%20know%20your%20availability%20and%20pricing." 
-                 class="whatsapp-direct" 
+              <a href="https://t.me/+2347088291429?text=Hello%20JPY!%20I%20saw%20Nancci%20Crochets%20home%20decor%20on%20AnythingbyJpy%20and%20would%20like%20you%20to%20connect%20me%20with%20them%20for%20a%20custom%20design.%20Please%20let%20me%20know%20the%20process." 
+                 class="telegram-direct" 
                  id="customDesignBtn"
                  target="_blank">
-                <i class="fab fa-whatsapp"></i> Request Custom Design
+                <i class="fab fa-telegram"></i> Contact Through JPY
               </a>
             </div>
             <span class="location-tag">
@@ -261,7 +304,7 @@
     </div>
   </div>
 
-  <!-- WhatsApp Click Tracking Script -->
+  <!-- Telegram Click Tracking Script -->
   <script>
     document.getElementById('customDesignBtn').addEventListener('click', function() {
       // Get current click count or initialize to 0
@@ -279,7 +322,7 @@
       // (Optional) Send data to analytics
       if (typeof gtag !== 'undefined') {
         gtag('event', 'click', {
-          'event_category': 'WhatsApp',
+          'event_category': 'Telegram',
           'event_label': 'Custom Design Request'
         });
       }
